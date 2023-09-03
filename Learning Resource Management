@@ -1,0 +1,2968 @@
+<template>
+<div
+	 class="ch0ohi60i">
+	  <div
+	  	 class="q1gs3c7nm">
+		  <div
+		  	 class="qnffbuj91">在线学习资源管理系统</div>
+		  <div class="c_userBox">
+			  <span
+			  	 class="blxert1ez">admin</span>
+			  <span
+			  	 @click="wa6363e"
+			  	 class="u4ckpvdve">退出系统</span>
+		  </div>
+	  </div>
+	  <div class="yli89wt0g">
+		  <div class="w86evuacsBox  km9qu2cc3 " >
+			  <div class="r9ec5io87">
+				  <div @click="ti3mxk1('在线学习')"
+				  	 :class="{'il5viozrh': lnt1w9h == '在线学习'}"
+				  	 class="w86evuacs">
+					  <div class="loch22nez">
+							<i class="ued5f2w34 iconfont icon-fullscreen-shrink"/>
+							在线学习
+					  </div>
+					  <i class="ued5f2w34 iconfont icon-arrow-right-bold"/>
+				  </div>
+				  <div v-if="lnt1w9h == '在线学习'"
+				  	 @click="hejhl4k('learnRecordManage','学习记录管理',0)"
+				  	 class="nhoszmccm" :class="{'vgwv746gz': sj5yeit == '学习记录管理'}" >
+					  <div class="nhoszmccmName" >
+						  学习记录管理
+					  </div>
+				  </div>
+				  <div @click="hejhl4k('accountManagement','科目管理',1)" v-if="lnt1w9h == '在线学习'" class="nhoszmccm" :class="{'vgwv746gz': sj5yeit == '科目管理'}" >
+					  <div
+					  	 class="nhoszmccmName" >
+						  科目管理
+					  </div>
+				  </div>
+				  <div class="nhoszmccm"
+				  	 :class="{'vgwv746gz': sj5yeit == '在线咨询'}" v-if="lnt1w9h == '在线学习'"
+				  	 @click="hejhl4k('onlineConsult','在线咨询',2)" >
+					  <div class="nhoszmccmName" >
+						  在线咨询
+					  </div>
+				  </div>
+				  <div
+				  	 @click="hejhl4k('consultingRecordManagement','咨询记录管理',3)" class="nhoszmccm"
+				  	 :class="{'vgwv746gz': sj5yeit == '咨询记录管理'}" v-if="lnt1w9h == '在线学习'" >
+					  <div class="nhoszmccmName" >
+						  咨询记录管理
+					  </div>
+				  </div>
+				  <div v-if="lnt1w9h == '在线学习'" :class="{'vgwv746gz': sj5yeit == '教材管理'}" @click="hejhl4k('jiaoCaiGuanLi','教材管理',4)" class="nhoszmccm" >
+					  <div class="nhoszmccmName" >
+						  教材管理
+					  </div>
+				  </div>
+				  <div
+				  	 :class="{'vgwv746gz': sj5yeit == '学员信息管理'}" class="nhoszmccm"
+				  	 v-if="lnt1w9h == '在线学习'"
+				  	 @click="hejhl4k('dentInformationManagement','学员信息管理',5)" >
+					  <div
+					  	 class="nhoszmccmName" >
+						  学员信息管理
+					  </div>
+				  </div>
+				  <div
+				  	 v-if="lnt1w9h == '在线学习'"
+				  	 :class="{'vgwv746gz': sj5yeit == '学习资料管理'}"
+				  	 @click="hejhl4k('learningMaterialManagement','学习资料管理',6)" class="nhoszmccm" >
+					  <div
+					  	 class="nhoszmccmName" >
+						  学习资料管理
+					  </div>
+				  </div>
+			  </div>
+
+			  <div
+			  	 class="r9ec5io87">
+				  <div class="w86evuacs" :class="{'il5viozrh': lnt1w9h == '关于我们'}"
+				  	 @click="jh7stc8()">
+					  <div
+					  	 class="loch22nez">
+						  <i
+						  	 class="hdvoz1ppj iconfont icon-lijuanguize" />
+							关于我们
+					  </div>
+						<i
+							 class="ued5f2w34 iconfont icon-arrow-right-bold"/>
+				  </div>
+			  </div>
+			
+		  </div>
+		  <div class="b0tac37br">
+			  <div
+			  	 class="sztb7f583">
+				  <router-view></router-view>
+			  </div>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+export default {
+	data () {
+		return {
+			lnt1w9h: '',
+			sj5yeit: '',
+		}
+	},
+	mounted () {
+	},
+	methods:{
+		ti3mxk1(name){
+			this.lnt1w9h = name
+			sessionStorage.setItem('fMenuName', name)
+			this.sj5yeit = ''
+		},
+		hejhl4k(code,name,index){
+			this.sj5yeit = name
+			sessionStorage.setItem('sMenuName', name)
+			this.$router.push("/"+code)
+		},
+		jh7stc8(){
+			this.lnt1w9h = '关于我们'
+			sessionStorage.setItem('fMenuName', name)
+			this.sj5yeit = ''
+			this.$router.push("/about")
+		},
+		 wa6363e(){
+			this.$router.push("/")
+		},
+	},
+
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="abs770kvy">
+	  <div
+	  	 class="kame9vrco">
+		<i
+			 class="u88sajve5 iconfont icon-hetongguanli" />
+		{{i8xqtjl}}
+	  </div>
+	  <div class="yrkqqwagk">
+		  <Form
+		  	 :model="jnr5jcf" ref="FormData" label-position="left"
+		  	 :rules="vqusmmq"
+		  	 style="padding-bottom: 50px;" :label-width="100">
+			<Row
+				 :gutter="32">
+							<Col
+								 span="12">
+				<FormItem  prop="courseName" label="课程名称" >
+				  <Input
+				  	 v-model="jnr5jcf['courseName']"
+				  	 placeholder="请输入课程名称..."
+				  	 class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="lecturer"
+					 label="主讲教师" >
+				  <Input class="ptzg9ogc3"
+				  	 placeholder="请输入主讲教师..."
+				  	 v-model="jnr5jcf['lecturer']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="课程时间"  prop="courseTime" >
+				  <Input
+				  	 placeholder="请输入课程时间..." v-model="jnr5jcf['courseTime']" class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="课程反馈"
+					  prop="courseFeedback" >
+				  <Input placeholder="请输入课程反馈..." class="ptzg9ogc3"
+				  	 v-model="jnr5jcf['courseFeedback']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="在线人数"  prop="numberOfPeopleOnline" >
+				  <Input
+				  	 v-model="jnr5jcf['numberOfPeopleOnline']"
+				  	 placeholder="请输入在线人数..." class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="课程评估"
+					  prop="curriculumEvaluation" >
+				  <Input
+				  	 v-model="jnr5jcf['curriculumEvaluation']"
+				  	 placeholder="请输入课程评估..."
+				  	 class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="g917u00w0">
+			<Button style="margin: 0 20px"
+				 @click="cl7y1ai">重置</Button>
+			<Button
+				 @click="kye5o2m('FormData')"
+				 style="margin: 0 20px; background-color: #CC1BC9; color:#fff;">确认提交</Button>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+import {
+learnRecordManageService} from '@/api'
+export default {
+	data () {
+	  return {
+		i8xqtjl:'',
+		jnr5jcf:{
+		  'courseName':'',
+		  'lecturer':'',
+		  'courseTime':'',
+		  'courseFeedback':'',
+		  'numberOfPeopleOnline':'',
+		  'curriculumEvaluation':'',
+		},
+	  tq089iy: {
+	  },
+		k8rz7gm: {
+	  },
+		vqusmmq:{
+			  'courseName':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'lecturer':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'courseTime':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'courseFeedback':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'numberOfPeopleOnline':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'curriculumEvaluation':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+		},
+	  }
+	},
+mounted () {
+this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+this.a8b0zio();
+},
+methods:{
+	a8b0zio() {
+		},
+	cl7y1ai(){
+	  this.jnr5jcf = {
+		'courseName':'',
+		'lecturer':'',
+		'courseTime':'',
+		'courseFeedback':'',
+		'numberOfPeopleOnline':'',
+		'curriculumEvaluation':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		kye5o2m(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  learnRecordManageService.addLearnRecordManage(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import './index.css';
+</style>
+<template>
+<div
+	 class="e1pu4ncei">
+	  <div class="fjlgywgkr">
+		<div
+			 class="kame9vrco">搜索</div>
+			  </div>
+	<div class="uikq5tebu" >
+		<div class="qtcns0ow4">
+		  <Button :disabled="pvcoel9.length == 0"
+		  	 :style="{backgroundColor: (pvcoel9.length == 0 ? 'unset' : '#4817BA'),color: (pvcoel9.length == 0 ? '#666' : '#fff')}"
+		  	 @click="gjuru9n()"
+		  	 class="hxsv545nj">删除</Button>
+		  <Button
+		  	 class="u26b98ebr"
+		  	 @click="n8il5ch()" :style="{backgroundColor: (pvcoel9.length == 1 ? '#5FB11D' : 'unset'),color: (pvcoel9.length == 1 ? '#fff' : '#666')}"
+		  	 :disabled="pvcoel9.length > 1 || pvcoel9.length == 0">修改</Button>
+		  <Button  style="background-color: #B71946"
+		  	 @click="udodr5u" class="kd7dco7q2">新增</Button>
+		</div>
+	</div>
+	<div class="pmdvsn8c9">
+	  <table>
+		<thead>
+		  <tr>
+			<th>#</th>
+			<th>科目名称</th>
+			<th>科目编码</th>
+			<th>上课时间</th>
+			<th>主讲老师</th>
+			<th>科目类别</th>
+		  </tr>
+		</thead>
+		<tbody ref="table">
+		  <tr :key="index"
+		  	 v-for="(data,index) in v9mlsd2.list">
+			<td><input @click="whh2eon($event)"
+				 :value="data"
+				 name="radio"
+				 type="radio"></td>
+				<td>{{data['accountName']}}</td>
+				<td>{{data['accountCode']}}</td>
+				<td>{{data['classTime']}}</td>
+				<td>{{data['keynoteTeacher']}}</td>
+				<td>{{data['accountCategory']}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	<div
+		 class="gdnkg1lhu">
+
+	  <div
+	  	 class="rh23kxx7d">
+		<div class="mn0hwc023"
+			 v-if="v9mlsd2.hasPreviousPage"
+			 @click="gcri7no">上一页</div>
+		<div class="xpaeuavl7">
+		  <span
+		  	 :key="index"
+		  	 @click="i89uv7m(numb)"
+		  	 v-for="(numb,index) in v9mlsd2.pages" :class="{'s44smg6cu':v9mlsd2.pageNum == numb}"
+		  	 class="usdzgk1le">{{numb}}</span>
+		</div>
+		<div @click="gdlh9r0" v-if="v9mlsd2.hasNextPage"
+			 class="milbyfe4e">下一页</div>
+	  </div>
+	</div>
+		 <Modal
+		 	 :footer-hide="true"
+		 	 :transfer="false"
+		 	 :fullscreen="false"
+		 	 :width="40"
+		 	  title="修改"  v-model="ixrl2nj">
+		  <Form :model="jnr5jcf" :rules="vqusmmq" style="padding-bottom: 50px;"
+		  	 ref="editFormData" :label-width="100" label-position="left">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem label="科目名称"
+				  	  prop="accountName">
+					<Input
+						 v-model="jnr5jcf['accountName']"
+						 placeholder="请输入科目名称..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="科目编码"
+				  	  prop="accountCode">
+					<Input v-model="jnr5jcf['accountCode']"
+						 placeholder="请输入科目编码..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="上课时间"
+				  	  prop="classTime">
+					<Input
+						 placeholder="请输入上课时间..."
+						 v-model="jnr5jcf['classTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="keynoteTeacher" label="主讲老师">
+					<Input placeholder="请输入主讲老师..."
+						 v-model="jnr5jcf['keynoteTeacher']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="accountCategory" label="科目类别">
+					<Input
+						 v-model="jnr5jcf['accountCategory']" placeholder="请输入科目类别..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="subjectEvaluation" label="科目评价">
+					<Input placeholder="请输入科目评价..." v-model="jnr5jcf['subjectEvaluation']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="g2x4gf2zt">
+			<Button style="margin: 0 20px"
+				 @click="u3sm9g1">关闭</Button>
+			<Button
+				 @click="u20pjrp('editFormData')" type="primary" style="margin: 0 20px">提交</Button>
+		  </div>
+		</Modal>
+		<Modal v-model="hrxr172"
+			 :footer-hide="true"
+			 :transfer="false"
+			 title="新增"
+			 width="800px"
+			 :fullscreen="false">
+		  <Form :model="jnr5jcf" ref="addFormData"
+		  	 style="padding-bottom: 50px;"
+		  	 :rules="vqusmmq" :label-width="100"
+		  	 label-position="left">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem  prop="accountName" label="科目名称">
+					<Input placeholder="请输入科目名称..." v-model="jnr5jcf['accountName']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="科目编码"  prop="accountCode">
+					<Input v-model="jnr5jcf['accountCode']" placeholder="请输入科目编码..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="classTime" label="上课时间">
+					<Input placeholder="请输入上课时间..." v-model="jnr5jcf['classTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="主讲老师"
+				  	  prop="keynoteTeacher">
+					<Input
+						 placeholder="请输入主讲老师..."
+						 v-model="jnr5jcf['keynoteTeacher']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="科目类别"  prop="accountCategory">
+					<Input v-model="jnr5jcf['accountCategory']" placeholder="请输入科目类别..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="subjectEvaluation" label="科目评价">
+					<Input
+						 v-model="jnr5jcf['subjectEvaluation']"
+						 placeholder="请输入科目评价..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="g2x4gf2zt">
+			<Button @click="x95t9ci" style="margin: 0 20px">关闭</Button>
+			<Button
+				 style="margin: 0 20px"
+				 type="primary" @click="cdz4wfn('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+accountManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  dlbuo18Data:{},
+	  vqusmmq:{
+			'accountName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'accountCode':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'classTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'keynoteTeacher':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'accountCategory':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'subjectEvaluation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  hrxr172:false,
+		i8xqtjl:'',
+		  tq089iy: {
+		  },
+	  jnr5jcf:{
+		'accountName':'',
+		'accountCode':'',
+		'classTime':'',
+		'keynoteTeacher':'',
+		'accountCategory':'',
+		'subjectEvaluation':'',
+	  },
+		  d1lh1wk: {
+		  },
+	  qjjzz66:{
+	  },
+	  k8rz7gm: {
+	  },
+	  v9mlsd2:{
+		list:[]
+	  },
+	  pvcoel9:[],
+	  ixrl2nj:false,
+	}
+},
+mounted () {
+	this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+	this.gtdpiuk();
+	this.a8b0zio();
+},
+methods:{
+	a8b0zio() {
+		},
+		gjuru9n(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.pvcoel9.length > 0){
+				ids = this.pvcoel9.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			accountManagementService.remove(ids).then(res => {
+			if(res.success){
+					this.pvcoel9 = []
+					this.$Message.success('删除成功')
+					this.gtdpiuk()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		u20pjrp(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  accountManagementService.change(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.u3sm9g1()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	
+		cdz4wfn(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  accountManagementService.addAccountManagement(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.x95t9ci()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  gtdpiuk() {
+			accountManagementService.getPage(this.dlbuo18Data, this.qjjzz66.j_pageNum, this.qjjzz66.j_pageSize).then(res => {
+			  if(res.success){
+				this.v9mlsd2 = res.data
+			  }
+			})
+		  },
+
+	  udodr5u(){
+		this.hrxr172 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  x95t9ci(){
+		this.hrxr172 = false
+		this.jnr5jcf = {
+		  'accountName':'',
+		  'accountCode':'',
+		  'classTime':'',
+		  'keynoteTeacher':'',
+		  'accountCategory':'',
+		  'subjectEvaluation':'',
+		}
+	  },
+	
+	  n8il5ch(itemData){
+		if(itemData){
+		  this.jnr5jcf = {...itemData}
+		  this.ixrl2nj = true
+		}else if(this.pvcoel9.length > 0){
+		  this.jnr5jcf = {...this.pvcoel9[0]}
+		  this.ixrl2nj = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  u3sm9g1(){
+		this.ixrl2nj = false
+		this.jnr5jcf = {
+		  'accountName':'',
+		  'accountCode':'',
+		  'classTime':'',
+		  'keynoteTeacher':'',
+		  'accountCategory':'',
+		  'subjectEvaluation':'',
+		}
+	  },
+	
+	  dlbuo18(){
+		this.qjjzz66.j_pageNum = 1
+		this.gtdpiuk()
+	  },
+	
+	  gcri7no(){
+		if(this.v9mlsd2.hasPreviousPage){
+		  this.qjjzz66.j_pageNum = this.v9mlsd2.prePage
+		  this.gtdpiuk()
+		}
+		
+	  },
+	
+	  gdlh9r0(){
+		if(this.v9mlsd2.hasNextPage){
+		this.qjjzz66.j_pageNum = this.v9mlsd2.nextPage
+		this.gtdpiuk()
+		}
+	  },
+
+	nd2kknu(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.pvcoel9 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.pvcoel9.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.pvcoel9 = []
+	  }
+	},
+	
+	a9lhmhm(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.pvcoel9.push(val)
+	  }else{
+		let clearIndex = this.pvcoel9.indexOf(val)
+		this.pvcoel9.splice(clearIndex,1)
+	  }
+	},
+	
+	whh2eon(e){
+	  let val = e.target._value
+	  this.pvcoel9 = []
+	  this.pvcoel9.push(val)
+	},
+
+	i89uv7m(pageNumb){
+	  this.qjjzz66.j_pageNum = pageNumb
+	  this.gtdpiuk()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="c_formMain10">
+	  <div
+	  	 class="kame9vrco">
+		{{i8xqtjl}}
+	  </div>
+	  <div class="yrkqqwagk">
+		  <Form
+		  	 :model="jnr5jcf"
+		  	 :rules="vqusmmq"
+		  	  label-position="top" style="padding-bottom: 50px;" ref="FormData">
+			<Row
+				 :gutter="32">
+							<Col span="24">
+				<FormItem
+					 label="咨询编号"
+					  prop="prescriptionNo" >
+				  <Input
+				  	 placeholder="请输入咨询编号..."
+				  	 v-model="jnr5jcf['prescriptionNo']"
+				  	 class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="24">
+				<FormItem
+					  prop="name"
+					 label="学员" >
+				  <Input
+				  	 v-model="jnr5jcf['name']"
+				  	 placeholder="请输入学员..." class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="24">
+				<FormItem
+					 label="咨询时间"
+					  prop="consultationTime" >
+				  <Input
+				  	 v-model="jnr5jcf['consultationTime']"
+				  	 placeholder="请输入咨询时间..."
+				  	 class="ptzg9ogc3"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="24">
+				<FormItem
+					  prop="consultingCustomerService" label="咨询客服" >
+				  <Input
+				  	 class="ptzg9ogc3"
+				  	 placeholder="请输入咨询客服..."
+				  	 v-model="jnr5jcf['consultingCustomerService']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="24">
+				<FormItem
+					 label="咨询问题"
+					  prop="consultationQuestions">
+				  <Input
+				  	 :autosize="{minRows: 2, maxRows: 5}" placeholder="请输入咨询问题..." class="ptzg9ogc3" type="textarea"
+				  	 v-model="jnr5jcf['consultationQuestions']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="24">
+				<FormItem  prop="replyContent"
+					 label="回复内容" >
+				  <Input
+				  	 class="ptzg9ogc3"
+				  	 placeholder="请输入回复内容..."
+				  	 v-model="jnr5jcf['replyContent']"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="g917u00w0">
+			<Button style="margin: 0 20px; background-color: #CC1BC9; color:#fff;" @click="kye5o2m('FormData')">保存</Button>
+			<Button style="margin: 0 10px;background-color:#bec3c7;color:#fff;"
+				 @click="cl7y1ai">取消</Button>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+import {
+onlineConsultService} from '@/api'
+export default {
+	data () {
+	  return {
+		i8xqtjl:'',
+		jnr5jcf:{
+		  'prescriptionNo':'',
+		  'name':'',
+		  'consultationTime':'',
+		  'consultingCustomerService':'',
+		  'consultationQuestions':'',
+		  'replyContent':'',
+		},
+		k8rz7gm: {
+	  },
+		vqusmmq:{
+			  'prescriptionNo':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'name':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'consultationTime':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'consultingCustomerService':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'consultationQuestions':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'replyContent':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+		},
+	  tq089iy: {
+	  },
+	  }
+	},
+mounted () {
+this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+this.a8b0zio();
+},
+methods:{
+	a8b0zio() {
+		},
+	cl7y1ai(){
+	  this.jnr5jcf = {
+		'prescriptionNo':'',
+		'name':'',
+		'consultationTime':'',
+		'consultingCustomerService':'',
+		'consultationQuestions':'',
+		'replyContent':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		kye5o2m(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  onlineConsultService.addOnlineConsult(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		}
+}
+}
+</script>
+
+<style scoped>
+	@import './index.css';
+</style>
+<template>
+<div class="e1pu4ncei">
+	  <div class="fjlgywgkr">
+		<div
+			 class="kame9vrco">搜索</div>
+			  </div>
+	<div
+		 class="uikq5tebu" >
+		<div
+			 class="qtcns0ow4">
+		  <Button
+		  	 class="hxsv545nj"
+		  	 :disabled="pvcoel9.length == 0"
+		  	 @click="gjuru9n()"
+		  	 :style="{backgroundColor: (pvcoel9.length == 0 ? 'unset' : '#4817BA'),color: (pvcoel9.length == 0 ? '#666' : '#fff')}">删除</Button>
+		  <Button
+		  	 class="kd7dco7q2"
+		  	  style="background-color: #B71946"
+		  	 @click="udodr5u">新增</Button>
+		  <Button :disabled="pvcoel9.length > 1 || pvcoel9.length == 0"
+		  	 :style="{backgroundColor: (pvcoel9.length == 1 ? '#5FB11D' : 'unset'),color: (pvcoel9.length == 1 ? '#fff' : '#666')}" @click="n8il5ch()" class="u26b98ebr">修改</Button>
+		</div>
+	</div>
+	<div class="pmdvsn8c9">
+	  <table>
+		<thead>
+		  <tr>
+			<th>#</th>
+			<th>咨询编号</th>
+			<th>咨询客户</th>
+			<th>咨询时间</th>
+			<th>对接客服</th>
+			<th>咨询类型</th>
+			<th>咨询满意度</th>
+		  </tr>
+		</thead>
+		<tbody
+			 ref="table">
+		  <tr
+		  	 v-for="(data,index) in v9mlsd2.list"
+		  	 :key="index">
+			<td><input @click="whh2eon($event)" :value="data" name="radio" type="radio"></td>
+				<td>{{data['consultingNo']}}</td>
+				<td>{{data['consultingCustomers']}}</td>
+				<td>{{data['contactInformation']}}</td>
+				<td>{{data['customServiceNu']}}</td>
+				<td>{{data['typeOfConsultation']}}</td>
+				<td>{{data['consultationSatisfaction']}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	<div
+		 class="gdnkg1lhu">
+
+	  <div
+	  	 class="rh23kxx7d">
+		<div
+			 v-if="v9mlsd2.hasPreviousPage"
+			 class="mn0hwc023"
+			 @click="gcri7no">上一页</div>
+		<div
+			 class="xpaeuavl7">
+		  <span v-for="(numb,index) in v9mlsd2.pages" class="usdzgk1le"
+		  	 :key="index"
+		  	 :class="{'s44smg6cu':v9mlsd2.pageNum == numb}" @click="i89uv7m(numb)">{{numb}}</span>
+		</div>
+		<div class="milbyfe4e"
+			 v-if="v9mlsd2.hasNextPage"
+			 @click="gdlh9r0">下一页</div>
+	  </div>
+	</div>
+		<Modal :footer-hide="true"
+			 title="新增"
+			 v-model="hrxr172"
+			 width="800px" :fullscreen="false"
+			 :transfer="false">
+		  <Form
+		  	 :label-width="100" :model="jnr5jcf" ref="addFormData" :rules="vqusmmq" label-position="left" style="padding-bottom: 50px;">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem label="咨询编号"  prop="consultingNo">
+					<Input v-model="jnr5jcf['consultingNo']" placeholder="请输入咨询编号..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="24">
+				  <FormItem label="咨询客户"
+				  	  prop="consultingCustomers">
+					<Input
+						 type="textarea" :autosize="{minRows: 2, maxRows: 5}"
+						 placeholder="请输入咨询客户..."
+						 v-model="jnr5jcf['consultingCustomers']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="contactInformation" label="咨询时间">
+					<Input
+						 placeholder="请输入咨询时间..."
+						 v-model="jnr5jcf['contactInformation']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="对接客服"  prop="customServiceNu">
+					<Input
+						 placeholder="请输入对接客服..."
+						 v-model="jnr5jcf['customServiceNu']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="typeOfConsultation" label="咨询类型">
+					<Input
+						 placeholder="请输入咨询类型..." v-model="jnr5jcf['typeOfConsultation']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="consultationSatisfaction" label="咨询满意度">
+					<Input
+						 v-model="jnr5jcf['consultationSatisfaction']"
+						 placeholder="请输入咨询满意度..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="g2x4gf2zt">
+			<Button style="margin: 0 20px" @click="x95t9ci">关闭</Button>
+			<Button
+				 style="margin: 0 20px" type="primary" @click="cdz4wfn('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+		 <Modal :footer-hide="true"
+		 	  v-model="ixrl2nj"
+		 	 :width="40" :transfer="false"  title="修改" :fullscreen="false">
+		  <Form ref="editFormData"
+		  	 style="padding-bottom: 50px;"
+		  	 :rules="vqusmmq" label-position="left" :label-width="100"
+		  	 :model="jnr5jcf">
+			<Row
+				 :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	  prop="consultingNo"
+				  	 label="咨询编号">
+					<Input placeholder="请输入咨询编号..." v-model="jnr5jcf['consultingNo']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem
+				  	  prop="consultingCustomers" label="咨询客户">
+					<Input v-model="jnr5jcf['consultingCustomers']" type="textarea"
+						 :autosize="{minRows: 2, maxRows: 5}" placeholder="请输入咨询客户..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="contactInformation"
+				  	 label="咨询时间">
+					<Input
+						 v-model="jnr5jcf['contactInformation']" placeholder="请输入咨询时间..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="customServiceNu"
+				  	 label="对接客服">
+					<Input v-model="jnr5jcf['customServiceNu']" placeholder="请输入对接客服..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="咨询类型"
+				  	  prop="typeOfConsultation">
+					<Input v-model="jnr5jcf['typeOfConsultation']" placeholder="请输入咨询类型..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="咨询满意度"
+				  	  prop="consultationSatisfaction">
+					<Input v-model="jnr5jcf['consultationSatisfaction']"
+						 placeholder="请输入咨询满意度..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="g2x4gf2zt">
+			<Button
+				 style="margin: 0 20px"
+				 @click="u3sm9g1">关闭</Button>
+			<Button style="margin: 0 20px"
+				 type="primary"
+				 @click="u20pjrp('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+consultingRecordManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  k8rz7gm: {
+	  },
+	  v9mlsd2:{
+		list:[]
+	  },
+	  qjjzz66:{
+	  },
+	  hrxr172:false,
+	  dlbuo18Data:{},
+	  vqusmmq:{
+			'consultingNo':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'consultingCustomers':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'contactInformation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'customServiceNu':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'typeOfConsultation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'consultationSatisfaction':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  tq089iy: {
+		  },
+	  jnr5jcf:{
+		'consultingNo':'',
+		'consultingCustomers':'',
+		'contactInformation':'',
+		'customServiceNu':'',
+		'typeOfConsultation':'',
+		'consultationSatisfaction':'',
+	  },
+	  ixrl2nj:false,
+		  d1lh1wk: {
+		  },
+		i8xqtjl:'',
+	  pvcoel9:[],
+	}
+},
+mounted () {
+	this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+	this.gtdpiuk();
+	this.a8b0zio();
+},
+methods:{
+	a8b0zio() {
+		},
+		gjuru9n(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.pvcoel9.length > 0){
+				ids = this.pvcoel9.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			consultingRecordManagementService.remove(ids).then(res => {
+			if(res.success){
+					this.pvcoel9 = []
+					this.$Message.success('删除成功')
+					this.gtdpiuk()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		  gtdpiuk() {
+			consultingRecordManagementService.getPage(this.dlbuo18Data, this.qjjzz66.j_pageNum, this.qjjzz66.j_pageSize).then(res => {
+			  if(res.success){
+				this.v9mlsd2 = res.data
+			  }
+			})
+		  },
+		cdz4wfn(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  consultingRecordManagementService.addConsultingRecordManagement(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.x95t9ci()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		u20pjrp(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  consultingRecordManagementService.change(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.u3sm9g1()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	
+
+	  udodr5u(){
+		this.hrxr172 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  x95t9ci(){
+		this.hrxr172 = false
+		this.jnr5jcf = {
+		  'consultingNo':'',
+		  'consultingCustomers':'',
+		  'contactInformation':'',
+		  'customServiceNu':'',
+		  'typeOfConsultation':'',
+		  'consultationSatisfaction':'',
+		}
+	  },
+	
+	  n8il5ch(itemData){
+		if(itemData){
+		  this.jnr5jcf = {...itemData}
+		  this.ixrl2nj = true
+		}else if(this.pvcoel9.length > 0){
+		  this.jnr5jcf = {...this.pvcoel9[0]}
+		  this.ixrl2nj = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  u3sm9g1(){
+		this.ixrl2nj = false
+		this.jnr5jcf = {
+		  'consultingNo':'',
+		  'consultingCustomers':'',
+		  'contactInformation':'',
+		  'customServiceNu':'',
+		  'typeOfConsultation':'',
+		  'consultationSatisfaction':'',
+		}
+	  },
+	
+	  dlbuo18(){
+		this.qjjzz66.j_pageNum = 1
+		this.gtdpiuk()
+	  },
+	
+	  gcri7no(){
+		if(this.v9mlsd2.hasPreviousPage){
+		  this.qjjzz66.j_pageNum = this.v9mlsd2.prePage
+		  this.gtdpiuk()
+		}
+		
+	  },
+	
+	  gdlh9r0(){
+		if(this.v9mlsd2.hasNextPage){
+		this.qjjzz66.j_pageNum = this.v9mlsd2.nextPage
+		this.gtdpiuk()
+		}
+	  },
+
+	nd2kknu(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.pvcoel9 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.pvcoel9.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.pvcoel9 = []
+	  }
+	},
+	
+	a9lhmhm(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.pvcoel9.push(val)
+	  }else{
+		let clearIndex = this.pvcoel9.indexOf(val)
+		this.pvcoel9.splice(clearIndex,1)
+	  }
+	},
+	
+	whh2eon(e){
+	  let val = e.target._value
+	  this.pvcoel9 = []
+	  this.pvcoel9.push(val)
+	},
+
+	i89uv7m(pageNumb){
+	  this.qjjzz66.j_pageNum = pageNumb
+	  this.gtdpiuk()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="vhgcv753c">
+	<div
+		 class="uikq5tebu">
+			  <div class="qtcns0ow4">
+		  <Button
+		  	 style="background-color: #B71946"
+		  	 @click="udodr5u"
+		  	 class="kd7dco7q2">新增</Button>
+		  <Button class="hxsv545nj"
+		  	 @click="gjuru9n()"
+		  	 :style="{backgroundColor: (pvcoel9.length == 0 ? 'unset' : '#4817BA'), color:(pvcoel9.length == 1 ? '#ffffff' : '#666')}" :disabled="pvcoel9.length == 0">删除</Button>
+		  <Button class="u26b98ebr"
+		  	 :style="{backgroundColor: (pvcoel9.length == 1 ? '#5FB11D' : 'unset'), color:(pvcoel9.length == 1 ? '#ffffff' : '#666')}" @click="n8il5ch()"
+		  	 :disabled="pvcoel9.length > 1 || pvcoel9.length == 0">修改</Button>
+		</div>
+	  <div
+	  	 class="fjlgywgkr">
+	  </div>
+	</div>
+	<div class="pmdvsn8c9">
+	  <table >
+		  <div class="rh23kxx7d">
+		<div
+			 class="mn0hwc023" @click="gcri7no"
+			 v-if="v9mlsd2.hasPreviousPage">上一页</div>
+		<div
+			 class="xpaeuavl7">
+		  <span
+		  	 class="usdzgk1le" :class="{'s44smg6cu':v9mlsd2.pageNum == numbs}" :key="index" @click="i89uv7m(numbs)"
+		  	 v-for="(numbs,index) in v9mlsd2.pages">{{numbs}}</span>
+		</div>
+		<div
+			 class="milbyfe4e" v-if="v9mlsd2.hasNextPage"
+			 @click="gdlh9r0">下一页</div>
+	  </div>
+	</div>
+
+	<!-- 弹窗-新增 -->
+	<Modal :transfer="false"
+		 :footer-hide="true"
+		 v-model="hrxr172"
+		 :fullscreen="false" title="新增"
+		 :width="40">
+	  <Form
+	  	 ref="addFormData" :label-width="100"
+	  	 style="padding-bottom: 50px;" label-position="left" :model="jnr5jcf"
+	  	 :rules="vqusmmq">
+		<Row :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem  prop="nameOfTextbook" label="教材名称">
+				<Input placeholder="请输入教材名称..." v-model="jnr5jcf['nameOfTextbook']"></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	 label="教材编码"  prop="textbookCode">
+				<Input v-model="jnr5jcf['textbookCode']"
+					 placeholder="请输入教材编码..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="教材类别"  prop="categoryOfTeachingMaterials">
+				<Input
+		<Button style="margin: 0 20px" type="primary"
+			 @click="cdz4wfn('addFormData')">提交</Button>
+	  </div>
+	</Modal>
+
+
+
+	<Modal
+		 v-model="ixrl2nj" :fullscreen="false"
+		 title="修改"
+		 :width="40" :transfer="false" :footer-hide="true">
+	  <Form
+	  	 label-position="left" :model="jnr5jcf" ref="editFormData"
+	  	 :rules="vqusmmq"
+	  	 :label-width="100" style="padding-bottom: 50px;">
+		<Row :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem  prop="nameOfTextbook" label="教材名称">
+				<Input
+					 v-model="jnr5jcf['nameOfTextbook']"
+					 placeholder="请输入教材名称..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem  prop="textbookCode"
+			  	 label="教材编码">
+				<Input v-model="jnr5jcf['textbookCode']"
+					 placeholder="请输入教材编码..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="categoryOfTeachingMaterials"
+			  	 label="教材类别">
+				<Input
+					 v-model="jnr5jcf['categoryOfTeachingMaterials']" placeholder="请输入教材类别..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	 label="出版社"  prop="publishHouse">
+				<Input
+					 v-model="jnr5jcf['publishHouse']" placeholder="请输入出版社..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	  prop="usageRecord"
+			  	 label="使用记录">
+				<Input
+					 placeholder="请输入使用记录..." v-model="jnr5jcf['usageRecord']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="使用时间"
+			  	  prop="usageTime">
+				<Input placeholder="请输入使用时间..." v-model="jnr5jcf['usageTime']"></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div
+	  	 class="g2x4gf2zt">
+		<Button style="margin: 0 20px"
+			 @click="u3sm9g1">关闭</Button>
+		<Button
+			 style="margin: 0 20px"
+			 type="primary" @click="j_editData('editFormData')">提交</Button>
+	  </div>
+	</Modal>
+</div>
+</template>
+
+<script>
+import {
+jiaoCaiGuanLiService} from '@/api'
+export default {
+data(){
+	return{
+	  hrxr172:false,
+	  tq089iy: {
+	  },
+	  d1lh1wk: {
+	  },
+	  k8rz7gm: {
+	  },
+	  ixrl2nj:false,
+	  vqusmmq:{
+			'nameOfTextbook':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'textbookCode':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'categoryOfTeachingMaterials':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'publishHouse':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'usageRecord':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'usageTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  v9mlsd2:{
+		list:[]
+	  },
+	  jnr5jcf:{
+		'nameOfTextbook':'',
+		'textbookCode':'',
+		'categoryOfTeachingMaterials':'',
+		'publishHouse':'',
+		'usageRecord':'',
+		'usageTime':'',
+	  },
+	  dlbuo18Data:{},
+	  qjjzz66:{
+		evhh4ge:10,
+		c401f4j:1,
+	  },
+	  pvcoel9:[],
+	}
+},
+mounted () {
+	this.gtdpiuk()
+	this.a8b0zio();
+},
+methods:{
+	
+	a8b0zio() {
+		},
+		  gtdpiuk() {
+			jiaoCaiGuanLiService.getPage(this.dlbuo18Data, this.qjjzz66.c401f4j, this.qjjzz66.evhh4ge).then(res => {
+			  if(res.success){
+				this.v9mlsd2 = res.data
+			  }
+			})
+		  },
+		cdz4wfn(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  jiaoCaiGuanLiService.addJiaoCaiGuanLi(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.x95t9ci()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		gjuru9n(id){
+				let ids = []
+				if(id){
+					ids.push(id)
+				}else if(this.pvcoel9.length > 0){
+					ids = this.pvcoel9.map(item => item.id)
+				}
+				jiaoCaiGuanLiService.remove(ids).then(res => {
+				if(res.success){
+						this.pvcoel9 = []
+						this.$Message.success('删除成功')
+						this.gtdpiuk()
+					} else {
+						this.$Message.error('删除失败')
+					}
+				})
+			},
+		j_editData(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  jiaoCaiGuanLiService.change(this.jnr5jcf).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.u3sm9g1()
+				  this.gtdpiuk()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	
+	  udodr5u(){
+		this.hrxr172 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  x95t9ci(){
+		this.hrxr172 = false
+		this.jnr5jcf = {
+		  'nameOfTextbook':'',
+		  'textbookCode':'',
+		  'categoryOfTeachingMaterials':'',
+		  'publishHouse':'',
+		  'usageRecord':'',
+		  'usageTime':'',
+		}
+	  },
+	  n8il5ch(itemData){
+		if(itemData){
+		  this.jnr5jcf = {...itemData}
+		  this.ixrl2nj = true
+		}else if(this.pvcoel9.length > 0){
+		  this.jnr5jcf = {...this.pvcoel9[0]}
+		  this.ixrl2nj = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	  u3sm9g1(){
+		this.ixrl2nj = false
+		this.jnr5jcf = {
+		  'nameOfTextbook':'',
+		  'textbookCode':'',
+		  'categoryOfTeachingMaterials':'',
+		  'publishHouse':'',
+		  'usageRecord':'',
+		  'usageTime':'',
+		}
+	  },
+	  dlbuo18(){
+		this.qjjzz66.c401f4j = 1
+		this.gtdpiuk()
+	  },
+	  gcri7no(){
+		if(this.v9mlsd2.hasPreviousPage){
+		  this.qjjzz66.c401f4j = this.v9mlsd2.prePage
+		  this.gtdpiuk()
+		}
+		
+	  },
+	  gdlh9r0(){
+		if(this.v9mlsd2.hasNextPage){
+		this.qjjzz66.c401f4j = this.v9mlsd2.nextPage
+		this.gtdpiuk()
+		}
+	  },
+	nd2kknu(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('q5uf76gu0')
+	  if(checked){
+		this.pvcoel9 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.pvcoel9.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.pvcoel9 = []
+	  }
+	  console.log(this.pvcoel9)
+	},
+	a9lhmhm(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.pvcoel9.push(val)
+	  }else{
+		let clearIndex = this.pvcoel9.indexOf(val)
+		this.pvcoel9.splice(clearIndex,1)
+	  }
+	},
+	whh2eon(e){
+	  let val = e.target._value
+	  this.pvcoel9 = []
+	  this.pvcoel9.push(val)
+	},
+	i89uv7m(pageNumb){
+	  this.qjjzz66.c401f4j = pageNumb
+	  this.gtdpiuk()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="uzk6eypfa5">
+	  <div class="kame9vrco">{{i8xqtjl}}</div>
+	  <div class="mlbcprthm">
+		<div
+			 class="uikq5tebu">
+						<div class="qtcns0ow4">
+				<Button
+					 @click="udodr5u" class="kd7dco7q2"
+					 style="background-color: #B71946">
+					<i class="p9x9zh2r3 iconfont icon-shuqianguanli"/>新增</Button>
+				<Button
+					 class="hxsv545nj" @click="gjuru9n()" :style="{backgroundColor: (pvcoel9.length == 0 ? 'unset' : '#4817BA'), color:(pvcoel9.length == 1 ? '#ffffff' : '#c5c8ce')}" :disabled="pvcoel9.length == 0">
+					<i
+					 class="p9x9zh2r3 iconfont icon-shuqianguanli"/>删除</Button>
+				<Button
+					 @click="n8il5ch()"
+					 class="u26b98ebr"
+					 :style="{backgroundColor: (pvcoel9.length == 1 ? '#5FB11D' : 'unset'), color:(pvcoel9.length == 1 ? '#ffffff' : '#c5c8ce')}"
+					 :disabled="pvcoel9.length > 1 || pvcoel9.length == 0">
+					<i
+					 class="p9x9zh2r3 iconfont icon-shuqianguanli"/>修改</Button>
+			</div>
+			<div
+				 class="fjlgywgkr">
+			</div>
+		</div>
+
+		<div class="pmdvsn8c9">
+			<table >
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>学员姓名</th>
+						<th>学员账号</th>
+						<th>学员年级</th>
+						<th>学员年龄</th>
+						<th>联系方式</th>
+						<th>籍贯</th>
+					</tr>
+				</thead>
+				<tbody ref="table">
+					<tr v-for="(data,index) in v9mlsd2.list" :key="index">
+						<td><input type="radio"
+							 name="radio" :value="data"
+							 @click="whh2eon($event)"></td>
+							<td>{{data['studentName']}}</td>
+							<td>{{data['studentNo']}}</td>
+							<td>{{data['studentStatus']}}</td>
+							<td>{{data['studentAge']}}</td>
+							<td>{{data['contactInform']}}</td>
+							<td>{{data['contactWay']}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div
+			 class="gdnkg1lhu">
+			<div class="rh23kxx7d">
+				<span
+					 style="margin-right:10px">总计
+					<span class="hjsrph1tcNumb">{{v9mlsd2.total}}</span> 个</span>
+				<span
+					 style="margin-right:10px">共
+					<span
+					 class="hjsrph1tc">{{v9mlsd2.pages}}</span> 页</span>
+				<span style="margin-right:10px">当前第
+					<span class="xe4k0w80g">{{v9mlsd2.pageNum}}</span> 页</span>|
+				<span
+					 class="j4vmzvzra" v-if="!v9mlsd2.isFirstPage"
+					 @click="t6f83em">第一页</span>
+				<span class="lcv0qf37b"
+					 v-if="v9mlsd2.hasPreviousPage" @click="dsk1r1j">上一页</span>
+				<span @click="fb61xe3" v-if="v9mlsd2.hasNextPage"
+					 class="jt4jdo5v0">下一页</span>
+				<span
+					 @click="xxaoo89"
+					 class="vt4o893t4" v-if="!v9mlsd2.isLastPage">最末页</span>
+			</div>
+		</div>
+	  </div>
+	<Modal :fullscreen="false"
+		 v-model="hrxr172"
+		 :footer-hide="true"
+		 title="新增" :width="40"
+		 :transfer="false">
+	  <Form style="padding-bottom: 50px;" label-position="left" :label-width="100" :rules="vqusmmq"
+	  	 ref="addFormData"
+	  	 :model="jnr5jcf">
+		<Row
+			 :gutter="32">
+			<Col span="12">
+			  <FormItem
+			  	  prop="studentName" label="学员姓名">
+				<Input placeholder="请输入学员姓名..."
+					 v-model="jnr5jcf['studentName']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="学员账号"
+			  	  prop="studentNo">
+				<Input v-model="jnr5jcf['studentNo']" placeholder="请输入学员账号..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem  prop="studentStatus" label="学员年级">
+				<Input
+					 v-model="jnr5jcf['studentStatus']"
+					 placeholder="请输入学员年级..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem  prop="studentAge" label="学员年龄">
+				<Input
+					 v-model="jnr5jcf['studentAge']" placeholder="请输入学员年龄..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem  prop="contactInform" label="联系方式">
+				<Input v-model="jnr5jcf['contactInform']" placeholder="请输入联系方式..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="籍贯"  prop="contactWay">
+				<Input
+					 v-model="jnr5jcf['contactWay']" placeholder="请输入籍贯..."></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div class="g2x4gf2zt">
+		<Button @click="x95t9ci" style="margin: 0 20px">关闭</Button>
+		<Button type="primary"
+			 style="margin: 0 20px" @click="cdz4wfn('addFormData')">提交</Button>
+	  </div>
+	</Modal>
+	<Modal :transfer="false" v-model="ixrl2nj" :fullscreen="false"
+		 :footer-hide="true"
+		 title="修改" :width="40">
+	  <Form
+	  	 :rules="vqusmmq" label-position="left"
+	  	 ref="editFormData" :label-width="100"
+	  	 :model="jnr5jcf" style="padding-bottom: 50px;">
+		<Row
+			 :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="studentName"
+			  	 label="学员姓名">
+				<Input v-model="jnr5jcf['studentName']"
+					 placeholder="请输入学员姓名..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="学员账号"
+			  	  prop="studentNo">
+				<Input
+					 placeholder="请输入学员账号..." v-model="jnr5jcf['studentNo']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="studentStatus" label="学员年级">
+				<Input
+					 v-model="jnr5jcf['studentStatus']"
+					 placeholder="请输入学员年级..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem label="学员年龄"  prop="studentAge">
+				<Input v-model="jnr5jcf['studentAge']" placeholder="请输入学员年龄..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	  prop="contactInform"
+			  	 label="联系方式">
+				<Input placeholder="请输入联系方式..."
+					 v-model="jnr5jcf['contactInform']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="contactWay"
+			  	 label="籍贯">
+				<Input
+					 placeholder="请输入籍贯..."
+					 v-model="jnr5jcf['contactWay']"></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div class="g2x4gf2zt">
+		<Button style="margin: 0 20px"
+			 @click="u3sm9g1">关闭</Button>
+		<Button
+			 style="margin: 0 20px"
+			 type="primary" @click="u20pjrp('editFormData')">提交</Button>
+	  </div>
+	</Modal>
+</div>
+</template>
+
+<script>
+import {
+dentInformationManagementService} from '@/api'
+export default {
+	data () {
+		return {
+			k8rz7gm: {
+			},
+			vqusmmq:{
+					'studentName':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'studentNo':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'studentStatus':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'studentAge':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'contactInform':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'contactWay':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+			},
+			ixrl2nj:false,
+			hrxr172:false,
+			dlbuo18Data:{},
+			pvcoel9:[],
+			i8xqtjl:'',
+		  tq089iy: {
+		  },
+			v9mlsd2:{
+				list: []
+			},
+			jnr5jcf:{
+				'studentName':'',
+				'studentNo':'',
+				'studentStatus':'',
+				'studentAge':'',
+				'contactInform':'',
+				'contactWay':'',
+			},
+		  d1lh1wk: {
+		  },
+			qjjzz66:{
+				evhh4ge:10,
+				c401f4j:1,
+			},
+		}
+	},
+	mounted () {
+		this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+		this.gtdpiuk()
+		this.a8b0zio();
+	},
+	methods: {
+
+		a8b0zio() {
+		},
+
+			gtdpiuk() {
+				dentInformationManagementService.getPage(this.dlbuo18Data, this.qjjzz66.c401f4j, this.qjjzz66.evhh4ge).then(res => {
+				if(res.success){
+					this.v9mlsd2 = res.data
+				}
+				})
+			},
+			cdz4wfn(name){
+			this.$refs[name].validate((valid) => {
+				if (valid) {
+				dentInformationManagementService.addDentInformationManagement(this.jnr5jcf).then(res => {
+					if(res.success){
+					this.$Message.success('新增成功')
+					this.x95t9ci()
+					this.gtdpiuk()
+					}else{
+					this.$Message.error('新增失败')
+					}
+				})
+				} else {
+					this.$Message.error('请填写完整');
+				}
+			})
+			},
+			gjuru9n(id){
+				let ids = []
+				if(id){
+					ids.push(id)
+				}else if(this.pvcoel9.length > 0){
+					ids = this.pvcoel9.map(item => item.id)
+				}
+				dentInformationManagementService.remove(ids).then(res => {
+				if(res.success){
+						this.pvcoel9 = []
+						this.$Message.success('删除成功')
+						this.gtdpiuk()
+					} else {
+						this.$Message.error('删除失败')
+					}
+				})
+			},
+			u20pjrp(name){
+			this.$refs[name].validate((valid) => {
+				if (valid) {
+				dentInformationManagementService.change(this.jnr5jcf).then(res => {
+					if(res.success){
+					this.$Message.success('修改成功')
+					this.u3sm9g1()
+					this.gtdpiuk()
+					}else{
+					this.$Message.error('修改失败')
+					}
+				})
+				} else {
+					this.$Message.error('请填写完整');
+				}
+			})
+			},
+
+		udodr5u(){
+			this.hrxr172 = true
+			this.$refs.addFormData.resetFields();
+		},
+
+		x95t9ci(){
+			this.hrxr172 = false
+			this.jnr5jcf = {
+			'studentName':'',
+			'studentNo':'',
+			'studentStatus':'',
+			'studentAge':'',
+			'contactInform':'',
+			'contactWay':'',
+			}
+		},
+	
+		n8il5ch(itemData){
+			if(itemData){
+			this.jnr5jcf = {...itemData}
+			this.ixrl2nj = true
+			}else if(this.pvcoel9.length > 0){
+			this.jnr5jcf = {...this.pvcoel9[0]}
+			this.ixrl2nj = true
+			}else{
+			this.$Message.error('请选择需要修改的数据项')
+			}
+			this.$refs.editFormData.resetFields();
+		},
+
+		u3sm9g1(){
+			this.ixrl2nj = false
+			this.jnr5jcf = {
+			'studentName':'',
+			'studentNo':'',
+			'studentStatus':'',
+			'studentAge':'',
+			'contactInform':'',
+			'contactWay':'',
+			}
+		},
+		
+		dlbuo18(){
+			this.qjjzz66.c401f4j = 1
+			this.gtdpiuk()
+		},
+	
+		nd2kknu(e){
+		let checked = e.target.checked
+		let checkDom = this.$refs.table.getElementsByClassName('q5uf76gu0')
+		if(checked){
+			this.pvcoel9 = []
+			for(let i=0; i<checkDom.length; i++){
+			checkDom[i].checked = true
+			this.pvcoel9.push(checkDom[i]._value)
+			}
+		}else{
+			for(let i=0; i<checkDom.length; i++){
+			checkDom[i].checked = false
+			}
+			this.pvcoel9 = []
+		}
+		},
+
+		a9lhmhm(e){
+		let checked = e.target.checked
+		let val = e.target._value
+		if(checked){
+			this.pvcoel9.push(val)
+		}else{
+			let clearIndex = this.pvcoel9.indexOf(val)
+			this.pvcoel9.splice(clearIndex,1)
+		}
+		},
+	
+		whh2eon(e){
+		let val = e.target._value
+		this.pvcoel9 = []
+		this.pvcoel9.push(val)
+		console.log(this.pvcoel9)
+		},
+
+		t6f83em(){
+			this.qjjzz66.c401f4j = 1
+			this.gtdpiuk()
+		},
+
+		xxaoo89(){
+			this.qjjzz66.c401f4j = this.v9mlsd2.navigateLastPage
+			this.gtdpiuk()
+		},
+		dsk1r1j(){
+			this.qjjzz66.c401f4j = this.qjjzz66.c401f4j - 1
+			this.gtdpiuk()
+		},
+		fb61xe3(){
+			this.qjjzz66.c401f4j = this.qjjzz66.c401f4j + 1
+			this.gtdpiuk()
+		},
+	}
+}
+</script>
+
+<style
+	 scoped>
+@import "./index.css"
+</style>
+<template>
+<div class="k7klur6z2">
+	  <div
+	  	 class="kame9vrco">{{i8xqtjl}}</div>
+	  <div
+	  	 class="mlbcprthm">
+		<div
+			 class="uikq5tebu">
+						<div class="qtcns0ow4">
+				<Button class="hxsv545nj" @click="gjuru9n()" :style="{backgroundColor: (pvcoel9.length == 0 ? 'unset' : '#4817BA'), color:(pvcoel9.length == 1 ? '#ffffff' : '#c5c8ce')}"
+					 :disabled="pvcoel9.length == 0">
+					<i
+					 class="p9x9zh2r3 iconfont icon-shuqianguanli"/>删除</Button>
+				<Button class="u26b98ebr"
+					 @click="n8il5ch()"
+					 :style="{backgroundColor: (pvcoel9.length == 1 ? '#5FB11D' : 'unset'), color:(pvcoel9.length == 1 ? '#ffffff' : '#c5c8ce')}"
+					 :disabled="pvcoel9.length > 1 || pvcoel9.length == 0">
+					<i class="p9x9zh2r3 iconfont icon-shuqianguanli"/>修改</Button>
+				<Button
+					 @click="udodr5u" style="background-color: #B71946" class="kd7dco7q2">
+					<i
+					 class="p9x9zh2r3 iconfont icon-shuqianguanli"/>新增</Button>
+			</div>
+			<div class="fjlgywgkr">
+			</div>
+		</div>
+
+		<div
+			 class="pmdvsn8c9">
+			<table >
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>资料名称</th>
+						<th>资料编号</th>
+						<th>资料状态</th>
+						<th>资料类型</th>
+						<th>上传时间</th>
+					</tr>
+				</thead>
+				<tbody
+					 ref="table">
+					<tr v-for="(data,index) in v9mlsd2.list" :key="index">
+						<td><input type="radio" @click="whh2eon($event)" name="radio" :value="data"></td>
+							<td>{{data['nameOfData']}}</td>
+							<td>{{data['documentNo']}}</td>
+							<td>{{data['dataStatus']}}</td>
+							<td>{{data['dataType']}}</td>
+							<td>{{data['governanceMeasures']}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div
+			 class="gdnkg1lhu">
+			<div class="rh23kxx7d">
+				<span style="margin-right:10px">总计
+					<span class="hjsrph1tcNumb">{{v9mlsd2.total}}</span> 个</span>
+				<span style="margin-right:10px">共
+					<span
+					 class="hjsrph1tc">{{v9mlsd2.pages}}</span> 页</span>
+				<span style="margin-right:10px">当前第
+					<span class="xe4k0w80g">{{v9mlsd2.pageNum}}</span> 页</span>|
+				<span
+					 @click="t6f83em"
+					 v-if="!v9mlsd2.isFirstPage" class="j4vmzvzra">第一页</span>
+				<span
+					 class="lcv0qf37b"
+					 v-if="v9mlsd2.hasPreviousPage"
+					 @click="dsk1r1j">上一页</span>
+				<span @click="fb61xe3" v-if="v9mlsd2.hasNextPage" class="jt4jdo5v0">下一页</span>
+				<span class="vt4o893t4" v-if="!v9mlsd2.isLastPage" @click="xxaoo89">最末页</span>
+			</div>
+		</div>
+	  </div>
+	<Modal
+		 :width="40" v-model="ixrl2nj" :fullscreen="false"
+		 title="修改"
+		 :footer-hide="true" :transfer="false">
+	  <Form
+	  	 style="padding-bottom: 50px;"
+	  	 label-position="left"
+	  	 :label-width="100"
+	  	 :rules="vqusmmq" ref="editFormData" :model="jnr5jcf">
+		<Row
+			 :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem label="资料名称"  prop="nameOfData">
+				<Input
+					 v-model="jnr5jcf['nameOfData']" placeholder="请输入资料名称..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem label="资料编号"  prop="documentNo">
+				<Input v-model="jnr5jcf['documentNo']"
+					 placeholder="请输入资料编号..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="dataStatus"
+			  	 label="资料状态">
+				<Input
+					 v-model="jnr5jcf['dataStatus']" placeholder="请输入资料状态..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem label="资料描述"
+			  	  prop="descriptionOfData">
+				<Input
+					 v-model="jnr5jcf['descriptionOfData']" placeholder="请输入资料描述..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	  prop="dataType"
+			  	 label="资料类型">
+				<Input placeholder="请输入资料类型..."
+					 v-model="jnr5jcf['dataType']"></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	  prop="governanceMeasures"
+			  	 label="上传时间">
+				<Input placeholder="请输入上传时间..." v-model="jnr5jcf['governanceMeasures']"></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div class="g2x4gf2zt">
+		<Button
+			 style="margin: 0 20px"
+			 @click="u3sm9g1">关闭</Button>
+		<Button
+			 @click="u20pjrp('editFormData')"
+			 type="primary"
+			 style="margin: 0 20px">提交</Button>
+	  </div>
+	</Modal>
+	<Modal :transfer="false"
+		 v-model="hrxr172" title="新增"
+		 :footer-hide="true"
+		 :fullscreen="false"
+		 :width="40">
+	  <Form label-position="left"
+	  	 :label-width="100" style="padding-bottom: 50px;" :rules="vqusmmq" ref="addFormData" :model="jnr5jcf">
+		<Row
+			 :gutter="32">
+			<Col span="12">
+			  <FormItem
+			  	 label="资料名称"  prop="nameOfData">
+				<Input placeholder="请输入资料名称..."
+					 v-model="jnr5jcf['nameOfData']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem label="资料编号"
+			  	  prop="documentNo">
+				<Input
+					 placeholder="请输入资料编号..."
+					 v-model="jnr5jcf['documentNo']"></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem  prop="dataStatus"
+			  	 label="资料状态">
+				<Input
+					 placeholder="请输入资料状态..."
+					 v-model="jnr5jcf['dataStatus']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="descriptionOfData"
+			  	 label="资料描述">
+				<Input v-model="jnr5jcf['descriptionOfData']"
+					 placeholder="请输入资料描述..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem label="资料类型"  prop="dataType">
+				<Input v-model="jnr5jcf['dataType']" placeholder="请输入资料类型..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem  prop="governanceMeasures"
+			  	 label="上传时间">
+				<Input v-model="jnr5jcf['governanceMeasures']"
+					 placeholder="请输入上传时间..."></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div class="g2x4gf2zt">
+		<Button style="margin: 0 20px"
+			 @click="x95t9ci">关闭</Button>
+		<Button
+			 @click="cdz4wfn('addFormData')" type="primary"
+			 style="margin: 0 20px">提交</Button>
+	  </div>
+	</Modal>
+</div>
+</template>
+
+<script>
+import {
+learningMaterialManagementService} from '@/api'
+export default {
+	data () {
+		return {
+			jnr5jcf:{
+				'nameOfData':'',
+				'documentNo':'',
+				'dataStatus':'',
+				'descriptionOfData':'',
+				'dataType':'',
+				'governanceMeasures':'',
+			},
+			i8xqtjl:'',
+			vqusmmq:{
+					'nameOfData':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'documentNo':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'dataStatus':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'descriptionOfData':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'dataType':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+					'governanceMeasures':[
+					{
+						required: true,
+						message: '不能为空'
+					}
+					],
+			},
+			dlbuo18Data:{},
+		  tq089iy: {
+		  },
+			k8rz7gm: {
+			},
+			v9mlsd2:{
+				list: []
+			},
+			qjjzz66:{
+				c401f4j:1,
+				evhh4ge:10,
+			},
+		  d1lh1wk: {
+		  },
+			pvcoel9:[],
+			hrxr172:false,
+			ixrl2nj:false,
+		}
+	},
+	mounted () {
+		this.i8xqtjl = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+		this.gtdpiuk()
+		this.a8b0zio();
+	},
+	methods: {
+		a8b0zio() {
+		},
+
+			gjuru9n(id){
+				let ids = []
+				if(id){
+					ids.push(id)
+				}else if(this.pvcoel9.length > 0){
+					ids = this.pvcoel9.map(item => item.id)
+				}
+				learningMaterialManagementService.remove(ids).then(res => {
+				if(res.success){
+						this.pvcoel9 = []
+						this.$Message.success('删除成功')
+						this.gtdpiuk()
+					} else {
+						this.$Message.error('删除失败')
+					}
+				})
+			},
+			u20pjrp(name){
+			this.$refs[name].validate((valid) => {
+				if (valid) {
+				learningMaterialManagementService.change(this.jnr5jcf).then(res => {
+					if(res.success){
+					this.$Message.success('修改成功')
+					this.u3sm9g1()
+					this.gtdpiuk()
+					}else{
+					this.$Message.error('修改失败')
+					}
+				})
+				} else {
+					this.$Message.error('请填写完整');
+				}
+			})
+			},
+		
+			cdz4wfn(name){
+			this.$refs[name].validate((valid) => {
+				if (valid) {
+				learningMaterialManagementService.addLearningMaterialManagement(this.jnr5jcf).then(res => {
+					if(res.success){
+					this.$Message.success('新增成功')
+					this.x95t9ci()
+					this.gtdpiuk()
+					}else{
+					this.$Message.error('新增失败')
+					}
+				})
+				} else {
+					this.$Message.error('请填写完整');
+				}
+			})
+			},
+			gtdpiuk() {
+				learningMaterialManagementService.getPage(this.dlbuo18Data, this.qjjzz66.c401f4j, this.qjjzz66.evhh4ge).then(res => {
+				if(res.success){
+					this.v9mlsd2 = res.data
+				}
+				})
+			},
+		//开启新增
+		udodr5u(){
+			this.hrxr172 = true
+			this.$refs.addFormData.resetFields();
+		},
+		//关闭新增
+		x95t9ci(){
+			this.hrxr172 = false
+			this.jnr5jcf = {
+			'nameOfData':'',
+			'documentNo':'',
+			'dataStatus':'',
+			'descriptionOfData':'',
+			'dataType':'',
+			'governanceMeasures':'',
+			}
+		},
+		//开启修改
+		n8il5ch(itemData){
+			if(itemData){
+			this.jnr5jcf = {...itemData}
+			this.ixrl2nj = true
+			}else if(this.pvcoel9.length > 0){
+			this.jnr5jcf = {...this.pvcoel9[0]}
+			this.ixrl2nj = true
+			}else{
+			this.$Message.error('请选择需要修改的数据项')
+			}
+			this.$refs.editFormData.resetFields();
+		},
+		//关闭修改
+		u3sm9g1(){
+			this.ixrl2nj = false
+			this.jnr5jcf = {
+			'nameOfData':'',
+			'documentNo':'',
+			'dataStatus':'',
+			'descriptionOfData':'',
+			'dataType':'',
+			'governanceMeasures':'',
+			}
+		},
+		//搜索
+		dlbuo18(){
+			this.qjjzz66.c401f4j = 1
+			this.gtdpiuk()
+		},
+		// 全选返选
+		nd2kknu(e){
+		let checked = e.target.checked
+		let checkDom = this.$refs.table.getElementsByClassName('q5uf76gu0')
+		if(checked){
+			this.pvcoel9 = []
+			for(let i=0; i<checkDom.length; i++){
+			checkDom[i].checked = true
+			this.pvcoel9.push(checkDom[i]._value)
+			}
+		}else{
+			for(let i=0; i<checkDom.length; i++){
+			checkDom[i].checked = false
+			}
+			this.pvcoel9 = []
+		}
+		},
+		// 多选框单选
+		a9lhmhm(e){
+		let checked = e.target.checked
+		let val = e.target._value
+		if(checked){
+			this.pvcoel9.push(val)
+		}else{
+			let clearIndex = this.pvcoel9.indexOf(val)
+			this.pvcoel9.splice(clearIndex,1)
+		}
+		},
+		//单选框
+		whh2eon(e){
+		let val = e.target._value
+		this.pvcoel9 = []
+		this.pvcoel9.push(val)
+		},
+
+		//首页
+		t6f83em(){
+			this.qjjzz66.c401f4j = 1
+			this.gtdpiuk()
+		},
+		//尾页
+		xxaoo89(){
+			this.qjjzz66.c401f4j = this.v9mlsd2.navigateLastPage
+			this.gtdpiuk()
+		},
+		dsk1r1j(){
+			this.qjjzz66.c401f4j = this.qjjzz66.c401f4j - 1
+			this.gtdpiuk()
+		},
+		fb61xe3(){
+			this.qjjzz66.c401f4j = this.qjjzz66.c401f4j + 1
+			this.gtdpiuk()
+		},
+	}
+}
+</script>
+
+<style scoped>
+@import "./index.css"
+</style>
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* @version 1.0.0
+* @description: 保存入参
+*/
+@Data
+@ApiModel(value = "学习资料管理保存入参", description = "学习资料管理保存入参")
+public class LearningMaterialManagementSaveREQ implements Serializable {
+@ApiModelProperty(value = "学习资料管理数据主键")
+private Long id;
+
+
+	/**
+	* 资料名称
+	*/
+	@Column(name = "nameOfData")
+	private String nameOfData;
+
+	/**
+	* 资料编号
+	*/
+	@Column(name = "documentNo")
+	private String documentNo;
+
+	/**
+	* 资料状态
+	*/
+	@Column(name = "dataStatus")
+	private String dataStatus;
+
+	/**
+	* 资料描述
+	*/
+	@Column(name = "descriptionOfData")
+	private String descriptionOfData;
+
+	/**
+	* 资料类型
+	*/
+	@Column(name = "dataType")
+	private String dataType;
+
+	/**
+	* 上传时间
+	*/
+	@Column(name = "governanceMeasures")
+	private String governanceMeasures;
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* @version 1.0.0
+* @description: 保存入参
+*/
+@Data
+@ApiModel(value = "科目管理保存入参", description = "科目管理保存入参")
+public class AccountManagementSaveREQ implements Serializable {
+@ApiModelProperty(value = "科目管理数据主键")
+private Long id;
+
+
+	/**
+	* 科目名称
+	*/
+	@Column(name = "accountName")
+	private String accountName;
+
+	/**
+	* 科目编码
+	*/
+	@Column(name = "accountCode")
+	private String accountCode;
+
+	/**
+	* 上课时间
+	*/
+	@Column(name = "classTime")
+	private String classTime;
+
+	/**
+	* 主讲老师
+	*/
+	@Column(name = "keynoteTeacher")
+	private String keynoteTeacher;
+
+	/**
+	* 科目类别
+	*/
+	@Column(name = "accountCategory")
+	private String accountCategory;
+
+	/**
+	* 科目评价
+	*/
+	@Column(name = "subjectEvaluation")
+	private String subjectEvaluation;
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+
+/**
+* 分页
+*
+*/
+@ApiModel(value = "分页", description = "分页")
+public class PageREQ implements Serializable {
+	/**
+	 * 页
+	 **/
+	@ApiModelProperty(value = "页")
+	private Integer pageNum;
+	/**
+	 * 个
+	 */
+	@ApiModelProperty(value = "个")
+	private Integer pageSize;
+
+	public Integer getPageNum() {
+		return pageNum == null ? 1 : pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public Integer getPageSize() {
+		return pageSize == null ? 10 : pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* 列表查询REQ
+*
+*/
+@Data
+@ApiModel(value = "列表查询REQ", description = "列表查询REQ")
+public class JiaoCaiGuanLiPageREQ extends PageREQ implements Serializable {
+
+
+
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* 列表查询REQ
+*
+*/
+@Data
+@ApiModel(value = "列表查询REQ", description = "列表查询REQ")
+public class ConsultingRecordManagementPageREQ extends PageREQ implements Serializable {
+
+
+
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* 列表查询REQ
+*
+*/
+@Data
+@ApiModel(value = "列表查询REQ", description = "列表查询REQ")
+public class LearnRecordManagePageREQ extends PageREQ implements Serializable {
+
+
+
+}
+package com.karen.garcia.learnrecordmanage.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* @version 1.0.0
+* @description: 保存入参
+*/
+@Data
+@ApiModel(value = "在线咨询保存入参", description = "在线咨询保存入参")
+public class OnlineConsultSaveREQ implements Serializable {
+@ApiModelProperty(value = "在线咨询数据主键")
+private Long id;
+
+
+	/**
+	* 咨询编号
+	*/
+	@Column(name = "prescriptionNo")
+	private String prescriptionNo;
+
+	/**
+	* 学员
+	*/
+	@Column(name = "name")
+	private String name;
+
+	/**
+	* 咨询时间
+	*/
+	@Column(name = "consultationTime")
+	private String consultationTime;
+
+	/**
+	* 咨询客服
+	*/
+	@Column(name = "consultingCustomerService")
+	private String consultingCustomerService;
+
+	/**
+	* 咨询问题
+	*/
+	@Column(name = "consultationQuestions")
+	private String consultationQuestions;
+
+	/**
+	* 回复内容
+	*/
+	@Column(name = "replyContent")
+	private String replyContent;
+}
