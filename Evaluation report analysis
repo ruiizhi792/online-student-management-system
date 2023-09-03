@@ -1,0 +1,2959 @@
+<template>
+<div class="dlfqfrwvp">
+	  <div class="kim0fg2vc " >
+			<div class="ivoq1h4vq">
+				<div class="veffptozg" :class="{'zmxso104r': pn4ziu8 == '分析管理'}" @click="cdzduwq('analysisManagement', '分析管理')">
+					<div
+						 class="omr50d8a0">
+						<i class="rj07sfyxt iconfont icon-vs"/>
+					</div>
+					<div
+						 class="c_menuTip">分析管理</div>
+				</div>
+				<div @click="cdzduwq('analysisSchemeManagement', '分析方案管理')"
+					 :class="{'zmxso104r': pn4ziu8 == '分析方案管理'}" class="veffptozg">
+					<div class="omr50d8a0">
+						<i class="rj07sfyxt iconfont icon-chenggong1"/>
+					</div>
+					<div
+						 class="c_menuTip">分析方案管理</div>
+				</div>
+				<div :class="{'zmxso104r': pn4ziu8 == '监测管理'}"
+					 class="veffptozg"
+					 @click="cdzduwq('monitoringManagement', '监测管理')">
+					<div class="omr50d8a0">
+						<i class="rj07sfyxt iconfont icon-beauty"/>
+					</div>
+					<div class="c_menuTip">监测管理</div>
+				</div>
+				<div
+					 @click="cdzduwq('onlineEvaluation', '测评管理')" :class="{'zmxso104r': pn4ziu8 == '测评管理'}" class="veffptozg">
+					<div
+						 class="omr50d8a0">
+						<i
+							 class="rj07sfyxt iconfont icon-tradealert"/>
+					</div>
+					<div
+						 class="c_menuTip">测评管理</div>
+				</div>
+				<div
+					 class="veffptozg" :class="{'zmxso104r': pn4ziu8 == '测评报告管理'}"
+					 @click="cdzduwq('evaluationReportManagement', '测评报告管理')">
+					<div class="omr50d8a0">
+						<i
+							 class="rj07sfyxt iconfont icon-mute"/>
+					</div>
+					<div class="c_menuTip">测评报告管理</div>
+				</div>
+				<div
+					 :class="{'zmxso104r': pn4ziu8 == '学生管理'}"
+					 @click="cdzduwq('studentManagement', '学生管理')"
+					 class="veffptozg">
+					<div class="omr50d8a0">
+						<i class="rj07sfyxt iconfont icon-youkuhuiyuan"/>
+					</div>
+					<div class="c_menuTip">学生管理</div>
+				</div>
+				<div class="veffptozg"
+					 :class="{'zmxso104r': pn4ziu8 == '教学资源'}" @click="cdzduwq('instructResource', '教学资源')">
+					<div
+						 class="omr50d8a0">
+						<i
+							 class="rj07sfyxt iconfont icon-dianyingpiao"/>
+					</div>
+					<div
+						 class="c_menuTip">教学资源</div>
+				</div>
+				<div @click="cdzduwq('about', '关于我们')"
+					 :class="{'zmxso104r': pn4ziu8 == '关于我们'}"
+					 class="veffptozg">
+					<div class="omr50d8a0">
+						<i class="rj07sfyxt iconfont icon-shenheguanli"/>
+					</div>
+					<div
+						 class="c_menuTip">关于我们</div>
+				</div>
+			</div>
+			<div
+				 class="dc2r0nsry veffptozg"
+				 @click="x0emkrr">
+				<i class="rj07sfyxt iconfont icon-tuichu"/>
+				<div class="c_menuTip">退出</div>
+			</div>
+	  </div>
+	  <div class="bm5h9g79c">
+		  <div class="nltrnye5e">
+			<div
+				 class="yv1e4f5p8">学生学习测评报告监测分析管理系统</div>
+			<div class="hydl2a2wn">
+			  <div
+			  	 class="cbticzfow">admin</div>
+			  <div
+			  	 class="buhj6unw3">
+				<i
+					 class="c_userIcon iconfont icon-renxiang"/>
+			  </div>
+			</div>
+		  </div>
+		  <div class="kdl93bk0h">
+			<router-view></router-view>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+export default {
+name: 'mainOne',
+data(){
+	return{
+	  pn4ziu8:'',
+	}
+},
+methods:{
+	
+	cdzduwq(_url, _name){
+		this.pn4ziu8 = _name
+		sessionStorage.setItem('fMenuName', _name)
+		this.$router.push("/" + _url)
+	},
+	x0emkrr(){
+		this.$router.push("/")
+	},
+}
+}
+</script>
+
+<style>
+@import "./index.css";
+</style>
+<template>
+<div class="hc5r87969">
+		<div
+			 class="dmoo0rv94">
+		<div class="o8j16cfjt  sic14k088">
+		  <div
+		  	 class="l7y5o8tiv">
+			  <div
+			  	 class="v0ane2nzw">
+				<Button
+					  style="background-color: #1C61E6" @click="b3c83ek"
+					 class="y4wl2ymg5">新增</Button>
+				<Button
+					 @click="p3i4cu0()"
+					 class="spew0hf5y"
+					 :style="{backgroundColor: (e9pzkft.length == 1 ? '#7617CF' : 'unset'),color: (e9pzkft.length == 1 ? '#fff' : '#666')}" :disabled="e9pzkft.length > 1 || e9pzkft.length == 0">修改</Button>
+				<Button
+					 :disabled="e9pzkft.length == 0"
+					 @click="lqbrxhn()" class="gl6g5vkys" :style="{backgroundColor: (e9pzkft.length == 0 ? 'unset' : '#07B1B0'),color: (e9pzkft.length == 0 ? '#666' : '#fff')}">删除</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="mil5ayo4x">
+			  <Input v-model="zow3pf0Data['analysisName']" class="jxy1kvaav" placeholder="请输入分析名称" />
+		  <Button @click="zow3pf0"
+		  	 class="in3xggbg2">搜索</Button>
+		</div>
+		</div>
+		  <div
+		  	 class="eogqk2was  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th>#</th>
+				  <th>分析名称</th>
+				  <th>分析编码</th>
+				  <th>分析状态</th>
+				  <th>分析流程</th>
+				  <th>分析结果</th>
+				  <th>分析时间</th>
+				</tr>
+			  </thead>
+			  <tbody
+			  	 ref="table">
+				<tr
+					 v-for="(data,index) in xwzg8an.list" :key="index">
+				  <td><input
+				  	 :value="data"
+				  	 @click="wnv9gz0($event)" name="radio"
+				  	 type="radio"></td>
+					  <td>{{data['analysisName']}}</td>
+					  <td>{{data['analysisCoding']}}</td>
+					  <td>{{data['analysisStatus']}}</td>
+					  <td>{{data['analysisProcess']}}</td>
+					  <td>{{data['analysisResults']}}</td>
+					  <td>{{data['analysisTime']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="tff67qixw " >
+			<div class="ovh17kg1d">
+			  <div class="mo9jculgo" v-if="xwzg8an.total">总共{{xwzg8an.total}}条</div>
+			  <div v-if="xwzg8an.hasPreviousPage" class="lo3kfqoxs" @click="m9fopqw">
+			  	<Icon
+			  	 size="18"
+			  	 type="ios-arrow-back"/></div>
+			  <div class="fcl8wdwp7">
+				<span v-for="(numb,index) in xwzg8an.pages" :key="index" :class="{'e9m130zzz':xwzg8an.pageNum == numb}"
+					 @click="s0a2qzz(numb)"
+					 class="xclzps9cq">{{numb}}</span>
+			  </div>
+			  <div
+			  	 class="zqej2d7cs"
+			  	 @click="tqckx6i" v-if="xwzg8an.hasNextPage">
+			  	<Icon
+			  	  size="18"
+			  	 type="ios-arrow-forward"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal
+			 title="新增"
+			 :footer-hide="true"
+			 :transfer="false"
+			 v-model="vjrb66h"
+			 :fullscreen="false" :width="40">
+		  <Form ref="addFormData" style="padding-bottom: 50px;"
+		  	 :model="zcpbdhi"
+		  	 :label-width="100" label-position="left" :rules="whmlun3">
+			<Row :gutter="32">
+				<Col span="12">
+				  <FormItem  prop="analysisName"
+				  	 label="分析名称">
+					<Input v-model="zcpbdhi['analysisName']"
+						 placeholder="请输入分析名称..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="analysisCoding" label="分析编码">
+					<Input placeholder="请输入分析编码..." v-model="zcpbdhi['analysisCoding']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="analysisStatus" label="分析状态">
+					<Input v-model="zcpbdhi['analysisStatus']" placeholder="请输入分析状态..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="分析流程"
+				  	  prop="analysisProcess">
+					<Input v-model="zcpbdhi['analysisProcess']"
+						 placeholder="请输入分析流程..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="分析结果"
+				  	  prop="analysisResults">
+					<Input v-model="zcpbdhi['analysisResults']" placeholder="请输入分析结果..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="分析时间"
+				  	  prop="analysisTime">
+					<Input
+						 v-model="zcpbdhi['analysisTime']"
+						 placeholder="请输入分析时间..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="gs1p62nj2">
+			<Button
+				 style="margin: 0 20px" @click="wu36myv">关闭</Button>
+			<Button style="margin: 0 20px" type="primary"
+				 @click="oajtnbq('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 :footer-hide="true"
+			 v-model="d752hda" title="修改" :transfer="false" :fullscreen="false"
+			 :width="40">
+		  <Form
+		  	 :model="zcpbdhi"
+		  	 :rules="whmlun3"
+		  	 ref="editFormData"
+		  	 label-position="left" :label-width="100" style="padding-bottom: 50px;">
+			<Row :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	 label="分析名称"
+				  	  prop="analysisName">
+					<Input
+						 placeholder="请输入分析名称..."
+						 v-model="zcpbdhi['analysisName']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="分析编码"
+				  	  prop="analysisCoding">
+					<Input
+						 placeholder="请输入分析编码..." v-model="zcpbdhi['analysisCoding']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="分析状态"
+				  	  prop="analysisStatus">
+					<Input
+						 placeholder="请输入分析状态..."
+						 v-model="zcpbdhi['analysisStatus']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="analysisProcess" label="分析流程">
+					<Input
+						 placeholder="请输入分析流程..."
+						 v-model="zcpbdhi['analysisProcess']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="分析结果"
+				  	  prop="analysisResults">
+					<Input v-model="zcpbdhi['analysisResults']"
+						 placeholder="请输入分析结果..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="analysisTime" label="分析时间">
+					<Input
+						 placeholder="请输入分析时间..."
+						 v-model="zcpbdhi['analysisTime']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="gs1p62nj2">
+			<Button
+				 @click="p8ec4lr"
+				 style="margin: 0 20px">关闭</Button>
+			<Button
+				 style="margin: 0 20px"
+				 @click="x2x5zrx('editFormData')" type="primary">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+analysisManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  zow3pf0Data:{},
+		  o7ujlkc: {
+		  },
+	  vjrb66h:false,
+	  e9pzkft:[],
+	  d752hda:false,
+	  xwzg8an:{
+		list:[]
+	  },
+	  f06agzc: {
+	  },
+	  whmlun3:{
+			'analysisName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'analysisCoding':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'analysisStatus':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'analysisProcess':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'analysisResults':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'analysisTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  ee0gqn8: {
+		  },
+	  zcpbdhi:{
+		'analysisName':'',
+		'analysisCoding':'',
+		'analysisStatus':'',
+		'analysisProcess':'',
+		'analysisResults':'',
+		'analysisTime':'',
+	  },
+	  jpjesdt:{
+	  },
+	}
+},
+mounted () {
+	this.jqjukz8();
+	this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+
+		  jqjukz8() {
+			analysisManagementService.getList(this.zow3pf0Data, this.jpjesdt.j_pageNum, this.jpjesdt.j_pageSize).then(res => {
+			  if(res.success){
+				this.xwzg8an = res.data
+			  }
+			})
+		  },
+		oajtnbq(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  analysisManagementService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.wu36myv()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		x2x5zrx(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  analysisManagementService.changeAnalysisManagement(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.p8ec4lr()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		lqbrxhn(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.e9pzkft.length > 0){
+				ids = this.e9pzkft.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			analysisManagementService.removeAnalysisManagement(ids).then(res => {
+			if(res.success){
+					this.e9pzkft = []
+					this.$Message.success('删除成功')
+					this.jqjukz8()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+
+	  b3c83ek(){
+		this.vjrb66h = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  wu36myv(){
+		this.vjrb66h = false
+		this.zcpbdhi = {
+		  'analysisName':'',
+		  'analysisCoding':'',
+		  'analysisStatus':'',
+		  'analysisProcess':'',
+		  'analysisResults':'',
+		  'analysisTime':'',
+		}
+	  },
+	
+	  p3i4cu0(itemData){
+		if(itemData){
+		  this.zcpbdhi = {...itemData}
+		  this.d752hda = true
+		}else if(this.e9pzkft.length > 0){
+		  this.zcpbdhi = {...this.e9pzkft[0]}
+		  this.d752hda = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  p8ec4lr(){
+		this.d752hda = false
+		this.zcpbdhi = {
+		  'analysisName':'',
+		  'analysisCoding':'',
+		  'analysisStatus':'',
+		  'analysisProcess':'',
+		  'analysisResults':'',
+		  'analysisTime':'',
+		}
+	  },
+	
+	  zow3pf0(){
+		this.jpjesdt.j_pageNum = 1
+		this.jqjukz8()
+	  },
+	
+	  m9fopqw(){
+		if(this.xwzg8an.hasPreviousPage){
+		  this.jpjesdt.j_pageNum = this.xwzg8an.prePage
+		  this.jqjukz8()
+		}
+		
+	  },
+	
+	  tqckx6i(){
+		if(this.xwzg8an.hasNextPage){
+		this.jpjesdt.j_pageNum = this.xwzg8an.nextPage
+		this.jqjukz8()
+		}
+	  },
+
+	u5mj8p5(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.e9pzkft = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.e9pzkft.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.e9pzkft = []
+	  }
+	},
+
+	so5t7mt(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.e9pzkft.push(val)
+	  }else{
+		let clearIndex = this.e9pzkft.indexOf(val)
+		this.e9pzkft.splice(clearIndex,1)
+	  }
+	},
+
+	wnv9gz0(e){
+	  let val = e.target._value
+	  this.e9pzkft = []
+	  this.e9pzkft.push(val)
+	},
+
+	s0a2qzz(pageNumb){
+	  this.jpjesdt.j_pageNum = pageNumb
+	  this.jqjukz8()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="hc5r87969">
+		<div class="dmoo0rv94">
+		<div
+			 class="o8j16cfjt  sic14k088">
+		  <div class="l7y5o8tiv">
+			  <div class="v0ane2nzw">
+				<Button  style="background-color: #1C61E6"
+					 @click="b3c83ek"
+					 class="y4wl2ymg5">新增</Button>
+				<Button
+					 :disabled="e9pzkft.length > 1 || e9pzkft.length == 0" class="spew0hf5y"
+					 @click="p3i4cu0()" :style="{backgroundColor: (e9pzkft.length == 1 ? '#7617CF' : 'unset'),color: (e9pzkft.length == 1 ? '#fff' : '#666')}">修改</Button>
+				<Button
+					 class="gl6g5vkys" @click="lqbrxhn()" :disabled="e9pzkft.length == 0"
+					 :style="{backgroundColor: (e9pzkft.length == 0 ? 'unset' : '#07B1B0'),color: (e9pzkft.length == 0 ? '#666' : '#fff')}">删除</Button>
+			  </div>
+		  </div>
+		  <div class="mil5ayo4x">
+		</div>
+		</div>
+		  <div
+		  	 class="eogqk2was  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th>#</th>
+				  <th>设备名称</th>
+				  <th>运作状态</th>
+				  <th>监测时间</th>
+				  <th>运行时长</th>
+				  <th>负责人</th>
+				</tr>
+			  </thead>
+			  <tbody
+			  	 ref="table">
+				<tr v-for="(data,index) in xwzg8an.list"
+					 :key="index">
+				  <td><input
+				  	 type="radio"
+				  	 name="radio"
+				  	 :value="data"
+				  	 @click="wnv9gz0($event)"></td>
+					  <td>{{data['robotName']}}</td>
+						<td>{{data['operationStatus']}}</td>
+					  <td>{{data['detectDepth']}}</td>
+					  <td>{{data['runTime']}}</td>
+					  <td>{{data['headDepart']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div
+		  	 class="tff67qixw " >
+			<div
+				 class="ovh17kg1d">
+			  <div
+			  	 v-if="xwzg8an.total"
+			  	 class="mo9jculgo">总共{{xwzg8an.total}}条</div>
+			  <div
+			  	 @click="m9fopqw" v-if="xwzg8an.hasPreviousPage"
+			  	 class="lo3kfqoxs">
+			  	<Icon
+			  	 type="ios-arrow-back" size="18"/></div>
+			  <div
+			  	 class="fcl8wdwp7">
+				<span
+					 @click="s0a2qzz(numb)" v-for="(numb,index) in xwzg8an.pages" :class="{'e9m130zzz':xwzg8an.pageNum == numb}"
+					 :key="index" class="xclzps9cq">{{numb}}</span>
+			  </div>
+			  <div @click="tqckx6i"
+			  	 v-if="xwzg8an.hasNextPage" class="zqej2d7cs">
+			  	<Icon  size="18" type="ios-arrow-forward"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal :fullscreen="false" :width="40" :footer-hide="true"
+			 title="新增"
+			 v-model="vjrb66h"
+			 :transfer="false">
+		  <Form label-position="left"
+		  	 style="padding-bottom: 50px;"
+		  	 :label-width="100"
+		  	 :rules="whmlun3"
+		  	 ref="addFormData" :model="zcpbdhi">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="设备名称"  prop="robotName">
+					<Input
+						 v-model="zcpbdhi['robotName']"
+						 placeholder="请输入设备名称..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem label="监测详情"
+				  	  prop="monitorDetail">
+					<Input
+						 :autosize="{minRows: 2, maxRows: 5}"
+						 type="textarea"
+						 v-model="zcpbdhi['monitorDetail']"
+						 placeholder="请输入监测详情..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="operationStatus" label="运作状态">
+					<Select
+						 v-model="zcpbdhi['operationStatus']"
+						 clearable placeholder="请输入运作状态" class="zlhlel3g1">
+						<Option :value="item" :key="item"
+							 v-for="item in f06agzc['operationStatus']">
+							{{item}}
+						</Option>
+					</Select>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="监测时间"  prop="detectDepth">
+					<Input placeholder="请输入监测时间..." v-model="zcpbdhi['detectDepth']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="运行时长"
+				  	  prop="runTime">
+					<Input placeholder="请输入运行时长..." v-model="zcpbdhi['runTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="负责人"
+				  	  prop="headDepart">
+					<Input placeholder="请输入负责人..." v-model="zcpbdhi['headDepart']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="gs1p62nj2">
+			<Button
+				 @click="wu36myv"
+				 style="margin: 0 20px">关闭</Button>
+			<Button
+				 style="margin: 0 20px" type="primary"
+				 @click="oajtnbq('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 :fullscreen="false" title="修改"
+			 v-model="d752hda" :transfer="false"
+			 :footer-hide="true"
+			 :width="40">
+		  <Form :model="zcpbdhi"
+		  	 ref="editFormData" :rules="whmlun3"
+		  	 :label-width="100" label-position="left" style="padding-bottom: 50px;">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="robotName" label="设备名称">
+					<Input
+						 v-model="zcpbdhi['robotName']" placeholder="请输入设备名称..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="24">
+				  <FormItem
+				  	  prop="monitorDetail"
+				  	 label="监测详情">
+					<Input
+						 :autosize="{minRows: 2, maxRows: 5}"
+						 type="textarea" v-model="zcpbdhi['monitorDetail']" placeholder="请输入监测详情..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="operationStatus"
+				  	 label="运作状态">
+					<Select v-model="zcpbdhi['operationStatus']"
+						 class="zlhlel3g1" clearable
+						 placeholder="请输入运作状态">
+						<Option :key="item"
+							 v-for="item in f06agzc['operationStatus']" :value="item">
+							{{item}}
+						</Option>
+					</Select>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="监测时间"
+				  	  prop="detectDepth">
+					<Input
+						 v-model="zcpbdhi['detectDepth']"
+						 placeholder="请输入监测时间..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="runTime"
+				  	 label="运行时长">
+					<Input
+						 placeholder="请输入运行时长..." v-model="zcpbdhi['runTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="负责人"  prop="headDepart">
+					<Input
+						 v-model="zcpbdhi['headDepart']"
+						 placeholder="请输入负责人..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="gs1p62nj2">
+			<Button
+				 @click="p8ec4lr" style="margin: 0 20px">关闭</Button>
+			<Button style="margin: 0 20px"
+				 type="primary" @click="x2x5zrx('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+monitoringManagementService} from '@/api'
+export default {
+data(){
+	return{
+		  ee0gqn8: {
+		  },
+	  f06agzc: {
+			  'operationStatus': '正常 异常'.split(" "),
+	  },
+	  vjrb66h:false,
+	  zcpbdhi:{
+		'robotName':'',
+		'monitorDetail':'',
+		'operationStatus':'',
+		'detectDepth':'',
+		'runTime':'',
+		'headDepart':'',
+	  },
+	  d752hda:false,
+	  whmlun3:{
+			'robotName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'monitorDetail':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'operationStatus':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'detectDepth':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'runTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'headDepart':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  o7ujlkc: {
+		  },
+	  xwzg8an:{
+		list:[]
+	  },
+	  e9pzkft:[],
+	  jpjesdt:{
+	  },
+	  zow3pf0Data:{},
+	}
+},
+mounted () {
+	this.jqjukz8();
+	this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+
+		  jqjukz8() {
+			monitoringManagementService.getList(this.zow3pf0Data, this.jpjesdt.j_pageNum, this.jpjesdt.j_pageSize).then(res => {
+			  if(res.success){
+				this.xwzg8an = res.data
+			  }
+			})
+		  },
+		oajtnbq(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  monitoringManagementService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.wu36myv()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		x2x5zrx(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  monitoringManagementService.changeMonitoringManagement(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.p8ec4lr()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		lqbrxhn(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.e9pzkft.length > 0){
+				ids = this.e9pzkft.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			monitoringManagementService.removeMonitoringManagement(ids).then(res => {
+			if(res.success){
+					this.e9pzkft = []
+					this.$Message.success('删除成功')
+					this.jqjukz8()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+
+	  b3c83ek(){
+		this.vjrb66h = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  wu36myv(){
+		this.vjrb66h = false
+		this.zcpbdhi = {
+		  'robotName':'',
+		  'monitorDetail':'',
+		  'operationStatus':'',
+		  'detectDepth':'',
+		  'runTime':'',
+		  'headDepart':'',
+		}
+	  },
+	
+	  p3i4cu0(itemData){
+		if(itemData){
+		  this.zcpbdhi = {...itemData}
+		  this.d752hda = true
+		}else if(this.e9pzkft.length > 0){
+		  this.zcpbdhi = {...this.e9pzkft[0]}
+		  this.d752hda = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  p8ec4lr(){
+		this.d752hda = false
+		this.zcpbdhi = {
+		  'robotName':'',
+		  'monitorDetail':'',
+		  'operationStatus':'',
+		  'detectDepth':'',
+		  'runTime':'',
+		  'headDepart':'',
+		}
+	  },
+	
+	  zow3pf0(){
+		this.jpjesdt.j_pageNum = 1
+		this.jqjukz8()
+	  },
+	
+	  m9fopqw(){
+		if(this.xwzg8an.hasPreviousPage){
+		  this.jpjesdt.j_pageNum = this.xwzg8an.prePage
+		  this.jqjukz8()
+		}
+		
+	  },
+	
+	  tqckx6i(){
+		if(this.xwzg8an.hasNextPage){
+		this.jpjesdt.j_pageNum = this.xwzg8an.nextPage
+		this.jqjukz8()
+		}
+	  },
+
+	u5mj8p5(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.e9pzkft = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.e9pzkft.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.e9pzkft = []
+	  }
+	},
+
+	so5t7mt(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.e9pzkft.push(val)
+	  }else{
+		let clearIndex = this.e9pzkft.indexOf(val)
+		this.e9pzkft.splice(clearIndex,1)
+	  }
+	},
+
+	wnv9gz0(e){
+	  let val = e.target._value
+	  this.e9pzkft = []
+	  this.e9pzkft.push(val)
+	},
+
+	s0a2qzz(pageNumb){
+	  this.jpjesdt.j_pageNum = pageNumb
+	  this.jqjukz8()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="hc5r87969">
+		<div class="dmoo0rv94">
+		<div
+			 class="o8j16cfjt  sic14k088">
+		  <div class="l7y5o8tiv">
+			  <div class="v0ane2nzw">
+				<Button class="spew0hf5y"
+					 :disabled="e9pzkft.length > 1 || e9pzkft.length == 0"
+					 @click="p3i4cu0()"
+					 :style="{backgroundColor: (e9pzkft.length == 1 ? '#7617CF' : 'unset'),color: (e9pzkft.length == 1 ? '#fff' : '#666')}">修改</Button>
+				<Button class="y4wl2ymg5" @click="b3c83ek"  style="background-color: #1C61E6">新增</Button>
+				<Button
+					 class="gl6g5vkys"
+					 :disabled="e9pzkft.length == 0" @click="lqbrxhn()" :style="{backgroundColor: (e9pzkft.length == 0 ? 'unset' : '#07B1B0'),color: (e9pzkft.length == 0 ? '#666' : '#fff')}">删除</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="mil5ayo4x">
+			  <Input class="jxy1kvaav"
+			  	 v-model="zow3pf0Data['resourceProvision']" placeholder="请输入资源提供" />
+		  <Button
+		  	 @click="zow3pf0"
+		  	 class="in3xggbg2">搜索</Button>
+		</div>
+		</div>
+		  <div class="eogqk2was  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th>#</th>
+				  <th>资源提供</th>
+				  <th>资源类型</th>
+				  <th>是否付费</th>
+				  <th>浏览网址</th>
+				  <th>联系方式</th>
+				  <th>负责人</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr :key="index"
+					 v-for="(data,index) in xwzg8an.list">
+				  <td><input @click="wnv9gz0($event)" :value="data" name="radio" type="radio"></td>
+					  <td>{{data['resourceProvision']}}</td>
+					  <td>{{data['plantName']}}</td>
+						<td>{{data['shiFouFuFei']}}</td>
+					  <td>{{data['browseWebsite']}}</td>
+					  <td>{{data['contact']}}</td>
+					  <td>{{data['contactCustomerService']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div
+		  	 class="tff67qixw " >
+			<div class="ovh17kg1d">
+			  <div v-if="xwzg8an.total"
+			  	 class="mo9jculgo">总共{{xwzg8an.total}}条</div>
+			  <div class="lo3kfqoxs" v-if="xwzg8an.hasPreviousPage"
+			  	 @click="m9fopqw">
+			  	<Icon
+			  	 size="18"
+			  	 type="ios-arrow-back"/></div>
+			  <div
+			  	 class="fcl8wdwp7">
+				<span
+					 class="xclzps9cq"
+					 :class="{'e9m130zzz':xwzg8an.pageNum == numb}"
+					 @click="s0a2qzz(numb)"
+					 :key="index" v-for="(numb,index) in xwzg8an.pages">{{numb}}</span>
+			  </div>
+			  <div
+			  	 v-if="xwzg8an.hasNextPage" class="zqej2d7cs"
+			  	 @click="tqckx6i">
+			  	<Icon
+			  	 type="ios-arrow-forward"
+			  	  size="18"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal
+			 :transfer="false"
+			 title="修改" :width="40"
+			 :fullscreen="false" v-model="d752hda" :footer-hide="true">
+		  <Form
+		  	 :rules="whmlun3"
+		  	 label-position="left" style="padding-bottom: 50px;" :label-width="100"
+		  	 ref="editFormData"
+		  	 :model="zcpbdhi">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="资源提供"
+				  	  prop="resourceProvision">
+					<Input
+						 placeholder="请输入资源提供..."
+						 v-model="zcpbdhi['resourceProvision']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="资源类型"
+				  	  prop="plantName">
+					<Input placeholder="请输入资源类型..."
+						 v-model="zcpbdhi['plantName']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="是否付费"  prop="shiFouFuFei">
+					<Select
+						 v-model="zcpbdhi['shiFouFuFei']" class="zlhlel3g1" clearable placeholder="请输入是否付费">
+						<Option
+							 v-for="item in f06agzc['shiFouFuFei']"
+							 :key="item"
+							 :value="item">
+							{{item}}
+						</Option>
+					</Select>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="浏览网址"  prop="browseWebsite">
+					<Input placeholder="请输入浏览网址..."
+						 v-model="zcpbdhi['browseWebsite']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="contact"
+				  	 label="联系方式">
+					<Input placeholder="请输入联系方式..."
+						 v-model="zcpbdhi['contact']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="负责人"
+				  	  prop="contactCustomerService">
+					<Input
+						 placeholder="请输入负责人..." v-model="zcpbdhi['contactCustomerService']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="gs1p62nj2">
+			<Button
+				 style="margin: 0 20px"
+				 @click="p8ec4lr">关闭</Button>
+			<Button
+				 type="primary" @click="x2x5zrx('editFormData')"
+				 style="margin: 0 20px">提交</Button>
+		  </div>
+		</Modal>
+		<Modal :transfer="false" :fullscreen="false"
+			 :width="40"
+			 title="新增" v-model="vjrb66h" :footer-hide="true">
+		  <Form
+		  	 :rules="whmlun3" label-position="left"
+		  	 ref="addFormData" :label-width="100"
+		  	 :model="zcpbdhi" style="padding-bottom: 50px;">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem label="资源提供"  prop="resourceProvision">
+					<Input
+						 placeholder="请输入资源提供..."
+						 v-model="zcpbdhi['resourceProvision']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="plantName" label="资源类型">
+					<Input v-model="zcpbdhi['plantName']"
+						 placeholder="请输入资源类型..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="shiFouFuFei"
+				  	 label="是否付费">
+					<Select
+						 class="zlhlel3g1" v-model="zcpbdhi['shiFouFuFei']" placeholder="请输入是否付费" clearable>
+						<Option
+							 v-for="item in f06agzc['shiFouFuFei']" :key="item" :value="item">
+							{{item}}
+						</Option>
+					</Select>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="浏览网址"
+				  	  prop="browseWebsite">
+					<Input v-model="zcpbdhi['browseWebsite']" placeholder="请输入浏览网址..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="联系方式"  prop="contact">
+					<Input placeholder="请输入联系方式..." v-model="zcpbdhi['contact']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="负责人"  prop="contactCustomerService">
+					<Input
+						 v-model="zcpbdhi['contactCustomerService']" placeholder="请输入负责人..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="gs1p62nj2">
+			<Button @click="wu36myv" style="margin: 0 20px">关闭</Button>
+			<Button
+				 @click="oajtnbq('addFormData')"
+				 style="margin: 0 20px" type="primary">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+instructResourceService} from '@/api'
+export default {
+data(){
+	return{
+	  f06agzc: {
+			  'shiFouFuFei': '是 否'.split(" "),
+	  },
+	  whmlun3:{
+			'resourceProvision':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'plantName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'shiFouFuFei':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'browseWebsite':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'contact':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'contactCustomerService':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  ee0gqn8: {
+		  },
+		  o7ujlkc: {
+		  },
+	  zcpbdhi:{
+		'resourceProvision':'',
+		'plantName':'',
+		'shiFouFuFei':'',
+		'browseWebsite':'',
+		'contact':'',
+		'contactCustomerService':'',
+	  },
+	  d752hda:false,
+	  xwzg8an:{
+		list:[]
+	  },
+	  vjrb66h:false,
+	  zow3pf0Data:{},
+	  jpjesdt:{
+	  },
+	  e9pzkft:[],
+	}
+},
+mounted () {
+	this.jqjukz8();
+	this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+
+		  jqjukz8() {
+			instructResourceService.getList(this.zow3pf0Data, this.jpjesdt.j_pageNum, this.jpjesdt.j_pageSize).then(res => {
+			  if(res.success){
+				this.xwzg8an = res.data
+			  }
+			})
+		  },
+		x2x5zrx(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  instructResourceService.changeInstructResource(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.p8ec4lr()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		oajtnbq(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  instructResourceService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.wu36myv()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		lqbrxhn(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.e9pzkft.length > 0){
+				ids = this.e9pzkft.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			instructResourceService.removeInstructResource(ids).then(res => {
+			if(res.success){
+					this.e9pzkft = []
+					this.$Message.success('删除成功')
+					this.jqjukz8()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+
+	  b3c83ek(){
+		this.vjrb66h = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  wu36myv(){
+		this.vjrb66h = false
+		this.zcpbdhi = {
+		  'resourceProvision':'',
+		  'plantName':'',
+		  'shiFouFuFei':'',
+		  'browseWebsite':'',
+		  'contact':'',
+		  'contactCustomerService':'',
+		}
+	  },
+	
+	  p3i4cu0(itemData){
+		if(itemData){
+		  this.zcpbdhi = {...itemData}
+		  this.d752hda = true
+		}else if(this.e9pzkft.length > 0){
+		  this.zcpbdhi = {...this.e9pzkft[0]}
+		  this.d752hda = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  p8ec4lr(){
+		this.d752hda = false
+		this.zcpbdhi = {
+		  'resourceProvision':'',
+		  'plantName':'',
+		  'shiFouFuFei':'',
+		  'browseWebsite':'',
+		  'contact':'',
+		  'contactCustomerService':'',
+		}
+	  },
+	
+	  zow3pf0(){
+		this.jpjesdt.j_pageNum = 1
+		this.jqjukz8()
+	  },
+	
+	  m9fopqw(){
+		if(this.xwzg8an.hasPreviousPage){
+		  this.jpjesdt.j_pageNum = this.xwzg8an.prePage
+		  this.jqjukz8()
+		}
+		
+	  },
+	
+	  tqckx6i(){
+		if(this.xwzg8an.hasNextPage){
+		this.jpjesdt.j_pageNum = this.xwzg8an.nextPage
+		this.jqjukz8()
+		}
+		  	 :label-width="100" label-position="left" style="padding-bottom: 50px;">
+			<Row :gutter="32">
+								<Col
+									 span="12">
+					<FormItem
+						  prop="evaluationNo"
+						 label="测评编号" >
+					  <Input v-model="zcpbdhi['evaluationNo']"
+					  	 placeholder="请输入测评编号..." class="zlhlel3g1"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="12">
+					<FormItem  prop="evaluationName"
+						 label="测评名称" >
+					  <Input
+					  	 v-model="zcpbdhi['evaluationName']"
+					  	 placeholder="请输入测评名称..."
+					  	 class="zlhlel3g1"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="12">
+					<FormItem label="测评指标"
+						  prop="evaluationIndicators" >
+					  <Input class="zlhlel3g1" placeholder="请输入测评指标..." v-model="zcpbdhi['evaluationIndicators']"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="12">
+					<FormItem
+						  prop="assessmentSkills" label="测评技能" >
+					  <Input class="zlhlel3g1" placeholder="请输入测评技能..." v-model="zcpbdhi['assessmentSkills']"></Input>
+					</FormItem>
+				  </Col>
+				  <Col
+				  	 span="12">
+					<FormItem  prop="evaluationTime"
+						 label="测评时间" >
+					  <Input class="zlhlel3g1" placeholder="请输入测评时间..."
+					  	 v-model="zcpbdhi['evaluationTime']"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="12">
+					<FormItem  prop="evaluationDuration"
+						 label="测评时长" >
+					  <Input
+					  	 class="zlhlel3g1"
+					  	 placeholder="请输入测评时长..." v-model="zcpbdhi['evaluationDuration']"></Input>
+					</FormItem>
+				  </Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="ixur5tae8">
+			<Button
+				 style="margin: 0 20px"
+				 @click="pnuygp7">重置</Button>
+			<Button
+				 style="margin: 0 20px; background-color: #1C61E6; color:#fff;" @click="q3mt7h9('FormData')">确认提交</Button>
+		  </div>
+	</div>
+</div>
+</template>
+
+<script>
+import {
+onlineEvaluationService} from '@/api'
+export default {
+data () {
+	return {
+	  whmlun3:{
+			'evaluationNo':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'evaluationName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			  {
+		'evaluationTime':'',
+methods:{
+	phz2x98() {
+		},
+	pnuygp7(){
+	  this.zcpbdhi = {
+		'evaluationNo':'',
+		'evaluationName':'',
+		'evaluationIndicators':'',
+		'assessmentSkills':'',
+		'evaluationTime':'',
+		'evaluationDuration':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		q3mt7h9(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  onlineEvaluationService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		},
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import './index.css';
+</style>
+<template>
+<div
+	 class="p4j7jwyj8">
+	  <div class="ywonda8iv">
+		<i
+			 class="nssfkdzbt iconfont icon-hetongguanli" />
+		{{je0c8tj}}
+	  </div>
+	  <div class="qacx7p3is">
+		  <Form
+		  	 ref="FormData" :label-width="100" style="padding-bottom: 50px;"
+		  	 :model="zcpbdhi"
+		  	 label-position="left"
+		  	 :rules="whmlun3">
+			<Row
+				 :gutter="32">
+							<Col span="12">
+				<FormItem  prop="reportTitle" label="报告标题" >
+				  <Input class="zlhlel3g1" placeholder="请输入报告标题..." v-model="zcpbdhi['reportTitle']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem  prop="reportNumber" label="报告编号" >
+				  <Input
+				  	 v-model="zcpbdhi['reportNumber']"
+				  	 placeholder="请输入报告编号..."
+				  	 class="zlhlel3g1"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="reporter"
+					 label="报告人" >
+				  <Input
+				  	 class="zlhlel3g1" placeholder="请输入报告人..." v-model="zcpbdhi['reporter']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="报告内容"
+					  prop="reportContent" >
+				  <Input class="zlhlel3g1"
+				  	 placeholder="请输入报告内容..." v-model="zcpbdhi['reportContent']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="报告时间"  prop="chuangJianShiJian" >
+				  <Input class="zlhlel3g1"
+				  	 placeholder="请输入报告时间..." v-model="zcpbdhi['chuangJianShiJian']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="reportStatus" label="报告状态" >
+				  <Input
+				  	 class="zlhlel3g1" v-model="zcpbdhi['reportStatus']" placeholder="请输入报告状态..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="ixur5tae8">
+			<Button style="margin: 0 20px"
+				 @click="pnuygp7">重置</Button>
+			<Button
+				 style="margin: 0 20px; background-color: #1C61E6; color:#fff;"
+				 @click="q3mt7h9('FormData')">确认提交</Button>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+import {
+evaluationReportManagementService} from '@/api'
+export default {
+	data () {
+	  return {
+		je0c8tj:'',
+		whmlun3:{
+			  'reportTitle':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'reportNumber':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'reporter':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'reportContent':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'chuangJianShiJian':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'reportStatus':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+		},
+		f06agzc: {
+	  },
+		zcpbdhi:{
+		  'reportTitle':'',
+		  'reportNumber':'',
+		  'reporter':'',
+		  'reportContent':'',
+		  'chuangJianShiJian':'',
+		  'reportStatus':'',
+		},
+	  o7ujlkc: {
+	  },
+	  }
+	},
+mounted () {
+this.je0c8tj = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+	pnuygp7(){
+	  this.zcpbdhi = {
+		'reportTitle':'',
+		'reportNumber':'',
+		'reporter':'',
+		'reportContent':'',
+		'chuangJianShiJian':'',
+		'reportStatus':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		q3mt7h9(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  evaluationReportManagementService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		}
+}
+}
+</script>
+
+<style scoped>
+	@import './index.css';
+</style>
+<template>
+<div class="fz3gsn0v5">
+		<div class="dmoo0rv94">
+		<div
+			 class="o8j16cfjt  sic14k088">
+		  <div class="l7y5o8tiv">
+			  <div
+			  	 class="v0ane2nzw">
+				<Button
+					 :disabled="e9pzkft.length == 0" class="gl6g5vkys"
+					 @click="lqbrxhn()" :style="{backgroundColor: (e9pzkft.length == 0 ? 'unset' : '#07B1B0'),color: (e9pzkft.length == 0 ? '#666' : '#fff')}">删除</Button>
+				<Button
+					 @click="p3i4cu0()"
+					 :style="{backgroundColor: (e9pzkft.length == 1 ? '#7617CF' : 'unset'),color: (e9pzkft.length == 1 ? '#fff' : '#666')}" class="spew0hf5y" :disabled="e9pzkft.length > 1 || e9pzkft.length == 0">修改</Button>
+				<Button
+					  style="background-color: #1C61E6" @click="b3c83ek"
+					 class="y4wl2ymg5">新增</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="mil5ayo4x">
+		</div>
+		</div>
+		  <div class="eogqk2was  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th>#</th>
+				  <th>学号</th>
+				  <th>姓名</th>
+				  <th>性别</th>
+				  <th>年龄</th>
+				  <th>班级</th>
+				  <th>学院</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr
+					 :key="index" v-for="(data,index) in xwzg8an.list">
+				  <td><input
+				  	 name="radio" @click="wnv9gz0($event)" :value="data" type="radio"></td>
+					  <td>{{data['studentID']}}</td>
+					  <td>{{data['visitorType']}}</td>
+					  <td>{{data['sexualdistinction']}}</td>
+					  <td>{{data['ageInformation']}}</td>
+					  <td>{{data['grade']}}</td>
+					  <td>{{data['college']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="tff67qixw " >
+			<div
+				 class="ovh17kg1d">
+			  <div class="mo9jculgo" v-if="xwzg8an.total">总共{{xwzg8an.total}}条</div>
+			  <div
+			  	 class="lo3kfqoxs" v-if="xwzg8an.hasPreviousPage" @click="m9fopqw">
+			  	<Icon type="ios-arrow-back" size="18"/></div>
+			  <div class="fcl8wdwp7">
+				<span @click="s0a2qzz(numb)"
+					 class="xclzps9cq" v-for="(numb,index) in xwzg8an.pages" :class="{'e9m130zzz':xwzg8an.pageNum == numb}"
+					 :key="index">{{numb}}</span>
+			  </div>
+			  <div
+			  	 v-if="xwzg8an.hasNextPage"
+			  	 class="zqej2d7cs" @click="tqckx6i">
+			  	<Icon  size="18" type="ios-arrow-forward"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal :width="40"
+			 title="修改" :transfer="false"
+			 :fullscreen="false"
+			 v-model="d752hda" :footer-hide="true">
+		  <Form
+		  	 :model="zcpbdhi" ref="editFormData"
+		  	 :rules="whmlun3" label-position="left"
+		  	 :label-width="100"
+		  	 style="padding-bottom: 50px;">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="学号"  prop="studentID">
+					<Input
+						 placeholder="请输入学号..."
+						 v-model="zcpbdhi['studentID']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="visitorType" label="姓名">
+					<Input placeholder="请输入姓名..." v-model="zcpbdhi['visitorType']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="性别"  prop="sexualdistinction">
+					<Input v-model="zcpbdhi['sexualdistinction']"
+						 placeholder="请输入性别..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="年龄"
+				  	  prop="ageInformation">
+					<Input
+						 placeholder="请输入年龄..." v-model="zcpbdhi['ageInformation']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="grade"
+				  	 label="班级">
+					<Input placeholder="请输入班级..." v-model="zcpbdhi['grade']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="college" label="学院">
+					<Input
+						 placeholder="请输入学院..."
+						 v-model="zcpbdhi['college']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="gs1p62nj2">
+			<Button
+				 @click="p8ec4lr" style="margin: 0 20px">关闭</Button>
+			<Button
+				 style="margin: 0 20px" type="primary" @click="x2x5zrx('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal v-model="vjrb66h"
+			 :fullscreen="false" :width="40"
+			 title="新增"
+			 :transfer="false"
+			 :footer-hide="true">
+		  <Form
+		  	 label-position="left" :rules="whmlun3" :label-width="100" ref="addFormData" :model="zcpbdhi"
+		  	 style="padding-bottom: 50px;">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="学号"
+				  	  prop="studentID">
+					<Input
+						 placeholder="请输入学号..."
+						 v-model="zcpbdhi['studentID']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="姓名"  prop="visitorType">
+					<Input placeholder="请输入姓名..."
+						 v-model="zcpbdhi['visitorType']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="性别"
+				  	  prop="sexualdistinction">
+					<Input
+						 placeholder="请输入性别..."
+						 v-model="zcpbdhi['sexualdistinction']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="年龄"
+				  	  prop="ageInformation">
+					<Input placeholder="请输入年龄..." v-model="zcpbdhi['ageInformation']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="grade" label="班级">
+					<Input
+						 v-model="zcpbdhi['grade']"
+						 placeholder="请输入班级..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="college" label="学院">
+					<Input
+						 v-model="zcpbdhi['college']"
+						 placeholder="请输入学院..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="gs1p62nj2">
+			<Button
+				 style="margin: 0 20px"
+				 @click="wu36myv">关闭</Button>
+			<Button type="primary"
+				 @click="oajtnbq('addFormData')"
+				 style="margin: 0 20px">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+studentManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  e9pzkft:[],
+	  f06agzc: {
+	  },
+	  whmlun3:{
+			'studentID':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'visitorType':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'sexualdistinction':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'ageInformation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'grade':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'college':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  ee0gqn8: {
+		  },
+	  d752hda:false,
+	  zow3pf0Data:{},
+	  vjrb66h:false,
+		  o7ujlkc: {
+		  },
+	  xwzg8an:{
+		list:[]
+	  },
+	  jpjesdt:{
+	  },
+	  zcpbdhi:{
+		'studentID':'',
+		'visitorType':'',
+		'sexualdistinction':'',
+		'ageInformation':'',
+		'grade':'',
+		'college':'',
+	  },
+	}
+},
+mounted () {
+	this.jqjukz8();
+	this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+
+		  jqjukz8() {
+			studentManagementService.getList(this.zow3pf0Data, this.jpjesdt.j_pageNum, this.jpjesdt.j_pageSize).then(res => {
+			  if(res.success){
+				this.xwzg8an = res.data
+			  }
+			})
+		  },
+		lqbrxhn(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.e9pzkft.length > 0){
+				ids = this.e9pzkft.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			studentManagementService.removeStudentManagement(ids).then(res => {
+			if(res.success){
+					this.e9pzkft = []
+					this.$Message.success('删除成功')
+					this.jqjukz8()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		x2x5zrx(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  studentManagementService.changeStudentManagement(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.p8ec4lr()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		oajtnbq(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  studentManagementService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.wu36myv()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+
+	  b3c83ek(){
+		this.vjrb66h = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  wu36myv(){
+		this.vjrb66h = false
+		this.zcpbdhi = {
+		  'studentID':'',
+		  'visitorType':'',
+		  'sexualdistinction':'',
+		  'ageInformation':'',
+		  'grade':'',
+		  'college':'',
+		}
+	  },
+	
+	  p3i4cu0(itemData){
+		if(itemData){
+		  this.zcpbdhi = {...itemData}
+		  this.d752hda = true
+		}else if(this.e9pzkft.length > 0){
+		  this.zcpbdhi = {...this.e9pzkft[0]}
+		  this.d752hda = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  p8ec4lr(){
+		this.d752hda = false
+		this.zcpbdhi = {
+		  'studentID':'',
+		  'visitorType':'',
+		  'sexualdistinction':'',
+		  'ageInformation':'',
+		  'grade':'',
+		  'college':'',
+		}
+	  },
+	
+	  zow3pf0(){
+		this.jpjesdt.j_pageNum = 1
+		this.jqjukz8()
+	  },
+	
+	  m9fopqw(){
+		if(this.xwzg8an.hasPreviousPage){
+		  this.jpjesdt.j_pageNum = this.xwzg8an.prePage
+		  this.jqjukz8()
+		}
+		
+	  },
+	
+	  tqckx6i(){
+		if(this.xwzg8an.hasNextPage){
+		this.jpjesdt.j_pageNum = this.xwzg8an.nextPage
+		this.jqjukz8()
+		}
+	  },
+
+	u5mj8p5(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.e9pzkft = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.e9pzkft.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.e9pzkft = []
+	  }
+	},
+
+	so5t7mt(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.e9pzkft.push(val)
+	  }else{
+		let clearIndex = this.e9pzkft.indexOf(val)
+		this.e9pzkft.splice(clearIndex,1)
+	  }
+	},
+
+	wnv9gz0(e){
+	  let val = e.target._value
+	  this.e9pzkft = []
+	  this.e9pzkft.push(val)
+	},
+
+	s0a2qzz(pageNumb){
+	  this.jpjesdt.j_pageNum = pageNumb
+	  this.jqjukz8()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="zl5kdamcs">
+	   <div
+	   	 class="mil5ayo4x">
+				  </div>
+		<div class="dmoo0rv94">
+		  <div
+		  	 class="l7y5o8tiv jo95ho383">
+			  <div class="v0ane2nzw">
+				<Button
+					 @click="p3i4cu0()" :disabled="e9pzkft.length > 1 || e9pzkft.length == 0" class="spew0hf5y"
+					 :style="{backgroundColor: (e9pzkft.length == 1 ? '#7617CF' : 'unset'),color: (e9pzkft.length == 1 ? '#fff' : '#666')}">修改</Button>
+				<Button
+					  style="background-color: #C18907" class="y4wl2ymg5" @click="b3c83ek">新增</Button>
+				<Button
+					 class="gl6g5vkys"
+					 :disabled="e9pzkft.length == 0"
+					 @click="lqbrxhn()"
+					 :style="{backgroundColor: (e9pzkft.length == 0 ? 'unset' : '#07B1B0'),color: (e9pzkft.length == 0 ? '#666' : '#fff')}">删除</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="eogqk2was  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th>#</th>
+				  <th>方案名称</th>
+				  <th>方案编号</th>
+				  <th>方案内容</th>
+				  <th>方案状态</th>
+				  <th>方案备注</th>
+				  <th>方案负责人</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr
+					 :key="index"
+					 v-for="(data,index) in xwzg8an.list">
+				  <td><input type="radio" name="radio"
+				  	 :value="data"
+				  	 @click="wnv9gz0($event)"></td>
+					  <td>{{data['servicePlan']}}</td>
+					  <td>{{data['schemeNumberInformation']}}</td>
+					  <td>{{data['programContent']}}</td>
+					  <td>{{data['schemeDetails']}}</td>
+					  <td>{{data['schemeRemark']}}</td>
+					  <td>{{data['programLeader']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div
+		  	 class="tff67qixw " >
+
+			<div
+				 class="ovh17kg1d">
+			  <div
+			  	 class="lo3kfqoxs" v-if="xwzg8an.hasPreviousPage"
+			  	 @click="m9fopqw">
+			  	<Icon size="18" type="ios-arrow-back"/></div>
+			  <div class="fcl8wdwp7">
+				<span :key="index" v-for="(numb,index) in xwzg8an.pages" class="xclzps9cq"
+					 @click="s0a2qzz(numb)"
+					 :class="{'e9m130zzz':xwzg8an.pageNum == numb}">{{numb}}</span>
+			  </div>
+			  <div
+			  	 @click="tqckx6i" v-if="xwzg8an.hasNextPage" class="zqej2d7cs">
+			  	<Icon
+			  	 type="ios-arrow-forward"
+			  	  size="18"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal :footer-hide="true"
+			 :fullscreen="false" :transfer="false" :width="40"
+			 title="修改" v-model="d752hda">
+		  <Form :model="zcpbdhi"
+		  	 ref="editFormData" style="padding-bottom: 50px;"
+		  	 :rules="whmlun3"
+		  	 label-position="left" :label-width="100">
+			<Row
+				 :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	  prop="servicePlan"
+				  	 label="方案名称">
+					<Input
+						 v-model="zcpbdhi['servicePlan']"
+						 placeholder="请输入方案名称..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="方案编号"
+				  	  prop="schemeNumberInformation">
+					<Input
+						 v-model="zcpbdhi['schemeNumberInformation']"
+						 placeholder="请输入方案编号..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="programContent"
+				  	 label="方案内容">
+					<Input
+						 v-model="zcpbdhi['programContent']"
+						 placeholder="请输入方案内容..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="方案状态"  prop="schemeDetails">
+					<Input
+						 v-model="zcpbdhi['schemeDetails']" placeholder="请输入方案状态..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="方案备注"
+				  	  prop="schemeRemark">
+					<Input v-model="zcpbdhi['schemeRemark']" placeholder="请输入方案备注..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="方案负责人"  prop="programLeader">
+					<Input
+						 v-model="zcpbdhi['programLeader']"
+						 placeholder="请输入方案负责人..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="gs1p62nj2">
+			<Button style="margin: 0 20px"
+				 @click="p8ec4lr">关闭</Button>
+			<Button
+				 type="primary"
+				 style="margin: 0 20px" @click="x2x5zrx('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 :fullscreen="false"
+			 v-model="vjrb66h" :footer-hide="true" :width="40"
+			 :transfer="false"
+			 title="新增">
+		  <Form style="padding-bottom: 50px;"
+		  	 :model="zcpbdhi"
+		  	 :label-width="100"
+		  	 label-position="left" ref="addFormData"
+		  	 :rules="whmlun3">
+			<Row
+				 :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	 label="方案名称"  prop="servicePlan">
+					<Input
+						 placeholder="请输入方案名称..."
+						 v-model="zcpbdhi['servicePlan']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="方案编号"
+				  	  prop="schemeNumberInformation">
+					<Input placeholder="请输入方案编号..."
+						 v-model="zcpbdhi['schemeNumberInformation']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="方案内容"
+				  	  prop="programContent">
+					<Input v-model="zcpbdhi['programContent']" placeholder="请输入方案内容..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="schemeDetails"
+				  	 label="方案状态">
+					<Input v-model="zcpbdhi['schemeDetails']"
+						 placeholder="请输入方案状态..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="schemeRemark" label="方案备注">
+					<Input
+						 v-model="zcpbdhi['schemeRemark']"
+						 placeholder="请输入方案备注..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="programLeader"
+				  	 label="方案负责人">
+					<Input
+						 placeholder="请输入方案负责人..."
+						 v-model="zcpbdhi['programLeader']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="gs1p62nj2">
+			<Button style="margin: 0 20px"
+				 @click="wu36myv">关闭</Button>
+			<Button
+				 style="margin: 0 20px"
+				 type="primary" @click="oajtnbq('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+analysisSchemeManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  zow3pf0Data:{},
+		  ee0gqn8: {
+		  },
+	  whmlun3:{
+			'servicePlan':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'schemeNumberInformation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'programContent':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'schemeDetails':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'schemeRemark':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'programLeader':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  e9pzkft:[],
+	  zcpbdhi:{
+		'servicePlan':'',
+		'schemeNumberInformation':'',
+		'programContent':'',
+		'schemeDetails':'',
+		'schemeRemark':'',
+		'programLeader':'',
+	  },
+	  d752hda:false,
+	  vjrb66h:false,
+	  f06agzc: {
+	  },
+		je0c8tj:'',
+	  jpjesdt:{
+	  },
+	  xwzg8an:{
+		list:[]
+	  },
+		  o7ujlkc: {
+		  },
+	}
+},
+mounted () {
+	this.je0c8tj = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+	this.jqjukz8();
+	this.phz2x98();
+},
+methods:{
+	phz2x98() {
+		},
+
+		x2x5zrx(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  analysisSchemeManagementService.changeAnalysisSchemeManagement(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.p8ec4lr()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		oajtnbq(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  analysisSchemeManagementService.add(this.zcpbdhi).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.wu36myv()
+				  this.jqjukz8()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  jqjukz8() {
+			analysisSchemeManagementService.getList(this.zow3pf0Data, this.jpjesdt.j_pageNum, this.jpjesdt.j_pageSize).then(res => {
+			  if(res.success){
+				this.xwzg8an = res.data
+			  }
+			})
+		  },
+		lqbrxhn(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.e9pzkft.length > 0){
+				ids = this.e9pzkft.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			analysisSchemeManagementService.removeAnalysisSchemeManagement(ids).then(res => {
+			if(res.success){
+					this.e9pzkft = []
+					this.$Message.success('删除成功')
+					this.jqjukz8()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+
+	  b3c83ek(){
+		this.vjrb66h = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  wu36myv(){
+		this.vjrb66h = false
+		this.zcpbdhi = {
+		  'servicePlan':'',
+		  'schemeNumberInformation':'',
+		  'programContent':'',
+		  'schemeDetails':'',
+		  'schemeRemark':'',
+		  'programLeader':'',
+		}
+	  },
+	
+	  p3i4cu0(itemData){
+		if(itemData){
+		  this.zcpbdhi = {...itemData}
+		  this.d752hda = true
+		}else if(this.e9pzkft.length > 0){
+		  this.zcpbdhi = {...this.e9pzkft[0]}
+		  this.d752hda = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  p8ec4lr(){
+		this.d752hda = false
+		this.zcpbdhi = {
+		  'servicePlan':'',
+		  'schemeNumberInformation':'',
+		  'programContent':'',
+		  'schemeDetails':'',
+		  'schemeRemark':'',
+		  'programLeader':'',
+		}
+	  },
+	
+	  zow3pf0(){
+		this.jpjesdt.j_pageNum = 1
+		this.jqjukz8()
+	  },
+	
+	  m9fopqw(){
+		if(this.xwzg8an.hasPreviousPage){
+		  this.jpjesdt.j_pageNum = this.xwzg8an.prePage
+		  this.jqjukz8()
+		}
+		
+	  },
+	
+	  tqckx6i(){
+		if(this.xwzg8an.hasNextPage){
+		this.jpjesdt.j_pageNum = this.xwzg8an.nextPage
+		this.jqjukz8()
+		}
+	  },
+
+	u5mj8p5(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.e9pzkft = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.e9pzkft.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.e9pzkft = []
+	  }
+	},
+
+	so5t7mt(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.e9pzkft.push(val)
+	  }else{
+		let clearIndex = this.e9pzkft.indexOf(val)
+		this.e9pzkft.splice(clearIndex,1)
+	  }
+	},
+
+	wnv9gz0(e){
+	  let val = e.target._value
+	  this.e9pzkft = []
+	  this.e9pzkft.push(val)
+	},
+
+	s0a2qzz(pageNumb){
+	  this.jpjesdt.j_pageNum = pageNumb
+	  this.jqjukz8()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+package com.kenneth.miller.evaluationreportmanagement.req;
+
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
+import lombok.Data;
+
+@Data
+public class AnalysisSchemeManagementAddREQ {
+
+
+	/**
+	* 方案名称
+	*/
+	private String servicePlan;
+
+	/**
+	* 方案编号
+	*/
+	private String schemeNumberInformation;
+
+	/**
+	* 方案内容
+	*/
+	private String programContent;
+
+	/**
+	* 方案状态
+	*/
+	private String schemeDetails;
+
+	/**
+	* 方案备注
+	*/
+	private String schemeRemark;
+
+	/**
+	* 方案负责人
+	*/
+	private String programLeader;
+
+}
+package com.kenneth.miller.evaluationreportmanagement.req;
+
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
+import lombok.Data;
+
+@Data
+public class EvaluationReportManagementAddREQ {
+
+
+	/**
+	* 报告标题
+	*/
+	private String reportTitle;
+
+	/**
+	* 报告编号
+	*/
+	private String reportNumber;
+
+	/**
+	* 报告人
+	*/
+	private String reporter;
+
+	/**
+	* 报告内容
+	*/
+	private String reportContent;
+
+	/**
+	* 报告时间
+	*/
+	private String chuangJianShiJian;
+
+	/**
+	* 报告状态
+	*/
+	private String reportStatus;
+
+}
+package com.kenneth.miller.evaluationreportmanagement.req;
+
+import com.kenneth.miller.evaluationreportmanagement.req.page.PageInfoREQ;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+* 分析方案管理列表请求
+*
+*/
+@Data
+public class AnalysisSchemeManagementListREQ extends PageInfoREQ implements Serializable {
+
+
+	/**
+	* 方案名称
+	*/
+	private String servicePlan;
+
+	/**
+	* 方案编号
+	*/
+	private String schemeNumberInformation;
+
+	/**
+	* 方案内容
+	*/
+	private String programContent;
+
+	/**
+	* 方案状态
+	*/
+	private String schemeDetails;
+
+	/**
+	* 方案备注
+	*/
+	private String schemeRemark;
+
+	/**
+	* 方案负责人
+	*/
+	private String programLeader;
+}
+package com.kenneth.miller.evaluationreportmanagement.req;
+
+import com.kenneth.miller.evaluationreportmanagement.req.page.PageInfoREQ;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+* 测评报告管理列表请求
+*
+*/
+@Data
+public class EvaluationReportManagementListREQ extends PageInfoREQ implements Serializable {
+
+
+	/**
+	* 报告标题
+	*/
+	private String reportTitle;
+
+	/**
+	* 报告编号
+	*/
+	private String reportNumber;
+
+	/**
+	* 报告人
+	*/
+	private String reporter;
+
+	/**
+	* 报告内容
+	*/
+	private String reportContent;
+
+	/**
+	* 报告时间
+	*/
+	private String chuangJianShiJian;
+
+	/**
+	* 报告状态
+	*/
+	private String reportStatus;
+}
+package com.kenneth.miller.evaluationreportmanagement.req.page;
+
+/**
+* 描述
+* 分页参数
+*
+*/
+public class PageInfoREQ {
+
+	private Integer pageNum;
+
+	private Integer pageSize;
+
+	public Integer getPageNum() {
+		return pageNum == null ? 1 : pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public Integer getPageSize() {
+		return pageSize == null ? 10 : pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+}
+package com.kenneth.miller.evaluationreportmanagement.dto;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+
+@Data
+public class EvaluationReportManagementInfoDTO {
+private Long id;
+
+
+	/**
+	* 报告标题
+	*/
+	@Column(name = "reportTitle")
+	private String reportTitle;
+
+	/**
+	* 报告编号
+	*/
+	@Column(name = "reportNumber")
+	private String reportNumber;
+
+	/**
+	* 报告人
+	*/
+	@Column(name = "reporter")
+	private String reporter;
+
+	/**
+	* 报告内容
+	*/
+	@Column(name = "reportContent")
+	private String reportContent;
+
+	/**
+	* 报告时间
+	*/
+	@Column(name = "chuangJianShiJian")
+	private String chuangJianShiJian;
+
+	/**
+	* 报告状态
+	*/
+	@Column(name = "reportStatus")
+	private String reportStatus;
+
+
+}
