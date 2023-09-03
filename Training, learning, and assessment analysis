@@ -1,0 +1,2955 @@
+<template>
+<div
+	 class="sck35tweh">
+	  <div
+	  	 class="xnneg4h6i">
+		  <div class="l6k1sne19">教育培训学习模块及考核模块分析管理系统</div>
+		  <div
+		  	 class="c_userBox">
+			  <span
+			  	 class="s82183uay">admin</span>
+			  <span @click="ijkp91x" class="copsvfiyl">退出系统</span>
+		  </div>
+	  </div>
+	  <div
+	  	 class="hxqdaxlra">
+		  <div
+		  	 class="b5gvyc0k1Box " >
+		  <div>
+					<div  v-if="x1yjd7o == '技能培训'"
+						 class="yi8rr54z6">
+							<div
+								 @click="wptu175('workingAbilityIndex','技能培训',0)"
+								 class="pqxebju86"
+								 :class="{'vw4dn8cvc': fuei7ma == '技能培训'}" >
+								<div class="pqxebju86Name" >
+								<i class="eiahzk1p7 iconfont icon-rise-filling"/>
+									技能培训
+								</div>
+							</div>
+							<div :class="{'vw4dn8cvc': fuei7ma == '培训计划'}" class="pqxebju86" @click="wptu175('trainingPlan','培训计划',1)" >
+								<div
+									 class="pqxebju86Name" >
+								<i class="eiahzk1p7 iconfont icon-ali-clould-fill"/>
+									培训计划
+								</div>
+							</div>
+							<div class="pqxebju86"
+								 :class="{'vw4dn8cvc': fuei7ma == '培训考核'}" @click="wptu175('trainAssessAnalysis','培训考核',2)" >
+								<div class="pqxebju86Name" >
+								<i
+									 class="eiahzk1p7 iconfont icon-leftalignment"/>
+									培训考核
+								</div>
+							</div>
+							<div @click="wptu175('trainTrainees','培训学员',3)" class="pqxebju86" :class="{'vw4dn8cvc': fuei7ma == '培训学员'}" >
+								<div class="pqxebju86Name" >
+								<i class="eiahzk1p7 iconfont icon-cry-fill"/>
+									培训学员
+								</div>
+							</div>
+							<div
+								 :class="{'vw4dn8cvc': fuei7ma == '培训进度'}" class="pqxebju86" @click="wptu175('trainingProgress','培训进度',4)" >
+								<div class="pqxebju86Name" >
+								<i class="eiahzk1p7 iconfont icon-edit-filling"/>
+									培训进度
+								</div>
+							</div>
+							<div @click="wptu175('practicalTrainingOfTrainingSkills','培训技能实训',5)"
+								 class="pqxebju86" :class="{'vw4dn8cvc': fuei7ma == '培训技能实训'}" >
+								<div class="pqxebju86Name" >
+								<i class="eiahzk1p7 iconfont icon-WIFI"/>
+									培训技能实训
+								</div>
+							</div>
+							<div
+								 @click="wptu175('skillsCourses','技能课程信息',6)" class="pqxebju86"
+								 :class="{'vw4dn8cvc': fuei7ma == '技能课程信息'}" >
+								<div class="pqxebju86Name" >
+								<i
+									 class="eiahzk1p7 iconfont icon-video"/>
+									技能课程信息
+								</div>
+							</div>
+					</div>
+				<div  v-if="x1yjd7o == '关于我们'" class="yi8rr54z6">
+					<div
+						 @click="qy6vog3()" :class="{'vw4dn8cvc': zmtn4gr == '关于我们'}"
+						 class="pqxebju86">
+						<div
+							 class="pqxebju86Name">
+							<i class="eiahzk1p7 iconfont icon-lijuanguize" />
+								关于我们
+						</div>
+					</div>
+				</div>
+			  </div>
+			  <div>
+			  <div class="yi8rr54z6">
+				  <div class="b5gvyc0k1" :class="{'vwv0eqx7w': x1yjd7o == '技能培训'}" @click="r3z6e04('ji_neng_pei_xun','技能培训')">
+					  <div
+					  	 class="l4oah0o0v">
+							<i class="eiahzk1p7 iconfont icon-a-shanchu7"/>
+							技能培训
+					  </div>
+				  </div>
+			  </div>
+
+			  <div
+			  	 class="yi8rr54z6">
+				  <div :class="{'vwv0eqx7w': x1yjd7o == '关于我们'}"
+				  	 class="b5gvyc0k1"
+				  	 @click="r3z6e04('about', '关于我们')">
+					  <div
+					  	 class="l4oah0o0v">
+						  <i class="eiahzk1p7 iconfont icon-lijuanguize" />
+							关于我们
+					  </div>
+				  </div>
+			  </div>
+			  </div>
+		  </div>
+		  <div
+		  	 class="svvish5sj">
+			  <div
+			  	 class="gi4vbojy7">
+				  <router-view></router-view>
+			  </div>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+export default {
+	data () {
+		return {
+				fuei7ma: '',
+				zmtn4gr: '',
+				x1yjd7o:'',
+		}
+	},
+	mounted () {
+	},
+	methods:{
+		q130tq8(name){
+			this.zmtn4gr = name
+			sessionStorage.setItem('fMenuName', name)
+			this.fuei7ma = ''
+		},
+		wptu175(code,name,index){
+			this.fuei7ma = name
+			sessionStorage.setItem('sMenuName', name)
+			this.$router.push("/"+code)
+		},
+		r3z6e04(_url, _name){
+			this.zmtn4gr = ''
+			this.x1yjd7o = _name
+		},
+		qy6vog3(){
+			this.zmtn4gr = '关于我们'
+			sessionStorage.setItem('fMenuName', name)
+			this.fuei7ma = ''
+			this.$router.push("/about")
+		},
+		 ijkp91x(){
+			this.$router.push("/")
+		},
+	},
+
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="ymxx7quid">
+	<div
+		 class="oe21zxiua">
+			  <div
+			  	 class="ocs71c0wu">
+		  <Button
+		  	 class="pnmhf9ni0"
+		  	 :disabled="i30w687.length == 0"
+		  	 :style="{backgroundColor: (i30w687.length == 0 ? 'unset' : '#8B8C2B'), color:(i30w687.length == 1 ? '#ffffff' : '#666')}" @click="awxswaf()">删除</Button>
+		  <Button
+		  	 :disabled="i30w687.length > 1 || i30w687.length == 0"
+		  	 class="dhtfyi3tc"
+		  	 @click="hlrpgwf()"
+		  	 :style="{backgroundColor: (i30w687.length == 1 ? '#5A1EFC' : 'unset'), color:(i30w687.length == 1 ? '#ffffff' : '#666')}">修改</Button>
+		  <Button
+		  	 class="c1ypn5gwy"
+		  	 @click="resypan" style="background-color: #1AAD59">新增</Button>
+		</div>
+	  <div
+	  	 class="zbdo7zynz">
+			<Input placeholder="请输入培训课程" class="u6jqfi6lj" v-model="ezbaliiData['trainHours']" />
+		<Button class="sstus3vim"
+			 @click="ezbalii">搜索</Button>
+	  </div>
+	</div>
+	<div class="gcy8pjca8">
+	  <table >
+		<thead>
+		  <tr>
+			<th><input
+				 class="ssm9krz2h" name="check"
+				 @click="khbzfkm($event)" id="selAllBtnId"
+				 type="checkbox"></th>
+			<th>培训课程</th>
+			<th>培训方案</th>
+			<th>培训时间</th>
+			<th>培训讲师</th>
+			<th>受培训人员</th>
+		  </tr>
+		</thead>
+		<tbody
+			 ref="table">
+		  <tr v-for="(data,index) in xzo5si4.list" :key="index">
+			<td><input
+				 @click="f8crt0w($event)" class="b66jw8mat" type="checkbox" :value="data" name="select"></td>
+				<td>{{data['trainHours']}}</td>
+				<td>{{data['trainingProgramme']}}</td>
+				<td>{{data['nameTrainProgram']}}</td>
+				<td>{{data['peiXunJiangShi']}}</td>
+				<td>{{data['trainees']}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	<div
+		 class="dvv2htym7">
+
+	  <div class="p6awxx80j">
+		<div
+			 @click="wd3jfn7" v-if="xzo5si4.hasPreviousPage"
+			 class="qgxcevin1">上一页</div>
+		<div
+			 class="o2ubvsmxm">
+		  <span
+		  	 :key="index" v-for="(numbs,index) in xzo5si4.pages" :class="{'pgu64mub5':xzo5si4.pageNum == numbs}"
+		  	 class="shi4d8uor"
+		  	 @click="bpxny01(numbs)">{{numbs}}</span>
+		</div>
+		<div
+			 @click="e2wo6ij" class="jdu3wh793" v-if="xzo5si4.hasNextPage">下一页</div>
+	  </div>
+	</div>
+
+
+
+	<Modal
+		 :fullscreen="true"
+		 v-model="s8ec05l"
+		 :transfer="false"
+		 title="修改"
+		 :width="40"
+		 :footer-hide="true">
+	  <Form
+	  	 :label-width="100" ref="editFormData"
+	  	 :model="ntqm713"
+	  	 label-position="left"
+	  	 style="padding-bottom: 50px;" :rules="khpab28">
+		<Row :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem
+			  	 label="培训课程"
+			  	  prop="trainHours">
+				<Input v-model="ntqm713['trainHours']"
+					 placeholder="请输入培训课程..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	 label="培训方案"  prop="trainingProgramme">
+				<Input v-model="ntqm713['trainingProgramme']" placeholder="请输入培训方案..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="nameTrainProgram" label="培训时间">
+				<Input placeholder="请输入培训时间..."
+					 v-model="ntqm713['nameTrainProgram']"></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	 label="培训讲师"  prop="peiXunJiangShi">
+				<Input
+					 placeholder="请输入培训讲师..." v-model="ntqm713['peiXunJiangShi']"></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	 label="培训内容"
+			  	  prop="trainContent">
+				<Input
+					 v-model="ntqm713['trainContent']" placeholder="请输入培训内容..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	 label="受培训人员"  prop="trainees">
+				<Input
+					 v-model="ntqm713['trainees']"
+					 placeholder="请输入受培训人员..."></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div class="ifgqcp54s">
+		<Button
+			 @click="nm7qf3c"
+			 style="margin: 0 20px">关闭</Button>
+		<Button @click="j_editData('editFormData')"
+			 type="primary" style="margin: 0 20px">提交</Button>
+	  </div>
+	</Modal>
+	<Modal
+		 :width="40" :fullscreen="true" :footer-hide="true" v-model="izu6vui" title="新增" :transfer="false">
+	  <Form :label-width="100" label-position="left"
+	  	 :rules="khpab28" :model="ntqm713" ref="addFormData"
+	  	 style="padding-bottom: 50px;">
+		<Row
+			 :gutter="32">
+		  <Col span="12">
+			<FormItem
+				 label="培训课程"  prop="trainHours" >
+			  <Input placeholder="请输入培训课程..." v-model="ntqm713['trainHours']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem  prop="trainingProgramme"
+				 label="培训方案" >
+			  <Input
+			  	 placeholder="请输入培训方案..." v-model="ntqm713['trainingProgramme']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem
+				  prop="nameTrainProgram"
+				 label="培训时间" >
+			  <Input placeholder="请输入培训时间..." v-model="ntqm713['nameTrainProgram']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col
+		  	 span="12">
+			<FormItem
+				 label="培训讲师"  prop="peiXunJiangShi" >
+			  <Input
+			  	 placeholder="请输入培训讲师..." v-model="ntqm713['peiXunJiangShi']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col
+		  	 span="12">
+			<FormItem
+				 label="培训内容"  prop="trainContent" >
+			  <Input placeholder="请输入培训内容..." v-model="ntqm713['trainContent']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col
+		  	 span="12">
+			<FormItem
+				 label="受培训人员"
+				  prop="trainees" >
+			  <Input
+			  	 v-model="ntqm713['trainees']" placeholder="请输入受培训人员..."></Input>
+			</FormItem>
+		  </Col>
+		</Row>
+	  </Form>
+	  <div
+	  	 class="ifgqcp54s">
+		<Button
+			 style="margin: 0 20px" @click="ydvj4kt">关闭</Button>
+		<Button
+			 @click="ph51itf('addFormData')"
+			 type="primary"
+			 style="margin: 0 20px">提交</Button>
+	  </div>
+	</Modal>
+
+</div>
+</template>
+
+<script>
+import {
+workingAbilityIndexService} from '@/api'
+export default {
+data(){
+	return{
+	  i30w687:[],
+	  tjmsnvb: {
+	  },
+	  ahr9wkq: {
+	  },
+	  izu6vui:false,
+	  bwvil74:{
+		ia5cmb4:1,
+		i9p05z8:10,
+	  },
+	  s8ec05l:false,
+	  xzo5si4:{
+		list:[]
+	  },
+	  ntqm713:{
+		'trainHours':'',
+		'trainingProgramme':'',
+		'nameTrainProgram':'',
+		'peiXunJiangShi':'',
+		'trainContent':'',
+		'trainees':'',
+	  },
+	  khpab28:{
+			'trainHours':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingProgramme':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'nameTrainProgram':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'peiXunJiangShi':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainContent':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainees':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  ktsx070: {
+	  },
+	  ezbaliiData:{},
+	}
+},
+mounted () {
+	this.vvjpte2()
+	this.q55uzs9();
+},
+methods:{
+	
+	q55uzs9() {
+		},
+		awxswaf(id){
+				let ids = []
+				if(id){
+					ids.push(id)
+				}else if(this.i30w687.length > 0){
+					ids = this.i30w687.map(item => item.id)
+				}
+				workingAbilityIndexService.deleteWorkingAbilityIndex(ids).then(res => {
+				if(res.success){
+						this.i30w687 = []
+						this.$Message.success('删除成功')
+						this.vvjpte2()
+					} else {
+						this.$Message.error('删除失败')
+					}
+				})
+			},
+		  vvjpte2() {
+			workingAbilityIndexService.getList(this.ezbaliiData, this.bwvil74.ia5cmb4, this.bwvil74.i9p05z8).then(res => {
+			  if(res.success){
+				this.xzo5si4 = res.data
+			  }
+			})
+		  },
+		j_editData(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  workingAbilityIndexService.modifyWorkingAbilityIndex(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.nm7qf3c()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	
+		ph51itf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  workingAbilityIndexService.addWorkingAbilityIndex(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.ydvj4kt()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	  resypan(){
+		this.izu6vui = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  ydvj4kt(){
+		this.izu6vui = false
+		this.ntqm713 = {
+		  'trainHours':'',
+		  'trainingProgramme':'',
+		  'nameTrainProgram':'',
+		  'peiXunJiangShi':'',
+		  'trainContent':'',
+		  'trainees':'',
+		}
+	  },
+	  hlrpgwf(itemData){
+		if(itemData){
+		  this.ntqm713 = {...itemData}
+		  this.s8ec05l = true
+		}else if(this.i30w687.length > 0){
+		  this.ntqm713 = {...this.i30w687[0]}
+		  this.s8ec05l = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	  nm7qf3c(){
+		this.s8ec05l = false
+		this.ntqm713 = {
+		  'trainHours':'',
+		  'trainingProgramme':'',
+		  'nameTrainProgram':'',
+		  'peiXunJiangShi':'',
+		  'trainContent':'',
+		  'trainees':'',
+		}
+	  },
+	  ezbalii(){
+		this.bwvil74.ia5cmb4 = 1
+		this.vvjpte2()
+	  },
+	  wd3jfn7(){
+		if(this.xzo5si4.hasPreviousPage){
+		  this.bwvil74.ia5cmb4 = this.xzo5si4.prePage
+		  this.vvjpte2()
+		}
+		
+	  },
+	  e2wo6ij(){
+		if(this.xzo5si4.hasNextPage){
+		this.bwvil74.ia5cmb4 = this.xzo5si4.nextPage
+		this.vvjpte2()
+		}
+	  },
+	khbzfkm(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('b66jw8mat')
+	  if(checked){
+		this.i30w687 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.i30w687.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.i30w687 = []
+	  }
+	  console.log(this.i30w687)
+	},
+	f8crt0w(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.i30w687.push(val)
+	  }else{
+		let clearIndex = this.i30w687.indexOf(val)
+		this.i30w687.splice(clearIndex,1)
+	  }
+	},
+	lsuueja(e){
+	  let val = e.target._value
+	  this.i30w687 = []
+	  this.i30w687.push(val)
+	},
+	bpxny01(pageNumb){
+	  this.bwvil74.ia5cmb4 = pageNumb
+	  this.vvjpte2()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="ymxx7quid">
+	<div class="oe21zxiua">
+			  <div
+			  	 class="ocs71c0wu">
+		  <Button
+		  	 @click="awxswaf()"
+		  	 :style="{backgroundColor: (i30w687.length == 0 ? 'unset' : '#8B8C2B'), color:(i30w687.length == 1 ? '#ffffff' : '#666')}" class="pnmhf9ni0"
+		  	 :disabled="i30w687.length == 0">删除</Button>
+		  <Button @click="resypan"
+		  	 style="background-color: #1AAD59" class="c1ypn5gwy">新增</Button>
+		  <Button
+		  	 class="dhtfyi3tc" :disabled="i30w687.length > 1 || i30w687.length == 0" @click="hlrpgwf()"
+		  	 :style="{backgroundColor: (i30w687.length == 1 ? '#5A1EFC' : 'unset'), color:(i30w687.length == 1 ? '#ffffff' : '#666')}">修改</Button>
+		</div>
+	  <div class="zbdo7zynz">
+			<Input class="u6jqfi6lj" v-model="ezbaliiData['trainingAndTeachingPlan']" placeholder="请输入培训计划" />
+		<Button
+			 @click="ezbalii" class="sstus3vim">搜索</Button>
+	  </div>
+	</div>
+	<div
+		 class="gcy8pjca8">
+	  <table >
+		<thead>
+		  <tr>
+			<th><input class="ssm9krz2h"
+				 type="checkbox" name="check"
+				 id="selAllBtnId" @click="khbzfkm($event)"></th>
+			<th>培训计划</th>
+			<th>培训步骤</th>
+			<th>培训进度管控</th>
+			<th>培训周期</th>
+			<th>培训目标</th>
+			<th>计划描述</th>
+		  </tr>
+		</thead>
+		<tbody ref="table">
+		  <tr :key="index"
+		  	 v-for="(data,index) in xzo5si4.list">
+			<td><input :value="data" name="select" @click="f8crt0w($event)" type="checkbox" class="b66jw8mat"></td>
+				<td>{{data['trainingAndTeachingPlan']}}</td>
+				<td>{{data['trainingSteps']}}</td>
+				<td>{{data['trainingProgressControl']}}</td>
+				<td>{{data['producer']}}</td>
+				<td>{{data['trainingObjectives']}}</td>
+				<td>{{data['planDescription']}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	<div class="dvv2htym7">
+
+	  <div class="p6awxx80j">
+		<div @click="wd3jfn7" v-if="xzo5si4.hasPreviousPage"
+			 class="qgxcevin1">上一页</div>
+		<div class="o2ubvsmxm">
+		  <span class="shi4d8uor" :class="{'pgu64mub5':xzo5si4.pageNum == numbs}" v-for="(numbs,index) in xzo5si4.pages" @click="bpxny01(numbs)"
+		  	 :key="index">{{numbs}}</span>
+		</div>
+		<div class="jdu3wh793" v-if="xzo5si4.hasNextPage"
+			 @click="e2wo6ij">下一页</div>
+	  </div>
+	</div>
+
+	<Modal
+		 v-model="izu6vui" title="新增"
+		 :footer-hide="true" :transfer="false" :width="40" :fullscreen="true">
+	  <Form
+	  	 :label-width="100" :model="ntqm713"
+	  	 label-position="left" :rules="khpab28"
+	  	 ref="addFormData"
+	  	 style="padding-bottom: 50px;">
+		<Row :gutter="32">
+		  <Col
+		  	 span="12">
+			<FormItem
+				 label="培训计划"  prop="trainingAndTeachingPlan" >
+			  <Input
+			  	 placeholder="请输入培训计划..." v-model="ntqm713['trainingAndTeachingPlan']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem label="培训步骤"
+				  prop="trainingSteps" >
+			  <Input placeholder="请输入培训步骤..."
+			  	 v-model="ntqm713['trainingSteps']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem label="培训进度管控"
+				  prop="trainingProgressControl" >
+			  <Input v-model="ntqm713['trainingProgressControl']"
+			  	 placeholder="请输入培训进度管控..."></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem label="培训周期"  prop="producer" >
+			  <Input placeholder="请输入培训周期..." v-model="ntqm713['producer']"></Input>
+			</FormItem>
+		  </Col>
+		  <Col span="12">
+			<FormItem
+				 label="培训目标"
+				  prop="trainingObjectives" >
+			  <Input v-model="ntqm713['trainingObjectives']"
+			  	 placeholder="请输入培训目标..."></Input>
+			</FormItem>
+		  </Col>
+		  <Col
+		  	 span="12">
+			<FormItem
+				  prop="planDescription"
+				 label="计划描述" >
+			  <Input placeholder="请输入计划描述..."
+			  	 v-model="ntqm713['planDescription']"></Input>
+			</FormItem>
+		  </Col>
+		</Row>
+	  </Form>
+	  <div class="ifgqcp54s">
+		<Button @click="ydvj4kt" style="margin: 0 20px">关闭</Button>
+		<Button style="margin: 0 20px"
+			 type="primary" @click="ph51itf('addFormData')">提交</Button>
+	  </div>
+	</Modal>
+
+
+
+	<Modal :fullscreen="true"
+		 :footer-hide="true"
+		 :width="40" title="修改"
+		 :transfer="false"
+		 v-model="s8ec05l">
+	  <Form
+	  	 ref="editFormData" :rules="khpab28"
+	  	 :label-width="100"
+	  	 :model="ntqm713"
+	  	 label-position="left"
+	  	 style="padding-bottom: 50px;">
+		<Row :gutter="32">
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="trainingAndTeachingPlan"
+			  	 label="培训计划">
+				<Input
+					 v-model="ntqm713['trainingAndTeachingPlan']"
+					 placeholder="请输入培训计划..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem label="培训步骤"  prop="trainingSteps">
+				<Input
+					 v-model="ntqm713['trainingSteps']" placeholder="请输入培训步骤..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	 label="培训进度管控"
+			  	  prop="trainingProgressControl">
+				<Input
+					 v-model="ntqm713['trainingProgressControl']"
+					 placeholder="请输入培训进度管控..."></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	 label="培训周期"  prop="producer">
+				<Input placeholder="请输入培训周期..." v-model="ntqm713['producer']"></Input>
+			  </FormItem>
+			</Col>
+			<Col span="12">
+			  <FormItem
+			  	 label="培训目标"  prop="trainingObjectives">
+				<Input v-model="ntqm713['trainingObjectives']" placeholder="请输入培训目标..."></Input>
+			  </FormItem>
+			</Col>
+			<Col
+				 span="12">
+			  <FormItem
+			  	  prop="planDescription"
+			  	 label="计划描述">
+				<Input v-model="ntqm713['planDescription']" placeholder="请输入计划描述..."></Input>
+			  </FormItem>
+			</Col>
+		</Row>
+	  </Form>
+	  <div
+	  	 class="ifgqcp54s">
+		<Button
+			 @click="nm7qf3c"
+			 style="margin: 0 20px">关闭</Button>
+		<Button
+			 type="primary"
+			 @click="j_editData('editFormData')" style="margin: 0 20px">提交</Button>
+	  </div>
+	</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainingPlanService} from '@/api'
+export default {
+data(){
+	return{
+	  s8ec05l:false,
+	  i30w687:[],
+	  bwvil74:{
+		i9p05z8:10,
+		ia5cmb4:1,
+	  },
+	  ntqm713:{
+		'trainingAndTeachingPlan':'',
+		'trainingSteps':'',
+		'trainingProgressControl':'',
+		'producer':'',
+		'trainingObjectives':'',
+		'planDescription':'',
+	  },
+	  xzo5si4:{
+		list:[]
+	  },
+	  izu6vui:false,
+	  khpab28:{
+			'trainingAndTeachingPlan':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingSteps':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingProgressControl':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'producer':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingObjectives':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'planDescription':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  ktsx070: {
+	  },
+	  ahr9wkq: {
+	  },
+	  ezbaliiData:{},
+	  tjmsnvb: {
+	  },
+	}
+},
+mounted () {
+	this.vvjpte2()
+	this.q55uzs9();
+},
+methods:{
+	
+	q55uzs9() {
+		},
+		awxswaf(id){
+				let ids = []
+				if(id){
+					ids.push(id)
+				}else if(this.i30w687.length > 0){
+					ids = this.i30w687.map(item => item.id)
+				}
+				trainingPlanService.deleteTrainingPlan(ids).then(res => {
+				if(res.success){
+						this.i30w687 = []
+						this.$Message.success('删除成功')
+						this.vvjpte2()
+					} else {
+						this.$Message.error('删除失败')
+					}
+				})
+			},
+		ph51itf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingPlanService.addTrainingPlan(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.ydvj4kt()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  vvjpte2() {
+			trainingPlanService.getList(this.ezbaliiData, this.bwvil74.ia5cmb4, this.bwvil74.i9p05z8).then(res => {
+			  if(res.success){
+				this.xzo5si4 = res.data
+			  }
+			})
+		  },
+		j_editData(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingPlanService.modifyTrainingPlan(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.nm7qf3c()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+	
+	  resypan(){
+		this.izu6vui = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  ydvj4kt(){
+		this.izu6vui = false
+		this.ntqm713 = {
+		  'trainingAndTeachingPlan':'',
+		  'trainingSteps':'',
+		  'trainingProgressControl':'',
+		  'producer':'',
+		  'trainingObjectives':'',
+		  'planDescription':'',
+		}
+	  },
+	  hlrpgwf(itemData){
+		if(itemData){
+		  this.ntqm713 = {...itemData}
+		  this.s8ec05l = true
+		}else if(this.i30w687.length > 0){
+		  this.ntqm713 = {...this.i30w687[0]}
+		  this.s8ec05l = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	  nm7qf3c(){
+		this.s8ec05l = false
+		this.ntqm713 = {
+		  'trainingAndTeachingPlan':'',
+		  'trainingSteps':'',
+		  'trainingProgressControl':'',
+		  'producer':'',
+		  'trainingObjectives':'',
+		  'planDescription':'',
+		}
+	  },
+	  ezbalii(){
+		this.bwvil74.ia5cmb4 = 1
+		this.vvjpte2()
+	  },
+	  wd3jfn7(){
+		if(this.xzo5si4.hasPreviousPage){
+		  this.bwvil74.ia5cmb4 = this.xzo5si4.prePage
+		  this.vvjpte2()
+		}
+		
+	  },
+	  e2wo6ij(){
+		if(this.xzo5si4.hasNextPage){
+		this.bwvil74.ia5cmb4 = this.xzo5si4.nextPage
+		this.vvjpte2()
+		}
+	  },
+	khbzfkm(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('b66jw8mat')
+	  if(checked){
+		this.i30w687 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.i30w687.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.i30w687 = []
+	  }
+	  console.log(this.i30w687)
+	},
+	f8crt0w(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.i30w687.push(val)
+	  }else{
+		let clearIndex = this.i30w687.indexOf(val)
+		this.i30w687.splice(clearIndex,1)
+	  }
+	},
+	lsuueja(e){
+	  let val = e.target._value
+	  this.i30w687 = []
+	  this.i30w687.push(val)
+	},
+	bpxny01(pageNumb){
+	  this.bwvil74.ia5cmb4 = pageNumb
+	  this.vvjpte2()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="h9zut2wo6">
+	  <div class="sspallh1u">{{za283jr}}</div>
+	  <div class="zi73ho4t2">请按规则填写表单。*星号项为必填项</div>
+	  <div
+	  	 class="eqr3milgx">
+		  <Form
+		  	 style="padding-bottom: 50px;" label-position="left" :label-width="100" :rules="khpab28"
+		  	 ref="FormData"
+		  	 :model="ntqm713">
+			<Row :gutter="32">
+								<Col
+									 span="24">
+				  <FormItem label="考核课程"  prop="assessmentCourse" >
+					<Input
+						 class="tut5168o2"
+						 placeholder="请输入考核课程..." v-model="ntqm713['assessmentCourse']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem
+				  	 label="考核标准"
+				  	  prop="assessStandard" >
+					<Input
+						 placeholder="请输入考核标准..." class="tut5168o2" v-model="ntqm713['assessStandard']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="24">
+				  <FormItem label="考核内容"
+				  	  prop="trainingContent" >
+					<Input v-model="ntqm713['trainingContent']"
+						 placeholder="请输入考核内容..."
+						 class="tut5168o2"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem
+				  	 label="考核方式"
+				  	  prop="assessmentMethod" >
+					<Input v-model="ntqm713['assessmentMethod']" placeholder="请输入考核方式..."
+						 class="tut5168o2"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem
+				  	  prop="assessmentDetails" label="考核详情" >
+					<Input class="tut5168o2" placeholder="请输入考核详情..."
+						 v-model="ntqm713['assessmentDetails']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem label="考核员"  prop="examiner" >
+					<Input class="tut5168o2"
+						 placeholder="请输入考核员..." v-model="ntqm713['examiner']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="kpxosad4n">
+			<Button
+				 style="margin: 0 20px"
+				 @click="k0346wa">重置</Button>
+			<Button
+				 style="margin: 0 20px; background-color: #109C8D; color:#fff;"
+				 @click="ggjjvvf('FormData')">确认提交</Button>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+import {
+trainAssessAnalysisService} from '@/api'
+export default {
+	data () {
+	  return {
+		ktsx070: {
+		},
+		khpab28:{
+			  'assessmentCourse':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'assessStandard':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'trainingContent':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'assessmentMethod':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'assessmentDetails':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'examiner':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+		},
+		  ahr9wkq: {
+		  },
+		ntqm713:{
+		  'assessmentCourse':'',
+		  'assessStandard':'',
+		  'trainingContent':'',
+		  'assessmentMethod':'',
+		  'assessmentDetails':'',
+		  'examiner':'',
+		},
+		 za283jr:'',
+	  }
+	},
+mounted () {
+	this.za283jr = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+	this.q55uzs9();
+},
+methods:{
+	q55uzs9() {
+		},
+	k0346wa(){
+	  this.ntqm713 = {
+		'assessmentCourse':'',
+		'assessStandard':'',
+		'trainingContent':'',
+		'assessmentMethod':'',
+		'assessmentDetails':'',
+		'examiner':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		ggjjvvf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainAssessAnalysisService.addTrainAssessAnalysis(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		}
+}
+}
+</script>
+
+<style
+	 scoped>
+@import "./index.css";
+</style>
+<template>
+<div class="z7622n4fi">
+	  <div
+	  	 class="zbdo7zynz">
+		<div
+			 class="sspallh1u">搜索</div>
+					<Input
+						 placeholder="请输入培训学员"
+						 v-model="ezbaliiData['trainTrainees']"
+						 class="u6jqfi6lj" />
+		<Button
+			 class="sstus3vim" @click="ezbalii">搜索</Button>
+	  </div>
+	<div
+		 class="oe21zxiua" >
+		<div class="ocs71c0wu">
+			<Button
+				 class="dhtfyi3tc"
+				 @click="hlrpgwf()" :style="{backgroundColor: (i30w687.length == 1 ? '#5A1EFC' : 'unset'),color: (i30w687.length == 1 ? '#fff' : '#666')}"
+				 :disabled="i30w687.length > 1 || i30w687.length == 0">修改</Button>
+			<Button
+				 :style="{backgroundColor: (i30w687.length == 0 ? 'unset' : '#8B8C2B'),color: (i30w687.length == 0 ? '#666' : '#fff')}" :disabled="i30w687.length == 0" @click="awxswaf()" class="pnmhf9ni0">删除</Button>
+			<Button
+				 class="c1ypn5gwy" @click="resypan"
+				  style="background-color: #1AAD59">新增</Button>
+		</div>
+	</div>
+	<div
+		 class="gcy8pjca8">
+	  <table>
+		<thead>
+		  <tr>
+			<th><input
+				 type="checkbox"
+				 name="check"
+				 id="selAllBtnId"
+				 @click="khbzfkm($event)"
+				 class="ssm9krz2h"></th>
+			<th>培训学员</th>
+			<th>学员编号</th>
+			<th>培训内容</th>
+			<th>联系电话</th>
+			<th>性格</th>
+			<th>职业规划</th>
+		  </tr>
+		</thead>
+		<tbody
+			 ref="table">
+		  <tr :key="index" v-for="(data,index) in xzo5si4.list">
+			<td><input :value="data"
+				 name="select" @click="f8crt0w($event)"
+				 type="checkbox"
+				 class="b66jw8mat"></td>
+				<td>{{data['trainTrainees']}}</td>
+				<td>{{data['studentNo']}}</td>
+				<td>{{data['trainContent']}}</td>
+				<td>{{data['contactNumber']}}</td>
+				<td>{{data['characterCharacteristics']}}</td>
+				<td>{{data['careerPlan']}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	<div
+		 class="dvv2htym7">
+
+	  <div
+	  	 class="p6awxx80j">
+		<div @click="wd3jfn7" v-if="xzo5si4.hasPreviousPage"
+			 class="qgxcevin1">上一页</div>
+		<div
+			 class="o2ubvsmxm">
+		  <span
+		  	 v-for="(numb,index) in xzo5si4.pages" :key="index"
+		  	 :class="{'pgu64mub5':xzo5si4.pageNum == numb}" class="shi4d8uor" @click="bpxny01(numb)">{{numb}}</span>
+		</div>
+		<div class="jdu3wh793"
+			 v-if="xzo5si4.hasNextPage" @click="e2wo6ij">下一页</div>
+	  </div>
+	</div>
+		<Modal :transfer="false"
+			 :fullscreen="true"
+			 v-model="s8ec05l"
+			 title="修改"
+			 :width="40"
+			 :footer-hide="true">
+		  <Form label-position="left" :label-width="100"
+		  	 style="padding-bottom: 50px;" :rules="khpab28"
+		  	 ref="editFormData"
+		  	 :model="ntqm713">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="培训学员"
+				  	  prop="trainTrainees">
+					<Input
+						 placeholder="请输入培训学员..."
+						 v-model="ntqm713['trainTrainees']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="studentNo"
+				  	 label="学员编号">
+					<Input v-model="ntqm713['studentNo']"
+						 placeholder="请输入学员编号..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="培训内容"  prop="trainContent">
+					<Input placeholder="请输入培训内容..."
+						 v-model="ntqm713['trainContent']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="contactNumber"
+				  	 label="联系电话">
+					<Input v-model="ntqm713['contactNumber']"
+						 placeholder="请输入联系电话..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="characterCharacteristics"
+				  	 label="性格">
+					<Input
+						 v-model="ntqm713['characterCharacteristics']" placeholder="请输入性格..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="职业规划"  prop="careerPlan">
+					<Input v-model="ntqm713['careerPlan']" placeholder="请输入职业规划..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="ifgqcp54s">
+			<Button
+				 @click="nm7qf3c" style="margin: 0 20px">关闭</Button>
+			<Button style="margin: 0 20px"
+				 type="primary"
+				 @click="kh34r9q('editFormData')">提交</Button>
+		  </div>
+	   </Modal>
+		<Modal title="新增"
+			 :transfer="false"  v-model="izu6vui" :fullscreen="true" :footer-hide="true">
+		  <Form style="padding-bottom: 50px;" :label-width="100" ref="addFormData"
+		  	 label-position="left"
+		  	 :model="ntqm713"
+		  	 :rules="khpab28">
+			<Row
+				 :gutter="32">
+			  <Col span="12">
+				<FormItem
+					  prop="trainTrainees"
+					 label="培训学员" >
+				  <Input
+				  	 placeholder="请输入培训学员..."
+				  	 v-model="ntqm713['trainTrainees']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="学员编号"  prop="studentNo" >
+				  <Input placeholder="请输入学员编号..."
+				  	 v-model="ntqm713['studentNo']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="培训内容"
+					  prop="trainContent" >
+				  <Input v-model="ntqm713['trainContent']" placeholder="请输入培训内容..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="contactNumber"
+					 label="联系电话" >
+				  <Input placeholder="请输入联系电话..." v-model="ntqm713['contactNumber']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="性格"
+					  prop="characterCharacteristics" >
+				  <Input v-model="ntqm713['characterCharacteristics']" placeholder="请输入性格..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem  prop="careerPlan"
+					 label="职业规划" >
+				  <Input placeholder="请输入职业规划..." v-model="ntqm713['careerPlan']"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="ifgqcp54s">
+			<Button @click="ydvj4kt" style="margin: 0 20px">关闭</Button>
+			<Button
+				 @click="ph51itf('addFormData')" type="primary"
+					message: '不能为空'
+			  }
+			],
+			'contactNumber':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'characterCharacteristics':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'careerPlan':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+		ph51itf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainTraineesService.addTrainTrainees(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.ydvj4kt()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+
+	  resypan(){
+		this.izu6vui = true
+		this.$refs.addFormData.resetFields();
+	  },
+	  ydvj4kt(){
+		this.izu6vui = false
+		this.ntqm713 = {
+		  'trainTrainees':'',
+		  'studentNo':'',
+		  'trainContent':'',
+		  'contactNumber':'',
+		  'characterCharacteristics':'',
+		  'careerPlan':'',
+		}
+	  },
+	
+	  hlrpgwf(itemData){
+		if(itemData){
+		  this.ntqm713 = {...itemData}
+		  this.s8ec05l = true
+		}else if(this.i30w687.length > 0){
+		  this.ntqm713 = {...this.i30w687[0]}
+		  this.s8ec05l = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  nm7qf3c(){
+		this.s8ec05l = false
+		this.ntqm713 = {
+		  'trainTrainees':'',
+		  'studentNo':'',
+		  'trainContent':'',
+		  'contactNumber':'',
+		  'characterCharacteristics':'',
+		  'careerPlan':'',
+		}
+	  },
+	
+	  ezbalii(){
+		this.bwvil74.j_pageNum = 1
+		this.vvjpte2()
+	  },
+	
+	  wd3jfn7(){
+		if(this.xzo5si4.hasPreviousPage){
+		  this.bwvil74.j_pageNum = this.xzo5si4.prePage
+		  this.vvjpte2()
+		}
+		
+	  },
+	
+	  e2wo6ij(){
+		if(this.xzo5si4.hasNextPage){
+		this.bwvil74.j_pageNum = this.xzo5si4.nextPage
+		this.vvjpte2()
+		}
+	  },
+
+	khbzfkm(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.i30w687 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.i30w687.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.i30w687 = []
+	  }
+	},
+	
+	f8crt0w(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.i30w687.push(val)
+	  }else{
+		let clearIndex = this.i30w687.indexOf(val)
+		this.i30w687.splice(clearIndex,1)
+	  }
+	},
+	
+	lsuueja(e){
+	  let val = e.target._value
+	  this.i30w687 = []
+	  this.i30w687.push(val)
+	},
+
+	bpxny01(pageNumb){
+	  this.bwvil74.j_pageNum = pageNumb
+	  this.vvjpte2()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="qepu9r962">
+	  <div class="glkt3rqw9 ">
+		  <div
+		  	 class="oe21zxiua">
+			  <div
+			  	 class="ocs71c0wu">
+				<Button class="c1ypn5gwy"  style="background-color: #109C8D" @click="resypan">
+					<i
+					 class="mz9u93pd7 iconfont icon-plus"/>新增</Button>
+				<Button @click="hlrpgwf()" :disabled="i30w687.length > 1 || i30w687.length == 0" class="dhtfyi3tc" :style="{backgroundColor: (i30w687.length == 1 ? '#5A1EFC' : 'unset'),color: (i30w687.length == 1 ? '#fff' : '#666')}">
+					<i
+					 class="mz9u93pd7 iconfont icon-bianji1"/>修改</Button>
+				<Button :disabled="i30w687.length == 0" :style="{backgroundColor: (i30w687.length == 0 ? 'unset' : '#8B8C2B'),color: (i30w687.length == 0 ? '#666' : '#fff')}" @click="awxswaf()"
+					 class="pnmhf9ni0">
+					<i
+					 class="mz9u93pd7 iconfont icon-shanchu"/>删除</Button>
+			  </div>
+		  </div>
+		  <div class="zbdo7zynz">
+			  <Input
+			  	 class="u6jqfi6lj" v-model="ezbaliiData['trainPost']"
+			  	 placeholder="请输入培训学员" />
+		  <Button
+		  	 @click="ezbalii"
+		  	 class="sstus3vim">
+		  	<i class="mz9u93pd7 iconfont icon-search1"/>搜索</Button>
+		</div>
+		</div>
+		<div
+			 class="ouyf7snlt">
+		  <div
+		  	 class="gcy8pjca8  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input @click="khbzfkm($event)" name="check" class="ssm9krz2h"
+				  	 id="selAllBtnId" type="checkbox"></th>
+				  <th>培训学员</th>
+				  <th>培训课程</th>
+				  <th>培训时长</th>
+				  <th>教学进度</th>
+				  <th>学习情况</th>
+				  <th>能力提升情况</th>
+				</tr>
+			  </thead>
+			  <tbody
+			  	 ref="table">
+				<tr :key="index" v-for="(data,index) in xzo5si4.list">
+				  <td><input :value="data"
+				  	 @click="f8crt0w($event)" class="b66jw8mat"
+				  	 type="checkbox" name="select"></td>
+					  <td>{{data['trainPost']}}</td>
+					  <td>{{data['trainingCourse']}}</td>
+					  <td>{{data['trainingDuration']}}</td>
+					  <td>{{data['teachingProgress']}}</td>
+					  <td>{{data['learning']}}</td>
+					  <td>{{data['capacityImprovement']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="dvv2htym7 " >
+			<div class="xjgzk4t05"></div>
+
+			<div class="p6awxx80j">
+			  <div class="qgxcevin1" v-if="xzo5si4.hasPreviousPage" @click="wd3jfn7">
+			  	<Icon
+			  	 type="ios-arrow-back" size="18"/></div>
+			  <div
+			  	 class="o2ubvsmxm">
+				<span
+					 :key="index"
+					 @click="bpxny01(numb)"
+					 :class="{'pgu64mub5':xzo5si4.pageNum == numb}"
+					 v-for="(numb,index) in xzo5si4.pages" class="shi4d8uor">{{numb}}</span>
+			  </div>
+			  <div v-if="xzo5si4.hasNextPage"
+			  	 class="jdu3wh793" @click="e2wo6ij">
+			  	<Icon
+			  	  size="18" type="ios-arrow-forward"/></div>
+			</div>
+			<div class="xjgzk4t05"></div>
+		  </div>
+		</div>
+		<Modal
+			 v-model="izu6vui"
+			 title="新增"
+			 :width="40" :fullscreen="true" :transfer="false"
+			 :footer-hide="true">
+		  <Form
+		  	 :model="ntqm713" :label-width="100"
+		  	 ref="addFormData"
+		  	 label-position="left" :rules="khpab28"
+		  	 style="padding-bottom: 50px;">
+			<Row
+				 :gutter="32">
+			  <Col
+			  	 span="12">
+				<FormItem label="培训学员"
+					  prop="trainPost" >
+				  <Input v-model="ntqm713['trainPost']"
+				  	 placeholder="请输入培训学员..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem  prop="trainingCourse" label="培训课程" >
+				  <Input v-model="ntqm713['trainingCourse']" placeholder="请输入培训课程..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="培训时长"
+					  prop="trainingDuration" >
+				  <Input v-model="ntqm713['trainingDuration']"
+				  	 placeholder="请输入培训时长..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="teachingProgress"
+					 label="教学进度" >
+				  <Input placeholder="请输入教学进度..."
+				  	 v-model="ntqm713['teachingProgress']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="learning"
+					 label="学习情况" >
+				  <Input
+				  	 placeholder="请输入学习情况..."
+				  	 v-model="ntqm713['learning']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="能力提升情况"  prop="capacityImprovement" >
+				  <Input
+				  	 placeholder="请输入能力提升情况..."
+				  	 v-model="ntqm713['capacityImprovement']"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="ifgqcp54s">
+			<Button @click="ydvj4kt" style="margin: 0 20px">关闭</Button>
+			<Button style="margin: 0 20px" type="primary" @click="ph51itf('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal :transfer="false"
+			 :fullscreen="true"
+			 :footer-hide="true"
+			 v-model="s8ec05l" title="修改" :width="40">
+		  <Form label-position="left"
+		  	 :rules="khpab28" style="padding-bottom: 50px;" :label-width="100" ref="editFormData" :model="ntqm713">
+			<Row
+				 :gutter="32">
+				<Col span="12">
+				  <FormItem  prop="trainPost" label="培训学员">
+					<Input v-model="ntqm713['trainPost']" placeholder="请输入培训学员..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="培训课程"
+				  	  prop="trainingCourse">
+					<Input placeholder="请输入培训课程..." v-model="ntqm713['trainingCourse']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingDuration"
+				  	 label="培训时长">
+					<Input
+						 placeholder="请输入培训时长..." v-model="ntqm713['trainingDuration']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="teachingProgress"
+				  	 label="教学进度">
+					<Input v-model="ntqm713['teachingProgress']"
+						 placeholder="请输入教学进度..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="learning"
+				  	 label="学习情况">
+					<Input placeholder="请输入学习情况..."
+						 v-model="ntqm713['learning']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="能力提升情况"
+				  	  prop="capacityImprovement">
+					<Input placeholder="请输入能力提升情况..."
+						 v-model="ntqm713['capacityImprovement']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="ifgqcp54s">
+			<Button style="margin: 0 20px"
+				 @click="nm7qf3c">关闭</Button>
+			<Button style="margin: 0 20px" @click="kh34r9q('editFormData')" type="primary">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainingProgressService} from '@/api'
+export default {
+data(){
+	return{
+		  ktsx070: {
+		  },
+		  tjmsnvb: {
+		  },
+	  khpab28:{
+			'trainPost':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCourse':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingDuration':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'teachingProgress':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'learning':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'capacityImprovement':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  i30w687:[],
+	  s8ec05l:false,
+	  ntqm713:{
+		'trainPost':'',
+		'trainingCourse':'',
+		'trainingDuration':'',
+		'teachingProgress':'',
+		'learning':'',
+		'capacityImprovement':'',
+	  },
+	  bwvil74:{
+	  },
+	  xzo5si4:{
+		list:[]
+	  },
+	  ahr9wkq: {
+	  },
+	  ezbaliiData:{},
+	  izu6vui:false,
+	}
+},
+mounted () {
+	this.vvjpte2();
+	this.q55uzs9();
+},
+methods:{
+	q55uzs9() {
+		},
+
+		  vvjpte2() {
+			trainingProgressService.getList(this.ezbaliiData, this.bwvil74.j_pageNum, this.bwvil74.j_pageSize).then(res => {
+			  if(res.success){
+				this.xzo5si4 = res.data
+			  }
+			})
+		  },
+		ph51itf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingProgressService.addTrainingProgress(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.ydvj4kt()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		kh34r9q(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingProgressService.modifyTrainingProgress(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.nm7qf3c()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		awxswaf(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.i30w687.length > 0){
+				ids = this.i30w687.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			trainingProgressService.deleteTrainingProgress(ids).then(res => {
+			if(res.success){
+					this.i30w687 = []
+					this.$Message.success('删除成功')
+					this.vvjpte2()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+
+	  resypan(){
+		this.izu6vui = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  ydvj4kt(){
+		this.izu6vui = false
+		this.ntqm713 = {
+		  'trainPost':'',
+		  'trainingCourse':'',
+		  'trainingDuration':'',
+		  'teachingProgress':'',
+		  'learning':'',
+		  'capacityImprovement':'',
+		}
+	  },
+	
+	  hlrpgwf(itemData){
+		if(itemData){
+		  this.ntqm713 = {...itemData}
+		  this.s8ec05l = true
+		}else if(this.i30w687.length > 0){
+		  this.ntqm713 = {...this.i30w687[0]}
+		  this.s8ec05l = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  nm7qf3c(){
+		this.s8ec05l = false
+		this.ntqm713 = {
+		  'trainPost':'',
+		  'trainingCourse':'',
+		  'trainingDuration':'',
+		  'teachingProgress':'',
+		  'learning':'',
+		  'capacityImprovement':'',
+		}
+	  },
+	
+	  ezbalii(){
+		this.bwvil74.j_pageNum = 1
+		this.vvjpte2()
+	  },
+	
+	  wd3jfn7(){
+		if(this.xzo5si4.hasPreviousPage){
+		  this.bwvil74.j_pageNum = this.xzo5si4.prePage
+		  this.vvjpte2()
+		}
+		
+	  },
+	
+	  e2wo6ij(){
+		if(this.xzo5si4.hasNextPage){
+		this.bwvil74.j_pageNum = this.xzo5si4.nextPage
+		this.vvjpte2()
+		}
+	  },
+
+	khbzfkm(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.i30w687 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.i30w687.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.i30w687 = []
+	  }
+	},
+
+	f8crt0w(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.i30w687.push(val)
+	  }else{
+		let clearIndex = this.i30w687.indexOf(val)
+		this.i30w687.splice(clearIndex,1)
+	  }
+	},
+
+	lsuueja(e){
+	  let val = e.target._value
+	  this.i30w687 = []
+	  this.i30w687.push(val)
+	},
+
+	bpxny01(pageNumb){
+	  this.bwvil74.j_pageNum = pageNumb
+	  this.vvjpte2()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="cqrggx8fx">
+				   <div
+				   	 class="oe21zxiua ">
+			  <div class="ocs71c0wu">
+				<Button :disabled="i30w687.length > 1 || i30w687.length == 0" class="dhtfyi3tc"
+					 :style="{backgroundColor: (i30w687.length == 1 ? '#5A1EFC' : 'unset'),color: (i30w687.length == 1 ? '#fff' : '#666')}" @click="hlrpgwf()">修改</Button>
+				<Button class="pnmhf9ni0"
+					 @click="awxswaf()"
+					 :disabled="i30w687.length == 0" :style="{backgroundColor: (i30w687.length == 0 ? 'unset' : '#8B8C2B'),color: (i30w687.length == 0 ? '#666' : '#fff')}">删除</Button>
+				<Button
+					  style="background-color: #109C8D" class="c1ypn5gwy" @click="resypan">新增</Button>
+			  </div>
+		  </div>
+		<div class="ouyf7snlt ">
+		<div class="zbdo7zynz">
+			  <Input v-model="ezbaliiData['practicalTrainingCourses']"
+			  	 class="u6jqfi6lj"
+			  	 placeholder="请输入实训课程" />
+		  <Button
+		  	 @click="ezbalii" class="sstus3vim">搜索</Button>
+		</div>
+		  <div class="gcy8pjca8  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input
+				  	 name="check"
+				  	 class="ssm9krz2h" @click="khbzfkm($event)"
+				  	 type="checkbox"
+				  	 id="selAllBtnId"></th>
+				  <th>实训课程</th>
+				  <th>实训学员</th>
+				  <th>实训技能</th>
+				  <th>实训评价</th>
+				  <th>实训打分</th>
+				  <th>实训数据记录</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr :key="index"
+					 v-for="(data,index) in xzo5si4.list">
+				  <td><input
+				  	 class="b66jw8mat"
+				  	 type="checkbox" name="select"
+				  	 :value="data"
+				  	 @click="f8crt0w($event)"></td>
+					  <td>{{data['practicalTrainingCourses']}}</td>
+					  <td>{{data['trainees']}}</td>
+					  <td>{{data['practicalSkills']}}</td>
+					  <td>{{data['trainingEvaluation']}}</td>
+					  <td>{{data['practicalTrainingScoring']}}</td>
+					  <td>{{data['trainingDataRecord']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div
+		  	 class="dvv2htym7">
+
+			<div
+				 class="p6awxx80j">
+			  <div v-if="xzo5si4.hasPreviousPage"
+			  	 class="qgxcevin1" @click="wd3jfn7">上一页</div>
+			  <div
+			  	 class="o2ubvsmxm">
+				<span
+					 class="shi4d8uor"
+					 :key="index"
+					 :class="{'pgu64mub5':xzo5si4.pageNum == numb}"
+					 @click="bpxny01(numb)"
+					 v-for="(numb,index) in xzo5si4.pages">{{numb}}</span>
+			  </div>
+			  <div class="jdu3wh793"
+			  	 v-if="xzo5si4.hasNextPage" @click="e2wo6ij">下一页</div>
+			</div>
+		  </div>
+		</div>
+		<Modal
+			 :fullscreen="true" title="修改"
+			 :transfer="false" v-model="s8ec05l" :width="40"
+			 :footer-hide="true">
+		  <Form
+		  	 :rules="khpab28"
+		  	 label-position="left" :label-width="100" style="padding-bottom: 50px;" ref="editFormData"
+		  	 :model="ntqm713">
+			<Row :gutter="32">
+				<Col span="12">
+				  <FormItem  prop="practicalTrainingCourses"
+				  	 label="实训课程">
+					<Input v-model="ntqm713['practicalTrainingCourses']" placeholder="请输入实训课程..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainees" label="实训学员">
+					<Input placeholder="请输入实训学员..."
+						 v-model="ntqm713['trainees']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="实训技能"  prop="practicalSkills">
+					<Input placeholder="请输入实训技能..."
+						 v-model="ntqm713['practicalSkills']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingEvaluation"
+				  	 label="实训评价">
+					<Input v-model="ntqm713['trainingEvaluation']" placeholder="请输入实训评价..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="实训打分"  prop="practicalTrainingScoring">
+					<Input
+						 v-model="ntqm713['practicalTrainingScoring']"
+						 placeholder="请输入实训打分..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="trainingDataRecord" label="实训数据记录">
+					<Input v-model="ntqm713['trainingDataRecord']" placeholder="请输入实训数据记录..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="ifgqcp54s">
+			<Button
+				 style="margin: 0 20px"
+				 @click="nm7qf3c">关闭</Button>
+			<Button
+				 style="margin: 0 20px" type="primary" @click="kh34r9q('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal :footer-hide="true"
+			 title="新增"
+			 v-model="izu6vui"
+			 :width="40"
+			 :fullscreen="true" :transfer="false">
+		  <Form ref="addFormData" :model="ntqm713"
+		  	 :label-width="100"
+		  	 :rules="khpab28"
+		  	 style="padding-bottom: 50px;"
+		  	 label-position="left">
+			<Row
+				 :gutter="32">
+			  <Col span="12">
+				<FormItem  prop="practicalTrainingCourses" label="实训课程" >
+				  <Input
+				  	 v-model="ntqm713['practicalTrainingCourses']" placeholder="请输入实训课程..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="实训学员"  prop="trainees" >
+				  <Input v-model="ntqm713['trainees']" placeholder="请输入实训学员..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="practicalSkills" label="实训技能" >
+				  <Input
+				  	 v-model="ntqm713['practicalSkills']"
+				  	 placeholder="请输入实训技能..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="实训评价"  prop="trainingEvaluation" >
+				  <Input
+				  	 placeholder="请输入实训评价..." v-model="ntqm713['trainingEvaluation']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="实训打分"
+					  prop="practicalTrainingScoring" >
+				  <Input placeholder="请输入实训打分..."
+				  	 v-model="ntqm713['practicalTrainingScoring']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem  prop="trainingDataRecord" label="实训数据记录" >
+				  <Input v-model="ntqm713['trainingDataRecord']"
+				  	 placeholder="请输入实训数据记录..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="ifgqcp54s">
+			<Button style="margin: 0 20px"
+				 @click="ydvj4kt">关闭</Button>
+			<Button type="primary" style="margin: 0 20px" @click="ph51itf('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+practicalTrainingOfTrainingSkillsService} from '@/api'
+export default {
+data(){
+	return{
+		  ktsx070: {
+		  },
+	  ntqm713:{
+		'practicalTrainingCourses':'',
+		'trainees':'',
+		'practicalSkills':'',
+		'trainingEvaluation':'',
+		'practicalTrainingScoring':'',
+		'trainingDataRecord':'',
+	  },
+	  ahr9wkq: {
+	  },
+		  tjmsnvb: {
+		  },
+	  izu6vui:false,
+	  ezbaliiData:{},
+	  xzo5si4:{
+		list:[]
+	  },
+	  s8ec05l:false,
+	  bwvil74:{
+	  },
+	  i30w687:[],
+	  khpab28:{
+			'practicalTrainingCourses':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainees':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'practicalSkills':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingEvaluation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'practicalTrainingScoring':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingDataRecord':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	}
+},
+mounted () {
+	this.vvjpte2();
+	this.q55uzs9();
+},
+methods:{
+	q55uzs9() {
+		},
+
+		kh34r9q(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  practicalTrainingOfTrainingSkillsService.modifyPracticalTrainingOfTrainingSkills(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.nm7qf3c()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		awxswaf(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.i30w687.length > 0){
+				ids = this.i30w687.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			practicalTrainingOfTrainingSkillsService.deletePracticalTrainingOfTrainingSkills(ids).then(res => {
+			if(res.success){
+					this.i30w687 = []
+					this.$Message.success('删除成功')
+					this.vvjpte2()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		ph51itf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  practicalTrainingOfTrainingSkillsService.addPracticalTrainingOfTrainingSkills(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.ydvj4kt()
+				  this.vvjpte2()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  vvjpte2() {
+			practicalTrainingOfTrainingSkillsService.getList(this.ezbaliiData, this.bwvil74.j_pageNum, this.bwvil74.j_pageSize).then(res => {
+			  if(res.success){
+				this.xzo5si4 = res.data
+			  }
+			})
+		  },
+
+	  resypan(){
+		this.izu6vui = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  ydvj4kt(){
+		this.izu6vui = false
+		this.ntqm713 = {
+		  'practicalTrainingCourses':'',
+		  'trainees':'',
+		  'practicalSkills':'',
+		  'trainingEvaluation':'',
+		  'practicalTrainingScoring':'',
+		  'trainingDataRecord':'',
+		}
+	  },
+	
+	  hlrpgwf(itemData){
+		if(itemData){
+		  this.ntqm713 = {...itemData}
+		  this.s8ec05l = true
+		}else if(this.i30w687.length > 0){
+		  this.ntqm713 = {...this.i30w687[0]}
+		  this.s8ec05l = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  nm7qf3c(){
+		this.s8ec05l = false
+		this.ntqm713 = {
+		  'practicalTrainingCourses':'',
+		  'trainees':'',
+		  'practicalSkills':'',
+		  'trainingEvaluation':'',
+		  'practicalTrainingScoring':'',
+		  'trainingDataRecord':'',
+		}
+	  },
+	
+	  ezbalii(){
+		this.bwvil74.j_pageNum = 1
+		this.vvjpte2()
+	  },
+	
+	  wd3jfn7(){
+		if(this.xzo5si4.hasPreviousPage){
+		  this.bwvil74.j_pageNum = this.xzo5si4.prePage
+		  this.vvjpte2()
+		}
+		
+	  },
+	
+	  e2wo6ij(){
+		if(this.xzo5si4.hasNextPage){
+		this.bwvil74.j_pageNum = this.xzo5si4.nextPage
+		this.vvjpte2()
+		}
+	  },
+
+	khbzfkm(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.i30w687 = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.i30w687.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.i30w687 = []
+	  }
+	},
+
+	f8crt0w(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.i30w687.push(val)
+	  }else{
+		let clearIndex = this.i30w687.indexOf(val)
+		this.i30w687.splice(clearIndex,1)
+	  }
+	},
+
+	lsuueja(e){
+	  let val = e.target._value
+	  this.i30w687 = []
+	  this.i30w687.push(val)
+	},
+
+	bpxny01(pageNumb){
+	  this.bwvil74.j_pageNum = pageNumb
+	  this.vvjpte2()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="a0ru8kobs">
+	<div class="eqr3milgx">
+		  <Form
+		  	 style="padding-bottom: 50px;" label-position="left"
+		  	 :label-width="100"
+		  	 :rules="khpab28" ref="FormData"
+		  	 :model="ntqm713">
+			<Row :gutter="32">
+							  <Col
+							  	 class="zi73ho4t2" span="24">学习情况</Col>
+				  <Col
+				  	 span="8">
+					<FormItem label="学员学习信息"  prop="learnerLearningInformation" >
+					  <Input
+					  	 class="tut5168o2"
+					  	 placeholder="请输入学员学习信息..."
+					  	 v-model="ntqm713['learnerLearningInformation']"></Input>
+					</FormItem>
+				  </Col>
+				<Col
+					 span="24"
+					 class="zi73ho4t2">考核</Col>
+				  <Col span="8">
+					<FormItem
+						  prop="assessmentArrangement"
+						 label="考核安排" >
+					  <Input placeholder="请输入考核安排..."
+					  	 class="tut5168o2" v-model="ntqm713['assessmentArrangement']"></Input>
+					</FormItem>
+				  </Col>
+				<Col class="zi73ho4t2" span="24">课程信息</Col>
+				  <Col
+				  	 span="8">
+					<FormItem
+						 label="技能课程名称"  prop="skillCourseName" >
+					  <Input placeholder="请输入技能课程名称..."
+					  	 v-model="ntqm713['skillCourseName']"
+					  	 class="tut5168o2"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="8">
+					<FormItem
+						 label="课程授课员"  prop="courseInstructor" >
+					  <Input class="tut5168o2" placeholder="请输入课程授课员..."
+					  	 v-model="ntqm713['courseInstructor']"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="8">
+					<FormItem label="技能课程描述"  prop="skillsCourseDescription" >
+					  <Input v-model="ntqm713['skillsCourseDescription']" class="tut5168o2" placeholder="请输入技能课程描述..."></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="8">
+					<FormItem
+						 label="技能课程重点"
+						  prop="keyPointsOfSkillCourses" >
+					  <Input class="tut5168o2"
+					  	 placeholder="请输入技能课程重点..." v-model="ntqm713['keyPointsOfSkillCourses']"></Input>
+					</FormItem>
+				  </Col>
+			</Row>
+		  </Form>
+	</div>
+	<div
+		 class="kpxosad4n">
+	  <Button
+	  	 style="margin: 0 20px; border-radius: 20px;" @click="k0346wa">重置</Button>
+	  <Button
+	  	 style="margin: 0 20px; border-radius: 20px; background-color: #109C8D; color:#fff;"
+	  	 @click="ggjjvvf('FormData')">确认提交</Button>
+	</div>
+</div>
+</template>
+
+<script>
+import {
+skillsCoursesService} from '@/api'
+export default {
+data () {
+	return {
+	  ahr9wkq: {
+	  },
+	  ktsx070: {
+	  },
+	  khpab28:{
+			'learnerLearningInformation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'assessmentArrangement':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'skillCourseName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'courseInstructor':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'skillsCourseDescription':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'keyPointsOfSkillCourses':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  ntqm713:{
+		'learnerLearningInformation':'',
+		'assessmentArrangement':'',
+		'skillCourseName':'',
+		'courseInstructor':'',
+		'skillsCourseDescription':'',
+		'keyPointsOfSkillCourses':'',
+	  },
+	}
+},
+mounted () {
+	this.q55uzs9();
+},
+methods:{
+	q55uzs9() {
+		},
+	k0346wa(){
+	  this.ntqm713 = {
+		'learnerLearningInformation':'',
+		'assessmentArrangement':'',
+		'skillCourseName':'',
+		'courseInstructor':'',
+		'skillsCourseDescription':'',
+		'keyPointsOfSkillCourses':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		ggjjvvf(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  skillsCoursesService.addSkillsCourses(this.ntqm713).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		},
+}
+}
+</script>
+
+<style scoped>
+	@import './index.css';
+</style>
+package com.edward.miller.workingabilityindex.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+
+/**
+* 技能课程信息保存入参
+*
+*/
+@Data
+@ApiModel(value = "技能课程信息保存入参", description = "技能课程信息保存入参")
+public class SkillsCoursesSaveREQ implements Serializable {
+	@ApiModelProperty(value = "技能课程信息数据主键")
+	private Long id;
+
+
+	/**
+	* 技能课程名称
+	*/
+	private String skillCourseName;
+
+	/**
+	* 课程授课员
+	*/
+	private String courseInstructor;
+
+	/**
+	* 技能课程描述
+	*/
+	private String skillsCourseDescription;
+
+	/**
+	* 技能课程重点
+	*/
+	private String keyPointsOfSkillCourses;
+
+	/**
+	* 学员学习信息
+	*/
+	private String learnerLearningInformation;
+
+	/**
+	* 考核安排
+	*/
+	private String assessmentArrangement;
+}
+package com.edward.miller.workingabilityindex.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+
+/**
+* 分页公用参数
+*
+*/
+@ApiModel(value = "分页", description = "分页")
+public class PageREQ implements Serializable {
+	/**
+	 * 页
+	 **/
+	@ApiModelProperty(value = "页")
+	private Integer pageNum;
+	/**
+	 * 个
+	 */
+	@ApiModelProperty(value = "个")
+	private Integer pageSize;
+
+	public Integer getPageNum() {
+		return pageNum == null ? 1 : pageNum;
+	}
+
+	public void setPageNum(Integer pageNum) {
+		this.pageNum = pageNum;
+	}
+
+	public Integer getPageSize() {
+		return pageSize == null ? 10 : pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
+}
+package com.edward.miller.workingabilityindex.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+
+/**
+* 技能培训列表查询入参
+*
+*/
+@Data
+@ApiModel(value = "技能培训列表查询入参", description = "技能培训列表查询入参，包含分页")
+public class WorkingAbilityIndexPageREQ extends PageREQ implements Serializable {
+
+	/**
+	* 培训课程
+	*/
+	private String trainHours;
+}
+package com.edward.miller.workingabilityindex.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+
+/**
+* 技能培训保存入参
+*
+*/
+@Data
+@ApiModel(value = "技能培训保存入参", description = "技能培训保存入参")
+public class WorkingAbilityIndexSaveREQ implements Serializable {
+	@ApiModelProperty(value = "技能培训数据主键")
+	private Long id;
+
+
+	/**
+	* 培训课程
+	*/
+	private String trainHours;
+
+	/**
+	* 培训方案
+	*/
+	private String trainingProgramme;
+
+	/**
+	* 培训时间
+	*/
+	private String nameTrainProgram;
+
+	/**
+	* 培训讲师
+	*/
+	private String peiXunJiangShi;
+
+	/**
+	* 培训内容
+	*/
+	private String trainContent;
+
+	/**
+	* 受培训人员
+	*/
+	private String trainees;
+}
+package com.edward.miller.workingabilityindex.req;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
+import java.io.Serializable;
+
+
+/**
+* 技能课程信息列表查询入参
+*
+*/
+@Data
+@ApiModel(value = "技能课程信息列表查询入参", description = "技能课程信息列表查询入参，包含分页")
+public class SkillsCoursesPageREQ extends PageREQ implements Serializable {
+
+	/**
+	* 技能课程名称
+	*/
+	private String skillCourseName;
+}
+package com.edward.miller.workingabilityindex.dto;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* 技能课程信息dto
+*
+*/
+@Data
+@ApiModel(value = "技能课程信息管理返回值", description = "技能课程信息管理返回值")
+public class SkillsCoursesDTO implements Serializable {
+	@ApiModelProperty(value = "技能课程信息管理主键")
+	private Integer id;
+
+	/**
+	* 技能课程名称
+	*/
+	@Column(name = "skillCourseName")
+	private String skillCourseName;
+
+	/**
+	* 课程授课员
+	*/
+	@Column(name = "courseInstructor")
+	private String courseInstructor;
+
+	/**
+	* 技能课程描述
+	*/
+	@Column(name = "skillsCourseDescription")
+	private String skillsCourseDescription;
+
+	/**
+	* 技能课程重点
+	*/
+	@Column(name = "keyPointsOfSkillCourses")
+	private String keyPointsOfSkillCourses;
+
+	/**
+	* 学员学习信息
+	*/
+	@Column(name = "learnerLearningInformation")
+	private String learnerLearningInformation;
+
+	/**
+	* 考核安排
+	*/
+	@Column(name = "assessmentArrangement")
+	private String assessmentArrangement;
+}
+package com.edward.miller.workingabilityindex.dto;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import javax.persistence.Column;
+import java.io.Serializable;
+
+
+/**
+* 技能培训dto
+*
+*/
+@Data
+@ApiModel(value = "技能培训管理返回值", description = "技能培训管理返回值")
+public class WorkingAbilityIndexDTO implements Serializable {
+	@ApiModelProperty(value = "技能培训管理主键")
+	private Integer id;
+
+	/**
+	* 培训课程
+	*/
+	@Column(name = "trainHours")
+	private String trainHours;
+
+	/**
+	* 培训方案
+	*/
+	@Column(name = "trainingProgramme")
+	private String trainingProgramme;
+
+	/**
+	* 培训时间
+	*/
+	@Column(name = "nameTrainProgram")
+	private String nameTrainProgram;
+
+	/**
+	* 培训讲师
+	*/
+	@Column(name = "peiXunJiangShi")
+	private String peiXunJiangShi;
+
+	/**
+	* 培训内容
+	*/
+	@Column(name = "trainContent")
+	private String trainContent;
+
+	/**
+	* 受培训人员
+	*/
+	@Column(name = "trainees")
+	private String trainees;
+}
