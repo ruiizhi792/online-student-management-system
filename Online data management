@@ -1,0 +1,2976 @@
+<template>
+<div class="mzlmiguth">
+	<div
+		 class="i0dfy8tpq">
+		<div
+			 class="hnyhqnnny">
+			<div
+				 class="baotpst9v">学生培训课程资料在线管理平台</div>
+			<div
+				 :class="{'zqeebe30q': xgho0kt == '培训考核'}" class="xov6k95cf"
+				 @click="dexg09e('培训考核','pei_xun_kao_he',0)">培训考核</div>
+			<div class="xov6k95cf" :class="{'zqeebe30q': xgho0kt == '线上培训'}"
+				 @click="dexg09e('线上培训','xian_shang_pei_xun',1)">线上培训</div>
+			<div :class="{'zqeebe30q': xgho0kt == '培训人员管理'}" @click="dexg09e('培训人员管理','pei_xun_ren_yuan_guan_li',2)" class="xov6k95cf">培训人员管理</div>
+			<div
+				 @click="dexg09e('关于我们','about', 99)" class="xov6k95cf"
+				 :class="{'zqeebe30q': xgho0kt == '关于我们'}">关于我们</div>
+		</div>
+		<div
+			 class="ulwkeiuxb">
+			<span class="ayg57pchi">admin</span>
+			<span class="vft96lzao"
+				 @click="aftblyd">退出</span>
+		</div>
+	</div>
+
+	<div class="z4va002hg">
+		<div class="zcuxdeypnBox" :class="{'alddmwqmz':'LEFT' == 'RIGHT'}" v-if="fvpj7kp != null">
+			<div
+				 @click="l85582s('培训考核', 'trainAssessAnalysis')" :class="{'zcuxdeypnActive': kng1if6 == '培训考核'}" class="zcuxdeypn" v-if="fvpj7kp == 0">
+				<i
+					 class="zcuxdeypnIcon iconfont icon-wuzihexiao"/>培训考核
+			</div>
+			<div
+				 v-if="fvpj7kp == 1" class="zcuxdeypn" :class="{'zcuxdeypnActive': kng1if6 == '培训计划管理'}" @click="l85582s('培训计划管理', 'trainingPlanManagement')">
+				<i
+					 class="zcuxdeypnIcon iconfont icon-ashbin-fill"/>培训计划管理
+			</div>
+			<div
+				 @click="l85582s('培训课程', 'trainHours')"
+				 class="zcuxdeypn" v-if="fvpj7kp == 1"
+				 :class="{'zcuxdeypnActive': kng1if6 == '培训课程'}">
+				<i class="zcuxdeypnIcon iconfont icon-superscript"/>培训课程
+			</div>
+			<div v-if="fvpj7kp == 1"
+				 class="zcuxdeypn" :class="{'zcuxdeypnActive': kng1if6 == '培训资料'}"
+				 @click="l85582s('培训资料', 'trainingMaterials')">
+				<i class="zcuxdeypnIcon iconfont icon-cameraswitching-fill"/>培训资料
+			</div>
+			<div @click="l85582s('培训记录', 'trainingRecords')"
+				 :class="{'zcuxdeypnActive': kng1if6 == '培训记录'}"
+				 class="zcuxdeypn"
+				 v-if="fvpj7kp == 1">
+				<i
+					 class="zcuxdeypnIcon iconfont icon-tradingvolume"/>培训记录
+			</div>
+			<div
+				 @click="l85582s('培训资源管理', 'trainingResourceManagement')"
+				 v-if="fvpj7kp == 1" class="zcuxdeypn" :class="{'zcuxdeypnActive': kng1if6 == '培训资源管理'}">
+				<i
+					 class="zcuxdeypnIcon iconfont icon-zhatuche"/>培训资源管理
+			</div>
+			<div
+				 v-if="fvpj7kp == 2"
+				 class="zcuxdeypn"
+				 :class="{'zcuxdeypnActive': kng1if6 == '培训人员管理'}" @click="l85582s('培训人员管理', 'userInformation')">
+				<i class="zcuxdeypnIcon iconfont icon-raw"/>培训人员管理
+			</div>
+		</div>
+		<div class="wetpf0htv"
+			 :class="{'wetpf0htvBlock': fvpj7kp == null}">
+			<div class="cko1yjjvl">学生培训课程资料在线管理平台
+				<span v-if="xgho0kt">/ {{xgho0kt}}</span>
+				<span
+				 v-if="kng1if6">/ {{kng1if6}}</span></div>
+			<div class="byrm97meu">
+				<router-view></router-view>
+			</div>
+
+		</div>
+	</div>
+
+
+</div>
+</template>
+
+<script>
+export default {
+	name: 'twoMain',
+	data(){
+		return{
+			xgho0kt: '',
+			fvpj7kp: null,
+			kng1if6:'',
+		}
+	},
+	methods:{
+		dexg09e(name, code, index){
+			this.xgho0kt = name
+			sessionStorage.setItem('fMenuName', name)
+			this.kng1if6 = ''
+			if(index < 99){
+					this.fvpj7kp = index
+			}else{
+				this.fvpj7kp = null
+				this.$router.push("/" + code)
+			}
+		},
+		l85582s(name,code){
+			this.kng1if6 = name
+			sessionStorage.setItem('sMenuName', name)
+			this.$router.push("/" + code)
+		},
+		aftblyd(){
+			this.$router.push("/")
+		},
+	}
+};
+</script>
+
+<style
+	 scoped>
+@import "./index.css";
+</style>
+<template>
+<div
+	 class="icgy755lt">
+		<div
+			 class="f2p8szq42">
+					  <div
+					  	 class="i4tda8pj4">
+			  <Button class="ltcq3wvvi"
+			  	 @click="kws1sus()" :style="{backgroundColor: (gsus89d.length == 0 ? 'unset' : '#D85C80'),color: (gsus89d.length == 0 ? '#666' : '#fff')}"
+			  	 :disabled="gsus89d.length == 0">
+			  	<Icon type="md-trash"
+			  	   size="16" />删除</Button>
+			  <Button :disabled="gsus89d.length > 1 || gsus89d.length == 0"
+			  	 :style="{backgroundColor: (gsus89d.length == 1 ? '#F89189' : 'unset'),color: (gsus89d.length == 1 ? '#fff' : '#666')}" @click="z5wlodb()"
+			  	 class="xi4idp9ot">
+			  	<Icon
+			  	   size="16"
+			  	 type="md-create" />修改</Button>
+			  <Button class="rzymldquh"
+			  	 @click="qyacfe7"
+			  	  style="background-color: #CCA166">
+			  	<Icon type="md-add"
+			  	 size="16" />新增</Button>
+			</div>
+		  <div
+		  	 class="n7gox0eo7">
+				<Input class="fh0ibgsa6"
+					 placeholder="请输入计划名称" v-model="hqsnmb6Data['planScheme']" />
+			<Button
+				 class="rzueeim9n"
+				 @click="hqsnmb6">搜索</Button>
+		  </div>
+		</div>
+		<div class="famwgze6b">
+		  <table >
+			<thead>
+			  <tr>
+				<th><input name="check"
+					 type="checkbox" id="selAllBtnId" @click="i8e9ru4($event)" class="rh10qf75a"></th>
+				<th>计划名称</th>
+				<th>培训教师</th>
+				<th>培训时间</th>
+				<th>培训目标</th>
+				<th>培训课程内容</th>
+				<th>计划制定</th>
+			  </tr>
+			</thead>
+			<tbody
+				 ref="table">
+			  <tr :key="index" v-for="(data,index) in yzw2ltb.list">
+				<td><input
+					 name="select"
+					 type="checkbox"
+					 class="s2k8oz2ly"
+					 :value="data" @click="eiqnc23($event)"></td>
+					<td>{{data['planScheme']}}</td>
+					<td>{{data['trainingTeachers']}}</td>
+					<td>{{data['trainingTime']}}</td>
+					<td>{{data['trainingObjectives']}}</td>
+					<td>{{data['trainingCourseContent']}}</td>
+					<td>{{data['planning']}}</td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+		<div class="cpkfrffq2">
+
+		  <div
+		  	 class="tyj3muttr">
+			<div
+				 v-if="yzw2ltb.hasPreviousPage" class="v23rxfwsc" @click="bidgnm0">
+				<Icon size="18" type="ios-arrow-back"/></div>
+			<div class="e73khfoat">
+			  <span
+			  	 :key="index"
+			  	 v-for="(numb,index) in yzw2ltb.pages"
+			  	 :class="{'kiq9j0mdm':yzw2ltb.pageNum == numb}"
+			  	 @click="l85582s(numb)" class="k4fzjxiar">{{numb}}</span>
+			</div>
+			<div @click="z3l8ha8" v-if="yzw2ltb.hasNextPage" class="e94tnx4ik">
+				<Icon type="ios-arrow-forward"
+				  size="18"/></div>
+		  </div>
+		</div>
+		<Modal v-model="tt18271" :width="40" title="修改" :transfer="false" :footer-hide="true"
+			 :fullscreen="true">
+		  <Form style="padding-bottom: 50px;"
+		  	 :model="sitlzbp" :label-width="100" :rules="nc1cfgg" label-position="left" ref="editFormData">
+			<Row :gutter="32">
+				<Col span="12">
+				  <FormItem label="计划名称"  prop="planScheme">
+					<Input placeholder="请输入计划名称..." v-model="sitlzbp['planScheme']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="trainingTeachers" label="培训教师">
+					<Input placeholder="请输入培训教师..."
+						 v-model="sitlzbp['trainingTeachers']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="培训时间"  prop="trainingTime">
+					<Input placeholder="请输入培训时间..."
+						 v-model="sitlzbp['trainingTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingObjectives" label="培训目标">
+					<Input
+						 placeholder="请输入培训目标..."
+						 v-model="sitlzbp['trainingObjectives']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="24">
+				  <FormItem
+				  	 label="培训课程内容"  prop="trainingCourseContent">
+					<Input
+						 placeholder="请输入培训课程内容..." :autosize="{minRows: 2, maxRows: 5}" type="textarea" v-model="sitlzbp['trainingCourseContent']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="计划制定"
+				  	  prop="planning">
+					<Input
+						 v-model="sitlzbp['planning']"
+						 placeholder="请输入计划制定..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button
+				 style="margin: 0 20px" @click="rq3m3xa">关闭</Button>
+			<Button
+				 style="margin: 0 20px"
+				 type="primary"
+				 @click="w8b96dc('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal :fullscreen="true" :width="40" :transfer="false"
+			 title="新增"
+			 :footer-hide="true"
+			 v-model="qb5jzj6">
+		  <Form
+		  	 ref="addFormData"
+		  	 :model="sitlzbp" style="padding-bottom: 50px;"
+		  	 :label-width="100" label-position="left" :rules="nc1cfgg">
+			<Row :gutter="32">
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="planScheme" label="计划名称" >
+				  <Input
+				  	 v-model="sitlzbp['planScheme']"
+				  	 placeholder="请输入计划名称..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="培训教师"  prop="trainingTeachers" >
+				  <Input
+				  	 placeholder="请输入培训教师..."
+				  	 v-model="sitlzbp['trainingTeachers']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="培训时间"  prop="trainingTime" >
+				  <Input placeholder="请输入培训时间..." v-model="sitlzbp['trainingTime']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="培训目标"
+					  prop="trainingObjectives" >
+				  <Input v-model="sitlzbp['trainingObjectives']"
+				  	 placeholder="请输入培训目标..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="24">
+				<FormItem  prop="trainingCourseContent" label="培训课程内容">
+				  <Input v-model="sitlzbp['trainingCourseContent']" type="textarea" :autosize="{minRows: 2, maxRows: 5}"
+				  	 placeholder="请输入培训课程内容..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="计划制定"  prop="planning" >
+				  <Input v-model="sitlzbp['planning']" placeholder="请输入计划制定..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="h2jkab9ks">
+			<Button style="margin: 0 20px"
+				 @click="u2x51sy">关闭</Button>
+			<Button style="margin: 0 20px"
+				 type="primary" @click="fpyrlrh('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainingPlanManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  pz2jpin: {
+	  },
+	  n7turgd:{
+	  },
+	  mj36oy9:'',
+	  nc1cfgg:{
+			'planScheme':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingTeachers':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingObjectives':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCourseContent':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'planning':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+		  m764pqh: {
+		  },
+	  hqsnmb6Data:{},
+	  yzw2ltb:{
+		list:[]
+	  },
+		  vq4bq5c: {
+		  },
+	  gsus89d:[],
+	  tt18271:false,
+	  qb5jzj6:false,
+	  sitlzbp:{
+		'planScheme':'',
+		'trainingTeachers':'',
+		'trainingTime':'',
+		'trainingObjectives':'',
+		'trainingCourseContent':'',
+		'planning':'',
+	  },
+	}
+},
+mounted () {
+	this.mj36oy9 = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName');
+	this.qzfosjh();
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+		},
+
+		kws1sus(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.gsus89d.length > 0){
+				ids = this.gsus89d.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			trainingPlanManagementService.deleteTrainingPlanManagement(ids).then(res => {
+			if(res.success){
+					this.gsus89d = []
+					this.$Message.success('删除成功')
+					this.qzfosjh()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		w8b96dc(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingPlanManagementService.reset(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.rq3m3xa()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		fpyrlrh(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingPlanManagementService.insertTrainingPlanManagement(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.u2x51sy()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  qzfosjh() {
+			trainingPlanManagementService.getTrainingPlanManagementPageList(this.hqsnmb6Data, this.n7turgd.j_pageNum, this.n7turgd.j_pageSize).then(res => {
+			  if(res.success){
+				this.yzw2ltb = res.data
+			  }
+			})
+		  },
+
+	  qyacfe7(){
+		this.qb5jzj6 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  u2x51sy(){
+		this.qb5jzj6 = false
+		this.sitlzbp = {
+		  'planScheme':'',
+		  'trainingTeachers':'',
+		  'trainingTime':'',
+		  'trainingObjectives':'',
+		  'trainingCourseContent':'',
+		  'planning':'',
+		}
+	  },
+	
+	  z5wlodb(itemData){
+		if(itemData){
+		  this.sitlzbp = {...itemData}
+		  this.tt18271 = true
+		}else if(this.gsus89d.length > 0){
+		  this.sitlzbp = {...this.gsus89d[0]}
+		  this.tt18271 = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  rq3m3xa(){
+		this.tt18271 = false
+		this.sitlzbp = {
+		  'planScheme':'',
+		  'trainingTeachers':'',
+		  'trainingTime':'',
+		  'trainingObjectives':'',
+		  'trainingCourseContent':'',
+		  'planning':'',
+		}
+	  },
+	
+	  hqsnmb6(){
+		this.n7turgd.j_pageNum = 1
+		this.qzfosjh()
+	  },
+	
+	  bidgnm0(){
+		if(this.yzw2ltb.hasPreviousPage){
+		  this.n7turgd.j_pageNum = this.yzw2ltb.prePage
+		  this.qzfosjh()
+		}
+		
+	  },
+	
+	  z3l8ha8(){
+		if(this.yzw2ltb.hasNextPage){
+		this.n7turgd.j_pageNum = this.yzw2ltb.nextPage
+		this.qzfosjh()
+		}
+	  },
+
+	i8e9ru4(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.gsus89d = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.gsus89d.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.gsus89d = []
+	  }
+	},
+
+	eiqnc23(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.gsus89d.push(val)
+	  }else{
+		let clearIndex = this.gsus89d.indexOf(val)
+		this.gsus89d.splice(clearIndex,1)
+	  }
+	},
+
+	dl6v5r7(e){
+	  let val = e.target._value
+	  this.gsus89d = []
+	  this.gsus89d.push(val)
+	},
+
+	l85582s(pageNumb){
+	  this.n7turgd.j_pageNum = pageNumb
+	  this.qzfosjh()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="y1bbt9tt5">
+		<div
+			 class="n7gox0eo7">
+						<Input placeholder="请输入培训计划"
+							 v-model="hqsnmb6Data['trainingAndTeachingPlan']"
+							 class="fh0ibgsa6" />
+		  <Button
+		  	 @click="hqsnmb6"
+		  	 class="rzueeim9n">搜索</Button>
+		</div>
+		<div
+			 class="yaxdavgb5">
+		  <div
+		  	 class="f2p8szq42 ">
+			  <div
+			  	 class="i4tda8pj4">
+				<Button :style="{backgroundColor: (gsus89d.length == 1 ? '#F89189' : 'unset'),color: (gsus89d.length == 1 ? '#fff' : '#666')}"
+					 @click="z5wlodb()" class="xi4idp9ot"
+					 :disabled="gsus89d.length > 1 || gsus89d.length == 0">修改</Button>
+				<Button class="ltcq3wvvi"
+					 @click="kws1sus()"
+					 :style="{backgroundColor: (gsus89d.length == 0 ? 'unset' : '#D85C80'),color: (gsus89d.length == 0 ? '#666' : '#fff')}"
+					 :disabled="gsus89d.length == 0">删除</Button>
+				<Button  style="background-color: #CCA166"
+					 @click="qyacfe7"
+					 class="rzymldquh">新增</Button>
+			  </div>
+		  </div>
+		  <div class="famwgze6b  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input name="check" type="checkbox" class="rh10qf75a"
+				  	 id="selAllBtnId"
+				  	 @click="i8e9ru4($event)"></th>
+				  <th>培训计划</th>
+				  <th>培训课程名称</th>
+				  <th>培训课程方案</th>
+				  <th>课程培训时间</th>
+				  <th>培训目的</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr
+					 :key="index"
+					 v-for="(data,index) in yzw2ltb.list">
+				  <td><input
+				  	 :value="data" name="select"
+				  	 class="s2k8oz2ly" type="checkbox"
+				  	 @click="eiqnc23($event)"></td>
+					  <td>{{data['trainingAndTeachingPlan']}}</td>
+					  <td>{{data['trainingCourseName']}}</td>
+					  <td>{{data['trainingCoursePlan']}}</td>
+					  <td>{{data['courseTrainingTime']}}</td>
+					  <td>{{data['trainingPurpose']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="cpkfrffq2">
+
+			<div class="tyj3muttr">
+			  <div
+			  	 @click="bidgnm0"
+			  	 v-if="yzw2ltb.hasPreviousPage" class="v23rxfwsc">
+			  	<Icon type="ios-arrow-back" size="18"/></div>
+			  <div class="e73khfoat">
+				<span :class="{'kiq9j0mdm':yzw2ltb.pageNum == numb}"
+					 @click="l85582s(numb)"
+					 class="k4fzjxiar" v-for="(numb,index) in yzw2ltb.pages" :key="index">{{numb}}</span>
+			  </div>
+			  <div class="e94tnx4ik" v-if="yzw2ltb.hasNextPage"
+			  	 @click="z3l8ha8">
+			  	<Icon type="ios-arrow-forward"  size="18"/></div>
+			</div>
+		  </div>
+		</div>
+		<Modal :footer-hide="true"
+			 title="修改"
+			 v-model="tt18271" :transfer="false" :fullscreen="true" :width="40">
+		  <Form
+		  	 style="padding-bottom: 50px;"
+		  	 ref="editFormData" :label-width="100"
+		  	 :model="sitlzbp" label-position="left"
+		  	 :rules="nc1cfgg">
+			<Row
+				 :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	 label="培训计划"  prop="trainingAndTeachingPlan">
+					<Input
+						 v-model="sitlzbp['trainingAndTeachingPlan']" placeholder="请输入培训计划..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingCourseName" label="培训课程名称">
+					<Input
+						 placeholder="请输入培训课程名称..."
+						 v-model="sitlzbp['trainingCourseName']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="trainingCoursePlan" label="培训课程方案">
+					<Input v-model="sitlzbp['trainingCoursePlan']" placeholder="请输入培训课程方案..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingCourseContent" label="培训课程内容">
+					<Input placeholder="请输入培训课程内容..."
+						 v-model="sitlzbp['trainingCourseContent']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="courseTrainingTime"
+				  	 label="课程培训时间">
+					<Input placeholder="请输入课程培训时间..."
+						 v-model="sitlzbp['courseTrainingTime']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingPurpose"
+				  	 label="培训目的">
+					<Input
+						 placeholder="请输入培训目的..." v-model="sitlzbp['trainingPurpose']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button style="margin: 0 20px"
+				 @click="rq3m3xa">关闭</Button>
+			<Button style="margin: 0 20px"
+				 type="primary"
+				 @click="w8b96dc('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 :fullscreen="true"
+			 :width="40"
+			 :footer-hide="true" :transfer="false"
+			 title="新增"
+			 v-model="qb5jzj6">
+		  <Form
+		  	 ref="addFormData"
+		  	 :label-width="100"
+		  	 style="padding-bottom: 50px;"
+		  	 :model="sitlzbp" label-position="left" :rules="nc1cfgg">
+			<Row :gutter="32">
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="trainingAndTeachingPlan" label="培训计划" >
+				  <Input
+				  	 placeholder="请输入培训计划..."
+				  	 v-model="sitlzbp['trainingAndTeachingPlan']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="培训课程名称"
+					  prop="trainingCourseName" >
+				  <Input placeholder="请输入培训课程名称..." v-model="sitlzbp['trainingCourseName']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="培训课程方案"
+					  prop="trainingCoursePlan" >
+				  <Input
+				  	 placeholder="请输入培训课程方案..." v-model="sitlzbp['trainingCoursePlan']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="trainingCourseContent" label="培训课程内容" >
+				  <Input placeholder="请输入培训课程内容..."
+				  	 v-model="sitlzbp['trainingCourseContent']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="courseTrainingTime" label="课程培训时间" >
+				  <Input v-model="sitlzbp['courseTrainingTime']" placeholder="请输入课程培训时间..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="培训目的"
+					  prop="trainingPurpose" >
+				  <Input
+				  	 v-model="sitlzbp['trainingPurpose']"
+				  	 placeholder="请输入培训目的..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="h2jkab9ks">
+			<Button
+				 style="margin: 0 20px"
+				 @click="u2x51sy">关闭</Button>
+			<Button style="margin: 0 20px" type="primary"
+				 @click="fpyrlrh('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainHoursService} from '@/api'
+export default {
+data(){
+	return{
+	  pz2jpin: {
+	  },
+	  qb5jzj6:false,
+	  n7turgd:{
+	  },
+	  gsus89d:[],
+	  tt18271:false,
+		  vq4bq5c: {
+		  },
+		  m764pqh: {
+		  },
+	  hqsnmb6Data:{},
+	  nc1cfgg:{
+			'trainingAndTeachingPlan':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCourseName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCoursePlan':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCourseContent':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'courseTrainingTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingPurpose':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  sitlzbp:{
+		'trainingAndTeachingPlan':'',
+		'trainingCourseName':'',
+		'trainingCoursePlan':'',
+		'trainingCourseContent':'',
+		'courseTrainingTime':'',
+		'trainingPurpose':'',
+	  },
+	  yzw2ltb:{
+		list:[]
+	  },
+	}
+},
+mounted () {
+	this.qzfosjh();
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+		},
+
+		w8b96dc(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainHoursService.reset(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.rq3m3xa()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		kws1sus(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.gsus89d.length > 0){
+				ids = this.gsus89d.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			trainHoursService.deleteTrainHours(ids).then(res => {
+			if(res.success){
+					this.gsus89d = []
+					this.$Message.success('删除成功')
+					this.qzfosjh()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		fpyrlrh(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainHoursService.insertTrainHours(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.u2x51sy()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  qzfosjh() {
+			trainHoursService.getTrainHoursPageList(this.hqsnmb6Data, this.n7turgd.j_pageNum, this.n7turgd.j_pageSize).then(res => {
+			  if(res.success){
+				this.yzw2ltb = res.data
+			  }
+			})
+		  },
+
+	  qyacfe7(){
+		this.qb5jzj6 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  u2x51sy(){
+		this.qb5jzj6 = false
+		this.sitlzbp = {
+		  'trainingAndTeachingPlan':'',
+		  'trainingCourseName':'',
+		  'trainingCoursePlan':'',
+		  'trainingCourseContent':'',
+		  'courseTrainingTime':'',
+		  'trainingPurpose':'',
+		}
+	  },
+	
+	  z5wlodb(itemData){
+		if(itemData){
+		  this.sitlzbp = {...itemData}
+		  this.tt18271 = true
+		}else if(this.gsus89d.length > 0){
+		  this.sitlzbp = {...this.gsus89d[0]}
+		  this.tt18271 = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  rq3m3xa(){
+		this.tt18271 = false
+		this.sitlzbp = {
+		  'trainingAndTeachingPlan':'',
+		  'trainingCourseName':'',
+		  'trainingCoursePlan':'',
+		  'trainingCourseContent':'',
+		  'courseTrainingTime':'',
+		  'trainingPurpose':'',
+		}
+	  },
+	
+	  hqsnmb6(){
+		this.n7turgd.j_pageNum = 1
+		this.qzfosjh()
+	  },
+	
+	  bidgnm0(){
+		if(this.yzw2ltb.hasPreviousPage){
+		  this.n7turgd.j_pageNum = this.yzw2ltb.prePage
+		  this.qzfosjh()
+		}
+		
+	  },
+	
+	  z3l8ha8(){
+		if(this.yzw2ltb.hasNextPage){
+		this.n7turgd.j_pageNum = this.yzw2ltb.nextPage
+		this.qzfosjh()
+		}
+	  },
+
+	i8e9ru4(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.gsus89d = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.gsus89d.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.gsus89d = []
+	  }
+	},
+
+	eiqnc23(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.gsus89d.push(val)
+	  }else{
+		let clearIndex = this.gsus89d.indexOf(val)
+		this.gsus89d.splice(clearIndex,1)
+	  }
+	},
+
+	dl6v5r7(e){
+	  let val = e.target._value
+	  this.gsus89d = []
+	  this.gsus89d.push(val)
+	},
+
+	l85582s(pageNumb){
+	  this.n7turgd.j_pageNum = pageNumb
+	  this.qzfosjh()
+	}
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="s99lncei8">
+	  <div class="zktyljx2p">{{mj36oy9}}</div>
+	  <div class="fd5y5pswu">
+		  <Form
+		  	 :rules="nc1cfgg"
+		  	 style="padding-bottom: 50px;"
+		  	 ref="FormData"
+		  	 label-position="left"
+		  	 :label-width="100"
+		  	 :model="sitlzbp">
+			<Row :gutter="32">
+							<Col
+								 span="12">
+				<FormItem  prop="trainingMaterials"
+					 label="培训资料" >
+				  <Input class="b7d517orf"
+				  	 v-model="sitlzbp['trainingMaterials']"
+				  	 placeholder="请输入培训资料..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="trainingMaterialType"
+					 label="培训资料类型" >
+				  <Input class="b7d517orf" placeholder="请输入培训资料类型..."
+				  	 v-model="sitlzbp['trainingMaterialType']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="trainingResourceLibrary" label="培训资源库" >
+				  <Input v-model="sitlzbp['trainingResourceLibrary']" placeholder="请输入培训资源库..." class="b7d517orf"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="资料分配"
+					  prop="dataDistribution" >
+				  <Input class="b7d517orf"
+				  	 v-model="sitlzbp['dataDistribution']"
+				  	 placeholder="请输入资料分配..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="descriptionOfTrainingMaterials"
+					 label="培训资料描述" >
+				  <Input
+				  	 class="b7d517orf" placeholder="请输入培训资料描述..."
+				  	 v-model="sitlzbp['descriptionOfTrainingMaterials']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="资料共享"  prop="dataSharing" >
+				  <Input v-model="sitlzbp['dataSharing']"
+				  	 placeholder="请输入资料共享..." class="b7d517orf"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="wxgupjo58">
+			<Button @click="eearf3w" style="margin: 0 20px">重置</Button>
+			<Button @click="j89zyna('FormData')"
+				 style="margin: 0 20px; background-color: #893A73; color:#fff;">确认提交</Button>
+		  </div>
+	  </div>
+</div>
+</template>
+
+<script>
+import {
+trainingMaterialsService} from '@/api'
+export default {
+	data () {
+	  return {
+		mj36oy9:'',
+		sitlzbp:{
+		  'trainingMaterials':'',
+		  'trainingMaterialType':'',
+		  'trainingResourceLibrary':'',
+		  'dataDistribution':'',
+		  'descriptionOfTrainingMaterials':'',
+		  'dataSharing':'',
+		},
+		pz2jpin: {
+	  },
+		nc1cfgg:{
+			  'trainingMaterials':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'trainingMaterialType':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'trainingResourceLibrary':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'dataDistribution':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'descriptionOfTrainingMaterials':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+			  'dataSharing':[
+				{
+				  required: true,
+				  message: '不能为空'
+				}
+			  ],
+		},
+		vq4bq5c: {
+		},
+	  }
+	},
+mounted () {
+this.mj36oy9 = sessionStorage.getItem('sMenuName') || sessionStorage.getItem('fMenuName')
+this.amomarz();
+},
+methods:{
+	amomarz() {
+		},
+	eearf3w(){
+	  this.sitlzbp = {
+		'trainingMaterials':'',
+		'trainingMaterialType':'',
+		'trainingResourceLibrary':'',
+		'dataDistribution':'',
+		'descriptionOfTrainingMaterials':'',
+		'dataSharing':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		j89zyna(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingMaterialsService.insertTrainingMaterials(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		}
+}
+}
+</script>
+
+<style scoped>
+	@import './index.css';
+</style>
+<template>
+<div class="i22qonnik">
+	  <div
+	  	 class="ceszpoit4  ">
+	  <div
+	  	 class="qq36852ou">
+		  <div
+		  	 class="f2p8szq42 ">
+			  <div class="i4tda8pj4">
+				<Button :style="{backgroundColor: (gsus89d.length == 0 ? 'unset' : '#D85C80'),color: (gsus89d.length == 0 ? '#666' : '#fff')}" class="ltcq3wvvi" :disabled="gsus89d.length == 0" @click="kws1sus()">删除</Button>
+				<Button
+					 class="xi4idp9ot" @click="z5wlodb()"
+					 :style="{backgroundColor: (gsus89d.length == 1 ? '#F89189' : 'unset'),color: (gsus89d.length == 1 ? '#fff' : '#666')}"
+					 :disabled="gsus89d.length > 1 || gsus89d.length == 0">修改</Button>
+				<Button
+					 class="rzymldquh"
+					 @click="qyacfe7"
+					  style="background-color: #CCA166">新增</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="n7gox0eo7">
+			  <Input
+			  	 class="fh0ibgsa6"
+			  	 v-model="hqsnmb6Data['trainingCourse']"
+			  	 placeholder="请输入培训课程" />
+		  <Button @click="hqsnmb6"
+		  	 class="rzueeim9n">搜索</Button>
+		</div>
+		</div>
+		<div
+			 class="tyj3muttr">
+		  <div
+		  	 class="v23rxfwsc"
+		  	 @click="bidgnm0"
+		  	 v-if="yzw2ltb.hasPreviousPage">
+		  	<Icon type="ios-arrow-back"
+		  	 size="18"/></div>
+		  <div class="e73khfoat">
+			<span
+				 class="k4fzjxiar" :class="{'kiq9j0mdm':yzw2ltb.pageNum == numb}" v-for="(numb,index) in yzw2ltb.pages"
+				 @click="l85582s(numb)"
+				 :key="index">{{numb}}</span>
+		  </div>
+		  <div class="e94tnx4ik"
+		  	 v-if="yzw2ltb.hasNextPage" @click="z3l8ha8">
+		  	<Icon
+		  	 type="ios-arrow-forward"  size="18"/></div>
+		</div>
+	  </div>
+		<div class="yaxdavgb5">
+		  <div
+		  	 class="famwgze6b famwgze6bDownHeight  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input
+				  	 type="checkbox" id="selAllBtnId" @click="i8e9ru4($event)" class="rh10qf75a" name="check"></th>
+				  <th>培训课程</th>
+				  <th>培训人员</th>
+				  <th>培训方案</th>
+				  <th>培训周期</th>
+				  <th>培训效果</th>
+				  <th>培训日期</th>
+				</tr>
+					  	 :rules="nc1cfgg" ref="editFormData" label-position="left"
+		  	 :model="sitlzbp" :label-width="100" style="padding-bottom: 50px;">
+			<Row
+				 :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingCourse" label="培训课程">
+					<Input v-model="sitlzbp['trainingCourse']" placeholder="请输入培训课程..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="培训人员"
+				  	  prop="trainers">
+					<Input v-model="sitlzbp['trainers']"
+						 placeholder="请输入培训人员..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem  prop="trainingProgramme"
+				  	 label="培训方案">
+					<Input v-model="sitlzbp['trainingProgramme']"
+						 placeholder="请输入培训方案..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="培训周期"
+				  	  prop="trainingCycle">
+					<Input
+						 v-model="sitlzbp['trainingCycle']"
+						 placeholder="请输入培训周期..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="培训效果"  prop="trainingEffect">
+					<Input
+						 placeholder="请输入培训效果..." v-model="sitlzbp['trainingEffect']"></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="培训日期"
+				  	  prop="peiXunRiQi">
+					<Input placeholder="请输入培训日期..."
+						 v-model="sitlzbp['peiXunRiQi']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="h2jkab9ks">
+			<Button style="margin: 0 20px" @click="rq3m3xa">关闭</Button>
+			<Button type="primary"
+				 style="margin: 0 20px" @click="w8b96dc('editFormData')">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 v-model="qb5jzj6"
+			 title="新增"
+			 :width="40" :fullscreen="true"
+			 :transfer="false" :footer-hide="true">
+		  <Form
+		  	 style="padding-bottom: 50px;" :label-width="100" :rules="nc1cfgg" :model="sitlzbp"
+		  	 label-position="left" ref="addFormData">
+			<Row :gutter="32">
+			  <Col span="12">
+				<FormItem
+					 label="培训课程"  prop="trainingCourse" >
+				  <Input placeholder="请输入培训课程..."
+				  	 v-model="sitlzbp['trainingCourse']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem label="培训人员"  prop="trainers" >
+				  <Input v-model="sitlzbp['trainers']" placeholder="请输入培训人员..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="培训方案"
+					  prop="trainingProgramme" >
+				  <Input placeholder="请输入培训方案..." v-model="sitlzbp['trainingProgramme']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem  prop="trainingCycle" label="培训周期" >
+				  <Input v-model="sitlzbp['trainingCycle']"
+				  	 placeholder="请输入培训周期..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="trainingEffect" label="培训效果" >
+				  <Input
+				  	 v-model="sitlzbp['trainingEffect']" placeholder="请输入培训效果..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem  prop="peiXunRiQi"
+					 label="培训日期" >
+				  <Input v-model="sitlzbp['peiXunRiQi']"
+				  	 placeholder="请输入培训日期..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button
+				 style="margin: 0 20px" @click="u2x51sy">关闭</Button>
+			<Button style="margin: 0 20px" type="primary" @click="fpyrlrh('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainingRecordsService} from '@/api'
+export default {
+data(){
+	return{
+	  nc1cfgg:{
+			'trainingCourse':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainers':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingProgramme':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingCycle':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingEffect':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'peiXunRiQi':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  hqsnmb6Data:{},
+	  gsus89d:[],
+		  m764pqh: {
+		  },
+	  sitlzbp:{
+		'trainingCourse':'',
+		'trainers':'',
+		'trainingProgramme':'',
+		'trainingCycle':'',
+		'trainingEffect':'',
+		'peiXunRiQi':'',
+	  },
+	  pz2jpin: {
+	  },
+	  yzw2ltb:{
+		list:[]
+	  },
+	  n7turgd:{
+	  },
+	  qb5jzj6:false,
+	  tt18271:false,
+		  vq4bq5c: {
+		  },
+	}
+},
+mounted () {
+	this.qzfosjh();
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+			if (valid) {
+			  trainingRecordsService.reset(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.rq3m3xa()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		fpyrlrh(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingRecordsService.insertTrainingRecords(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.u2x51sy()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  qzfosjh() {
+			trainingRecordsService.getTrainingRecordsPageList(this.hqsnmb6Data, this.n7turgd.j_pageNum, this.n7turgd.j_pageSize).then(res => {
+			  if(res.success){
+				this.yzw2ltb = res.data
+			  }
+			})
+		  },
+
+	  qyacfe7(){
+		this.qb5jzj6 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  u2x51sy(){
+		this.qb5jzj6 = false
+		this.sitlzbp = {
+		  'trainingCourse':'',
+		  'trainers':'',
+		  'trainingProgramme':'',
+		  'trainingCycle':'',
+		  'trainingEffect':'',
+		  'peiXunRiQi':'',
+		}
+	  },
+	
+	  z5wlodb(itemData){
+		if(itemData){
+		  this.sitlzbp = {...itemData}
+		  this.tt18271 = true
+		}else if(this.gsus89d.length > 0){
+		  this.sitlzbp = {...this.gsus89d[0]}
+		  this.tt18271 = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  rq3m3xa(){
+		this.tt18271 = false
+		this.sitlzbp = {
+		  'trainingCourse':'',
+		  'trainers':'',
+		  'trainingProgramme':'',
+		  'trainingCycle':'',
+		  'trainingEffect':'',
+		  'peiXunRiQi':'',
+		}
+	  },
+	
+	  hqsnmb6(){
+		this.n7turgd.j_pageNum = 1
+		this.qzfosjh()
+	  },
+	
+	  bidgnm0(){
+		if(this.yzw2ltb.hasPreviousPage){
+		  this.n7turgd.j_pageNum = this.yzw2ltb.prePage
+		  this.qzfosjh()
+		}
+		
+	  },
+	
+	  z3l8ha8(){
+		if(this.yzw2ltb.hasNextPage){
+		this.n7turgd.j_pageNum = this.yzw2ltb.nextPage
+		this.qzfosjh()
+		}
+	  },
+
+	i8e9ru4(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.gsus89d = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.gsus89d.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.gsus89d = []
+	  }
+	},
+
+	eiqnc23(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.gsus89d.push(val)
+	  }else{
+		let clearIndex = this.gsus89d.indexOf(val)
+		this.gsus89d.splice(clearIndex,1)
+	  }
+	},
+
+	dl6v5r7(e){
+	  let val = e.target._value
+	  this.gsus89d = []
+	  this.gsus89d.push(val)
+	},
+
+	l85582s(pageNumb){
+	  this.n7turgd.j_pageNum = pageNumb
+	  this.qzfosjh()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div class="ah1n8c1wc">
+	<div class="fd5y5pswu">
+		  <Form
+		  	 :model="sitlzbp"
+		  	 label-position="top" class="i9il76033"
+		  	 :rules="nc1cfgg" ref="FormData">
+			<Row>
+							  <Col span="24"
+							  	 class="bx23a1i7b">考核信息</Col>
+				<div
+					 class="uy20w76wh">
+				  <Col
+				  	 span="12">
+					<FormItem label="考核内容"
+						  prop="assessContent" >
+					  <Input v-model="sitlzbp['assessContent']" placeholder="请输入考核内容..."
+					  	 class="b7d517orf"></Input>
+					</FormItem>
+				  </Col>
+				  <Col
+				  	 span="12">
+					<FormItem label="考核课程"
+						  prop="hoursName" >
+					  <Input v-model="sitlzbp['hoursName']"
+					  	 placeholder="请输入考核课程..."
+					  	 class="b7d517orf"></Input>
+					</FormItem>
+				  </Col>
+				  <Col span="12">
+					<FormItem label="考核人数"
+						  prop="numberOfExaminees" >
+					  <Input class="b7d517orf" placeholder="请输入考核人数..."
+					  	 v-model="sitlzbp['numberOfExaminees']"></Input>
+					</FormItem>
+				  </Col>
+				  <Col
+				  	 span="12">
+					<FormItem label="考核时间"  prop="assessmentTime" >
+					  <Input placeholder="请输入考核时间..."
+					  	 v-model="sitlzbp['assessmentTime']"
+					  	 class="b7d517orf"></Input>
+					</FormItem>
+				  </Col>
+				<div
+					 class="p8cydu2pz"></div>
+				</div>
+				<Col class="bx23a1i7b" span="24">标准</Col>
+				<div
+					 class="uy20w76wh">
+				  <Col span="12">
+					<FormItem
+						  prop="assessStandard" label="考核标准" >
+					  <Input class="b7d517orf"
+					  	 placeholder="请输入考核标准..."
+					  	 v-model="sitlzbp['assessStandard']"></Input>
+					</FormItem>
+				  </Col>
+				<div
+					 class="p8cydu2pz"></div>
+				</div>
+				<Col
+					 class="bx23a1i7b"
+					 span="24">考核数据</Col>
+				<div class="uy20w76wh">
+				  <Col
+				  	 span="12">
+					<FormItem
+						 label="考核数据记录"  prop="appraisalDataRecord" >
+					  <Input class="b7d517orf"
+					  	 placeholder="请输入考核数据记录..."
+					  	 v-model="sitlzbp['appraisalDataRecord']"></Input>
+					</FormItem>
+				  </Col>
+				<div class="p8cydu2pz"></div>
+				</div>
+			</Row>
+		  </Form>
+		  <div class="i9il76033Page-footer">
+			<Button
+				 style="margin: 0 20px; border-radius: 20px;"
+				 @click="eearf3w">重置</Button>
+			<Button @click="j89zyna('FormData')" style="margin: 0 20px; border-radius: 20px; background-color: #893A73; color:#fff;">确认提交</Button>
+		  </div>
+	</div>
+	
+</div>
+</template>
+
+<script>
+import {
+trainAssessAnalysisService} from '@/api'
+export default {
+data () {
+	return {
+	  pz2jpin: {
+	  },
+	  nc1cfgg:{
+			'assessContent':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'hoursName':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'numberOfExaminees':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'assessmentTime':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'assessStandard':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'appraisalDataRecord':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  sitlzbp:{
+		'assessContent':'',
+		'hoursName':'',
+		'numberOfExaminees':'',
+		'assessmentTime':'',
+		'assessStandard':'',
+		'appraisalDataRecord':'',
+	  },
+	}
+},
+mounted () {
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+	},
+	eearf3w(){
+	  this.sitlzbp = {
+		'assessContent':'',
+		'hoursName':'',
+		'numberOfExaminees':'',
+		'assessmentTime':'',
+		'assessStandard':'',
+		'appraisalDataRecord':'',
+	  }
+	  this.$refs.FormData.resetFields();
+	},
+		j89zyna(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainAssessAnalysisService.insertTrainAssessAnalysis(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('提交成功')
+				}else{
+				  this.$Message.error('提交失败')
+				}
+			  })
+			} else {
+			  this.$Message.error('请填写完整');
+			}
+		  })
+		},
+}
+}
+</script>
+
+<style
+	 scoped>
+	@import './index.css';
+</style>
+<template>
+<div
+	 class="n49ou9fwv">
+	  <div class="qpa4krijo">
+		  <div class="n7gox0eo7 ">
+			  <Input class="fh0ibgsa6" v-model="hqsnmb6Data['trainer']" placeholder="请输入培训人员" />
+		  <Button
+		  	 class="rzueeim9n"
+		  	 @click="hqsnmb6">查询</Button>
+		</div>
+		</div>
+		<div class="yaxdavgb5">
+		  <div class="f2p8szq42 ">
+			  <div
+			  	 class="i4tda8pj4">
+				<Button class="ltcq3wvvi"
+					 @click="kws1sus()"
+					 :style="{backgroundColor: (gsus89d.length == 0 ? 'unset' : '#CCA166'),color: (gsus89d.length == 0 ? '#666' : '#fff')}"
+					 :disabled="gsus89d.length == 0">
+					<i class="bnry6drtq iconfont icon-shanchu"/>删除</Button>
+				<Button :disabled="gsus89d.length > 1 || gsus89d.length == 0"
+					 class="xi4idp9ot" @click="z5wlodb()" :style="{backgroundColor: (gsus89d.length == 1 ? '#F89189' : 'unset'),color: (gsus89d.length == 1 ? '#fff' : '#666')}">
+					<i class="bnry6drtq iconfont icon-bianji1"/>修改</Button>
+				<Button
+					 class="rzymldquh"
+					 @click="qyacfe7"  style="background-color: #893A73">
+					<i
+					 class="bnry6drtq iconfont icon-plus"/>新增</Button>
+			  </div>
+		  </div>
+		  <div
+		  	 class="famwgze6b  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input
+				  	 type="checkbox" name="check"
+				  	 id="selAllBtnId"
+				  	 @click="i8e9ru4($event)"
+				  	 class="rh10qf75a"></th>
+				  <th>培训人员</th>
+				  <th>年龄</th>
+				  <th>联系电话</th>
+				  <th>培训目的</th>
+				  <th>培训效果</th>
+				  <th>学习信息</th>
+				</tr>
+			  </thead>
+			  <tbody ref="table">
+				<tr
+					 v-for="(data,index) in yzw2ltb.list" :key="index">
+				  <td><input :value="data" @click="eiqnc23($event)"
+				  	 class="s2k8oz2ly" name="select"
+				  	 type="checkbox"></td>
+					  <td>{{data['trainer']}}</td>
+					  <td>{{data['age']}}</td>
+					  <td>{{data['telphone']}}</td>
+					  <td>{{data['trainingPurpose']}}</td>
+					  <td>{{data['trainingEffect']}}</td>
+					  <td>{{data['learningInformation']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div
+		  	 class="cpkfrffq2 " >
+			<div class="qqy1o0ejv"></div>
+			<div class="tyj3muttr">
+			  <div v-if="yzw2ltb.hasPreviousPage"
+			  	 class="v23rxfwsc"
+			  	 @click="bidgnm0">
+			  	<Icon type="ios-arrow-back"
+			  	 size="18"/></div>
+			  <div
+			  	 class="e73khfoat">
+				<span
+					 class="k4fzjxiar" :class="{'kiq9j0mdm':yzw2ltb.pageNum == numb}"
+					 @click="l85582s(numb)" :key="index"
+					 v-for="(numb,index) in yzw2ltb.pages">{{numb}}</span>
+			  </div>
+			  <div
+			  	 @click="z3l8ha8" v-if="yzw2ltb.hasNextPage" class="e94tnx4ik">
+			  	<Icon  size="18" type="ios-arrow-forward"/></div>
+			</div>
+			<div
+				 class="qqy1o0ejv"></div>
+		  </div>
+		</div>
+		<Modal
+			 :footer-hide="true"
+			 v-model="tt18271" title="修改"
+			 :width="40" :transfer="false" :fullscreen="true">
+		  <Form
+		  	 :rules="nc1cfgg" style="padding-bottom: 50px;"
+		  	 ref="editFormData"
+		  	 label-position="left"
+		  	 :model="sitlzbp" :label-width="100">
+			<Row :gutter="32">
+				<Col span="12">
+				  <FormItem
+				  	 label="培训人员"
+				  	  prop="trainer">
+					<Input
+						 v-model="sitlzbp['trainer']"
+						 placeholder="请输入培训人员..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem label="年龄"  prop="age">
+					<Input v-model="sitlzbp['age']"
+						 placeholder="请输入年龄..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem label="联系电话"
+				  	  prop="telphone">
+					<Input
+						 v-model="sitlzbp['telphone']"
+						 placeholder="请输入联系电话..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	 label="培训目的"
+				  	  prop="trainingPurpose">
+					<Input placeholder="请输入培训目的..." v-model="sitlzbp['trainingPurpose']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem  prop="trainingEffect"
+				  	 label="培训效果">
+					<Input v-model="sitlzbp['trainingEffect']" placeholder="请输入培训效果..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="learningInformation" label="学习信息">
+					<Input v-model="sitlzbp['learningInformation']" placeholder="请输入学习信息..."></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button style="margin: 0 20px"
+				 @click="rq3m3xa">关闭</Button>
+			<Button
+				 style="margin: 0 20px"
+				 @click="w8b96dc('editFormData')" type="primary">提交</Button>
+		  </div>
+		</Modal>
+		<Modal
+			 :transfer="false"
+			 :width="40" :fullscreen="true"
+			 title="新增" v-model="qb5jzj6"
+			 :footer-hide="true">
+		  <Form :model="sitlzbp" ref="addFormData" :label-width="100"
+		  	 label-position="left"
+		  	 :rules="nc1cfgg" style="padding-bottom: 50px;">
+			<Row :gutter="32">
+			  <Col span="12">
+				<FormItem label="培训人员"
+					  prop="trainer" >
+				  <Input v-model="sitlzbp['trainer']" placeholder="请输入培训人员..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem  prop="age" label="年龄" >
+				  <Input placeholder="请输入年龄..." v-model="sitlzbp['age']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="telphone" label="联系电话" >
+				  <Input placeholder="请输入联系电话..." v-model="sitlzbp['telphone']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					  prop="trainingPurpose"
+					 label="培训目的" >
+				  <Input placeholder="请输入培训目的..." v-model="sitlzbp['trainingPurpose']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="培训效果"  prop="trainingEffect" >
+				  <Input
+				  	 v-model="sitlzbp['trainingEffect']"
+				  	 placeholder="请输入培训效果..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem  prop="learningInformation" label="学习信息" >
+				  <Input placeholder="请输入学习信息..." v-model="sitlzbp['learningInformation']"></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button
+				 style="margin: 0 20px" @click="u2x51sy">关闭</Button>
+			<Button
+				 type="primary" style="margin: 0 20px" @click="fpyrlrh('addFormData')">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+userInformationService} from '@/api'
+export default {
+data(){
+	return{
+	  pz2jpin: {
+	  },
+	  gsus89d:[],
+	  n7turgd:{
+	  },
+	  hqsnmb6Data:{},
+	  qb5jzj6:false,
+	  nc1cfgg:{
+			'trainer':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'age':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'telphone':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingPurpose':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'trainingEffect':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'learningInformation':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  yzw2ltb:{
+		list:[]
+	  },
+		  m764pqh: {
+		  },
+	  sitlzbp:{
+		'trainer':'',
+		'age':'',
+		'telphone':'',
+		'trainingPurpose':'',
+		'trainingEffect':'',
+		'learningInformation':'',
+	  },
+	  tt18271:false,
+		  vq4bq5c: {
+		  },
+	}
+},
+mounted () {
+	this.qzfosjh();
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+		},
+
+		  qzfosjh() {
+			userInformationService.getUserInformationPageList(this.hqsnmb6Data, this.n7turgd.j_pageNum, this.n7turgd.j_pageSize).then(res => {
+			  if(res.success){
+				this.yzw2ltb = res.data
+			  }
+			})
+		  },
+		kws1sus(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.gsus89d.length > 0){
+				ids = this.gsus89d.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			userInformationService.deleteUserInformation(ids).then(res => {
+			if(res.success){
+					this.gsus89d = []
+					this.$Message.success('删除成功')
+					this.qzfosjh()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		w8b96dc(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  userInformationService.reset(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.rq3m3xa()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		fpyrlrh(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  userInformationService.insertUserInformation(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.u2x51sy()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+
+	  qyacfe7(){
+		this.qb5jzj6 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  u2x51sy(){
+		this.qb5jzj6 = false
+		this.sitlzbp = {
+		  'trainer':'',
+		  'age':'',
+		  'telphone':'',
+		  'trainingPurpose':'',
+		  'trainingEffect':'',
+		  'learningInformation':'',
+		}
+	  },
+	
+	  z5wlodb(itemData){
+		if(itemData){
+		  this.sitlzbp = {...itemData}
+		  this.tt18271 = true
+		}else if(this.gsus89d.length > 0){
+		  this.sitlzbp = {...this.gsus89d[0]}
+		  this.tt18271 = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  rq3m3xa(){
+		this.tt18271 = false
+		this.sitlzbp = {
+		  'trainer':'',
+		  'age':'',
+		  'telphone':'',
+		  'trainingPurpose':'',
+		  'trainingEffect':'',
+		  'learningInformation':'',
+		}
+	  },
+	
+	  hqsnmb6(){
+		this.n7turgd.j_pageNum = 1
+		this.qzfosjh()
+	  },
+	
+	  bidgnm0(){
+		if(this.yzw2ltb.hasPreviousPage){
+		  this.n7turgd.j_pageNum = this.yzw2ltb.prePage
+		  this.qzfosjh()
+		}
+		
+	  },
+	
+	  z3l8ha8(){
+		if(this.yzw2ltb.hasNextPage){
+		this.n7turgd.j_pageNum = this.yzw2ltb.nextPage
+		this.qzfosjh()
+		}
+	  },
+
+	i8e9ru4(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.gsus89d = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.gsus89d.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.gsus89d = []
+	  }
+	},
+
+	eiqnc23(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.gsus89d.push(val)
+	  }else{
+		let clearIndex = this.gsus89d.indexOf(val)
+		this.gsus89d.splice(clearIndex,1)
+	  }
+	},
+
+	dl6v5r7(e){
+	  let val = e.target._value
+	  this.gsus89d = []
+	  this.gsus89d.push(val)
+	},
+
+	l85582s(pageNumb){
+	  this.n7turgd.j_pageNum = pageNumb
+	  this.qzfosjh()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+<template>
+<div
+	 class="zbr76kg3a">
+				   <div class="f2p8szq42 ">
+			  <div
+			  	 class="i4tda8pj4">
+				<Button
+					 class="xi4idp9ot"
+					 @click="z5wlodb()" :style="{backgroundColor: (gsus89d.length == 1 ? '#F89189' : 'unset'),color: (gsus89d.length == 1 ? '#fff' : '#666')}" :disabled="gsus89d.length > 1 || gsus89d.length == 0">修改</Button>
+				<Button
+					 @click="kws1sus()"
+					 :disabled="gsus89d.length == 0"
+					 :style="{backgroundColor: (gsus89d.length == 0 ? 'unset' : '#D85C80'),color: (gsus89d.length == 0 ? '#666' : '#fff')}" class="ltcq3wvvi">删除</Button>
+				<Button
+					 @click="qyacfe7" class="rzymldquh"  style="background-color: #893A73">新增</Button>
+			  </div>
+		  </div>
+		<div
+			 class="yaxdavgb5 ">
+		<div
+			 class="n7gox0eo7">
+			  <Input class="fh0ibgsa6" v-model="hqsnmb6Data['ziYuanMingCheng']" placeholder="请输入资源名称" />
+		  <Button class="rzueeim9n" @click="hqsnmb6">搜索</Button>
+		</div>
+		  <div class="famwgze6b  ">
+			<table >
+			  <thead>
+				<tr>
+				  <th><input id="selAllBtnId"
+				  	 @click="i8e9ru4($event)"
+				  	 type="checkbox" name="check" class="rh10qf75a"></th>
+				  <th>资源名称</th>
+				  <th>资源来源</th>
+				  <th>资源分类</th>
+				  <th>资源状态</th>
+				  <th>教学资源库</th>
+				  <th>资源审核</th>
+				</tr>
+			  </thead>
+			  <tbody
+			  	 ref="table">
+				<tr
+					 :key="index" v-for="(data,index) in yzw2ltb.list">
+				  <td><input
+				  	 type="checkbox" class="s2k8oz2ly"
+				  	 @click="eiqnc23($event)"
+				  	 :value="data"
+				  	 name="select"></td>
+					  <td>{{data['ziYuanMingCheng']}}</td>
+					  <td>{{data['sourceOfResources']}}</td>
+					  <td>{{data['resourceClassification']}}</td>
+					  <td>{{data['resourceStatus']}}</td>
+					  <td>{{data['teachingResourceLibrary']}}</td>
+					  <td>{{data['resourceAudit']}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="cpkfrffq2">
+
+			<div class="tyj3muttr">
+			  <div v-if="yzw2ltb.hasPreviousPage"
+			  	 class="v23rxfwsc" @click="bidgnm0">上一页</div>
+			  <div class="e73khfoat">
+				<span v-for="(numb,index) in yzw2ltb.pages" class="k4fzjxiar"
+					 @click="l85582s(numb)" :key="index"
+					 :class="{'kiq9j0mdm':yzw2ltb.pageNum == numb}">{{numb}}</span>
+			  </div>
+			  <div class="e94tnx4ik" v-if="yzw2ltb.hasNextPage" @click="z3l8ha8">下一页</div>
+			</div>
+		  </div>
+		</div>
+		<Modal
+			 :fullscreen="true"
+			 title="修改" v-model="tt18271" :footer-hide="true"
+			 :transfer="false" :width="40">
+		  <Form label-position="left"
+		  	 :model="sitlzbp" ref="editFormData"
+		  	 :rules="nc1cfgg"
+		  	 :label-width="100"
+		  	 style="padding-bottom: 50px;">
+			<Row :gutter="32">
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="ziYuanMingCheng" label="资源名称">
+					<Input
+						 placeholder="请输入资源名称..."
+						 v-model="sitlzbp['ziYuanMingCheng']"></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="sourceOfResources"
+				  	 label="资源来源">
+					<Input v-model="sitlzbp['sourceOfResources']" placeholder="请输入资源来源..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	  prop="resourceClassification"
+				  	 label="资源分类">
+					<Input v-model="sitlzbp['resourceClassification']" placeholder="请输入资源分类..."></Input>
+				  </FormItem>
+				</Col>
+				<Col
+					 span="12">
+				  <FormItem
+				  	 label="资源状态"  prop="resourceStatus">
+					<Input v-model="sitlzbp['resourceStatus']" placeholder="请输入资源状态..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="teachingResourceLibrary" label="教学资源库">
+					<Input v-model="sitlzbp['teachingResourceLibrary']"
+						 placeholder="请输入教学资源库..."></Input>
+				  </FormItem>
+				</Col>
+				<Col span="12">
+				  <FormItem
+				  	  prop="resourceAudit" label="资源审核">
+					<Input placeholder="请输入资源审核..."
+						 v-model="sitlzbp['resourceAudit']"></Input>
+				  </FormItem>
+				</Col>
+			</Row>
+		  </Form>
+		  <div class="h2jkab9ks">
+			<Button
+				 style="margin: 0 20px"
+				 @click="rq3m3xa">关闭</Button>
+			<Button
+				 @click="w8b96dc('editFormData')" style="margin: 0 20px"
+				 type="primary">提交</Button>
+		  </div>
+		</Modal>
+		<Modal title="新增" v-model="qb5jzj6"
+			 :footer-hide="true" :width="40"
+			 :transfer="false"
+			 :fullscreen="true">
+		  <Form :model="sitlzbp" style="padding-bottom: 50px;" :label-width="100" ref="addFormData" label-position="left" :rules="nc1cfgg">
+			<Row
+				 :gutter="32">
+			  <Col span="12">
+				<FormItem label="资源名称"  prop="ziYuanMingCheng" >
+				  <Input
+				  	 v-model="sitlzbp['ziYuanMingCheng']"
+				  	 placeholder="请输入资源名称..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem
+					 label="资源来源"
+					  prop="sourceOfResources" >
+				  <Input v-model="sitlzbp['sourceOfResources']"
+				  	 placeholder="请输入资源来源..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col
+			  	 span="12">
+				<FormItem label="资源分类"
+					  prop="resourceClassification" >
+				  <Input v-model="sitlzbp['resourceClassification']"
+				  	 placeholder="请输入资源分类..."></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="资源状态"
+					  prop="resourceStatus" >
+				  <Input
+				  	 placeholder="请输入资源状态..." v-model="sitlzbp['resourceStatus']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					  prop="teachingResourceLibrary" label="教学资源库" >
+				  <Input placeholder="请输入教学资源库..."
+				  	 v-model="sitlzbp['teachingResourceLibrary']"></Input>
+				</FormItem>
+			  </Col>
+			  <Col span="12">
+				<FormItem
+					 label="资源审核"  prop="resourceAudit" >
+				  <Input
+				  	 v-model="sitlzbp['resourceAudit']"
+				  	 placeholder="请输入资源审核..."></Input>
+				</FormItem>
+			  </Col>
+			</Row>
+		  </Form>
+		  <div
+		  	 class="h2jkab9ks">
+			<Button @click="u2x51sy"
+				 style="margin: 0 20px">关闭</Button>
+			<Button style="margin: 0 20px"
+				 @click="fpyrlrh('addFormData')"
+				 type="primary">提交</Button>
+		  </div>
+		</Modal>
+</div>
+</template>
+
+<script>
+import {
+trainingResourceManagementService} from '@/api'
+export default {
+data(){
+	return{
+	  gsus89d:[],
+	  n7turgd:{
+	  },
+	  sitlzbp:{
+		'ziYuanMingCheng':'',
+		'sourceOfResources':'',
+		'resourceClassification':'',
+		'resourceStatus':'',
+		'teachingResourceLibrary':'',
+		'resourceAudit':'',
+	  },
+	  qb5jzj6:false,
+		  m764pqh: {
+		  },
+	  yzw2ltb:{
+		list:[]
+	  },
+	  pz2jpin: {
+	  },
+	  nc1cfgg:{
+			'ziYuanMingCheng':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'sourceOfResources':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'resourceClassification':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'resourceStatus':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'teachingResourceLibrary':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+			'resourceAudit':[
+			  {
+				required: true,
+				message: '不能为空'
+			  }
+			],
+	  },
+	  tt18271:false,
+		  vq4bq5c: {
+		  },
+	  hqsnmb6Data:{},
+	}
+},
+mounted () {
+	this.qzfosjh();
+	this.amomarz();
+},
+methods:{
+	amomarz() {
+		},
+
+		w8b96dc(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingResourceManagementService.reset(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('修改成功')
+				  this.rq3m3xa()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('修改失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		kws1sus(id){
+			let ids = []
+			if(id){
+				ids.push(id)
+			}else if(this.gsus89d.length > 0){
+				ids = this.gsus89d.map(item => item.id)
+			}else{
+				this.$Message.error('请选择删除数据')
+			}
+			trainingResourceManagementService.deleteTrainingResourceManagement(ids).then(res => {
+			if(res.success){
+					this.gsus89d = []
+					this.$Message.success('删除成功')
+					this.qzfosjh()
+				} else {
+					this.$Message.error('删除失败')
+				}
+			})
+		},
+		fpyrlrh(name){
+		  this.$refs[name].validate((valid) => {
+			if (valid) {
+			  trainingResourceManagementService.insertTrainingResourceManagement(this.sitlzbp).then(res => {
+				if(res.success){
+				  this.$Message.success('新增成功')
+				  this.u2x51sy()
+				  this.qzfosjh()
+				}else{
+				  this.$Message.error('新增失败')
+				}
+			  })
+			} else {
+				this.$Message.error('请填写完整');
+			}
+		  })
+		},
+		  qzfosjh() {
+			trainingResourceManagementService.getTrainingResourceManagementPageList(this.hqsnmb6Data, this.n7turgd.j_pageNum, this.n7turgd.j_pageSize).then(res => {
+			  if(res.success){
+				this.yzw2ltb = res.data
+			  }
+			})
+		  },
+
+	  qyacfe7(){
+		this.qb5jzj6 = true
+		this.$refs.addFormData.resetFields();
+	  },
+	
+	  u2x51sy(){
+		this.qb5jzj6 = false
+		this.sitlzbp = {
+		  'ziYuanMingCheng':'',
+		  'sourceOfResources':'',
+		  'resourceClassification':'',
+		  'resourceStatus':'',
+		  'teachingResourceLibrary':'',
+		  'resourceAudit':'',
+		}
+	  },
+	
+	  z5wlodb(itemData){
+		if(itemData){
+		  this.sitlzbp = {...itemData}
+		  this.tt18271 = true
+		}else if(this.gsus89d.length > 0){
+		  this.sitlzbp = {...this.gsus89d[0]}
+		  this.tt18271 = true
+		}else{
+		  this.$Message.error('请选择需要修改的数据项')
+		}
+		this.$refs.editFormData.resetFields();
+	  },
+	
+	  rq3m3xa(){
+		this.tt18271 = false
+		this.sitlzbp = {
+		  'ziYuanMingCheng':'',
+		  'sourceOfResources':'',
+		  'resourceClassification':'',
+		  'resourceStatus':'',
+		  'teachingResourceLibrary':'',
+		  'resourceAudit':'',
+		}
+	  },
+	
+	  hqsnmb6(){
+		this.n7turgd.j_pageNum = 1
+		this.qzfosjh()
+	  },
+	
+	  bidgnm0(){
+		if(this.yzw2ltb.hasPreviousPage){
+		  this.n7turgd.j_pageNum = this.yzw2ltb.prePage
+		  this.qzfosjh()
+		}
+		
+	  },
+	
+	  z3l8ha8(){
+		if(this.yzw2ltb.hasNextPage){
+		this.n7turgd.j_pageNum = this.yzw2ltb.nextPage
+		this.qzfosjh()
+		}
+	  },
+
+	i8e9ru4(e){
+	  let checked = e.target.checked
+	  let checkDom = this.$refs.table.getElementsByClassName('selBtn')
+	  if(checked){
+		this.gsus89d = []
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = true
+		  this.gsus89d.push(checkDom[i]._value)
+		}
+	  }else{
+		for(let i=0; i<checkDom.length; i++){
+		  checkDom[i].checked = false
+		}
+		this.gsus89d = []
+	  }
+	},
+
+	eiqnc23(e){
+	  let checked = e.target.checked
+	  let val = e.target._value
+	  if(checked){
+		this.gsus89d.push(val)
+	  }else{
+		let clearIndex = this.gsus89d.indexOf(val)
+		this.gsus89d.splice(clearIndex,1)
+	  }
+	},
+
+	dl6v5r7(e){
+	  let val = e.target._value
+	  this.gsus89d = []
+	  this.gsus89d.push(val)
+	},
+
+	l85582s(pageNumb){
+	  this.n7turgd.j_pageNum = pageNumb
+	  this.qzfosjh()
+	}
+}
+}
+</script>
+
+<style scoped>
+	@import "./index.css";
+</style>
+package com.shirley.harris.trainhours.req;
+
+import com.shirley.harris.trainhours.req.page.PageInfoREQ;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+* 培训资源管理列表请求
+*
+*/
+@Data
+public class TrainingResourceManagementListREQ extends PageInfoREQ implements Serializable {
+
+
+	/**
+	* 资源名称
+	*/
+	private String ziYuanMingCheng;
+
+	/**
+	* 资源来源
+	*/
+	private String sourceOfResources;
+
+	/**
+	* 资源分类
+	*/
+	private String resourceClassification;
+
+	/**
+	* 资源状态
+	*/
+	private String resourceStatus;
+
+	/**
+	* 教学资源库
+	*/
+	private String teachingResourceLibrary;
+
+	/**
+	* 资源审核
+	*/
+	private String resourceAudit;
+}
+package com.shirley.harris.trainhours.req;
+
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
+import lombok.Data;
+
+@Data
+public class TrainHoursAddREQ {
+
+
+	/**
+	* 培训计划
+	*/
+	private String trainingAndTeachingPlan;
+
+	/**
+	* 培训课程名称
+	*/
+	private String trainingCourseName;
+
+	/**
+	* 培训课程方案
+	*/
+	private String trainingCoursePlan;
+
+	/**
+	* 培训课程内容
+	*/
+	private String trainingCourseContent;
+
+	/**
+	* 课程培训时间
+	*/
+	private String courseTrainingTime;
+
+	/**
+	* 培训目的
+	*/
+	private String trainingPurpose;
+
+}
+package com.shirley.harris.trainhours.req;
+
+import com.shirley.harris.trainhours.req.page.PageInfoREQ;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+* 培训课程列表请求
+*
+*/
+@Data
+public class TrainHoursListREQ extends PageInfoREQ implements Serializable {
+
+
+	/**
+	* 培训计划
+	*/
+	private String trainingAndTeachingPlan;
+
+	/**
+	* 培训课程名称
+	*/
+	private String trainingCourseName;
+
+	/**
+	* 培训课程方案
+	*/
+	private String trainingCoursePlan;
+
+	/**
+	* 培训课程内容
+	*/
+	private String trainingCourseContent;
+
+	/**
+	* 课程培训时间
+	*/
+	private String courseTrainingTime;
+
+	/**
+	* 培训目的
+	*/
+	private String trainingPurpose;
+}
+package com.shirley.harris.trainhours.req;
+
+import com.shirley.harris.trainhours.req.page.PageInfoREQ;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+* 培训考核列表请求
+*
+*/
+@Data
+public class TrainAssessAnalysisListREQ extends PageInfoREQ implements Serializable {
+
+
+	/**
+	* 考核内容
+	*/
+	private String assessContent;
+
+	/**
+	* 考核课程
+	*/
+	private String hoursName;
+
+	/**
+	* 考核标准
+	*/
+	private String assessStandard;
+
+	/**
+	* 考核数据记录
+	*/
+	private String appraisalDataRecord;
+
+	/**
+	* 考核人数
+	*/
+	private String numberOfExaminees;
+
+	/**
+	* 考核时间
+	*/
+	private String assessmentTime;
+}
+package com.shirley.harris.trainhours.req;
+
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
+import lombok.Data;
+
+@Data
+public class TrainAssessAnalysisAddREQ {
+
+
+	/**
+	* 考核内容
+	*/
+	private String assessContent;
+
+	/**
+	* 考核课程
+	*/
+	private String hoursName;
+
+	/**
+	* 考核标准
+	*/
+	private String assessStandard;
+
+	/**
+	* 考核数据记录
+	*/
+	private String appraisalDataRecord;
+
+	/**
+	* 考核人数
+	*/
+	private String numberOfExaminees;
+
+	/**
+	* 考核时间
+	*/
+	private String assessmentTime;
+
+}
+package com.shirley.harris.trainhours.req;
+
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
+import lombok.Data;
+
+@Data
+public class TrainingResourceManagementAddREQ {
+
+
+	/**
+	* 资源名称
+	*/
+	private String ziYuanMingCheng;
+
+	/**
+	* 资源来源
+	*/
+	private String sourceOfResources;
+
+	/**
+	* 资源分类
+	*/
+	private String resourceClassification;
+
+	/**
+	* 资源状态
+	*/
+	private String resourceStatus;
+
+	/**
+	* 教学资源库
+	*/
+	private String teachingResourceLibrary;
+
+	/**
+	* 资源审核
+	*/
+	private String resourceAudit;
+
+}
